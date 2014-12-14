@@ -14,7 +14,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name=".Inicial"
+            android:name="gui.Inicial"
             android:label="@string/app_name"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
             <intent-filter>
@@ -24,12 +24,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".AyudaComienza"
+            android:name="gui.AyudaComienza"
             android:label="@string/title_activity_ayuda"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name=".SegundaAyuda"
+            android:name="gui.SegundaAyuda"
             android:label="@string/title_activity_segunda_ayuda" >
         </activity>
     </application>

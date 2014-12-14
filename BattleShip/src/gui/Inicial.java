@@ -1,4 +1,6 @@
-package com.example.battleship;
+package gui;
+
+import com.example.battleship.R;
 
 import android.app.Activity;
 import android.content.Intent;
