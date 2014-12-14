@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">BattleShip</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="jugar">Jugar</string>
+    <string name="title_activity_ayuda">Ayuda</string>
+    <string name="ayuda">Bienvenidos a BattleShip!! Coloca tus barcos antes de comenzar la partida. Una vez que los tengas intenta hundir los de tu rival. Selecciona la celda a la que quieres disparar y observa como hundes poco a poco su flota. Recuerda, quien acabe antes con su enemigo gana.</string>
+    <string name="title_activity_segunda_ayuda">SegundaAyuda</string>
+
+</resources>
