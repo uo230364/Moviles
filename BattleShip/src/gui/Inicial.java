@@ -34,11 +34,4 @@ public class Inicial extends Activity {
     	else
     		mediaPlayer.start();
     }
-    
-    @Override
-    public void onDestroy(){
-    	super.onDestroy();
-    	mediaPlayer.pause();
-    }
-    
 }
