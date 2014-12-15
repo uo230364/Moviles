@@ -2,6 +2,15 @@ package logica;
 
 public class Casilla {
 	
+	/**
+	 * Ideas para actualizar la GUI con las casillas/barcos: poner un observer, cuando se use el metodo de disparar() (o el nombre 
+	 * que se le de) llamará al método de actualización pasando la casilla, se actualiza sólo esa casilla dependiendo de lo que tenga
+	 * dentro, por eso estan sobrescritos el equals y hashcode. También se puede hacer que verifique si el barco que esta casilla contiene
+	 * esta hundido o no después del disparo, por eso se ha añadido también el id al barco, se podra identificar y contiene las casillas
+	 * que ocupa, si está hundido se pueden actualizar sólo esas casillas en la GUI para mostrarlo (así no hará falta actualizar todas
+	 * las casillas con cada tirada)
+	 */
+	
 	private boolean tocada;
 	private Barco barco;
 	private int fila;
