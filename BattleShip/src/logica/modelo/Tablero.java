@@ -1,6 +1,5 @@
 package logica.modelo;
 
-import java.util.Collections;
 import java.util.Set;
 
 public class Tablero {
@@ -40,6 +39,15 @@ public class Tablero {
 
 	public Set<Barco> getBarcos() {
 		return barcos;
+	}
+	
+	public boolean estanTodosLosBarcosHundidos()
+	{
+		for (Barco barco : barcos) {
+			if(!barco.estaHundido())
+				return false;
+		}
+		return true;
 	}
 
 }

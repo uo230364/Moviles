@@ -19,6 +19,7 @@ public class Partida {
 		this.rival = dificultadDelRival;
 		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
 		tableroDelRival = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
+		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
 	}
 	
 	public Partida(int filasPorTablero, int columnasPorTablero, IA dificultadDelRival, Set<Barco> barcos)
@@ -26,6 +27,7 @@ public class Partida {
 		this.rival = dificultadDelRival;
 		tableroDelJugador = new Tablero(filasPorTablero, columnasPorTablero, barcos);
 		tableroDelRival = new Tablero(filasPorTablero, columnasPorTablero, barcos);
+		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
 	}
 	
 	/**
@@ -37,10 +39,32 @@ public class Partida {
 		return turnoDelJugador;
 	}
 	
+	public boolean haGanadoElJugador()
+	{
+		return tableroDelRival.estanTodosLosBarcosHundidos();
+	}
+	
+	public boolean haGanadoElRival()
+	{
+		return tableroDelJugador.estanTodosLosBarcosHundidos();
+	}
+	
+	public boolean partidaTerminada() //TODO métodos temporales, echarle un ojo a esto
+	{
+		return haGanadoElJugador() && haGanadoElRival();
+	}
+	
+	public boolean efectuarDisparoDelJugador(int fila, int columna)
+	{
+		return tableroDelRival.dispararCasilla(fila, columna);
+	}
+	
 	public boolean efectuarDisparoDelRival()
 	{
-		return false;
-		//TODO
+		if(turnoDelJugador)
+			return false;
+		rival.proximaCasillaADisparar().setTocada(true);
+		return true;
 	}
 
 }
