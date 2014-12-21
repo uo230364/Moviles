@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Random;
 
 import logica.modelo.Casilla;
+import logica.modelo.Tablero;
 
 public class IAFacil implements IA {
 
@@ -12,10 +13,11 @@ public class IAFacil implements IA {
 	 * eliminando a medida que las devuelve para que disparen en ellas
 	 */private List<Casilla> casillasSinDispararDelJugador;
 
-	 public IAFacil(Casilla[][] tablero)
+	 public IAFacil(Tablero tablero)
 	 {
 		 casillasSinDispararDelJugador = new ArrayList<Casilla>();
-		 for (Casilla[] casillas : tablero) {
+		 Casilla[][] tablero2 = tablero.getCasillas();
+		 for (Casilla[] casillas : tablero2) {
 			for (Casilla casilla : casillas) {
 				casillasSinDispararDelJugador.add(casilla);
 			}

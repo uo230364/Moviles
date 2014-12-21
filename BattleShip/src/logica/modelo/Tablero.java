@@ -1,5 +1,6 @@
 package logica.modelo;
 
+import java.util.Collections;
 import java.util.Set;
 
 public class Tablero {
@@ -19,6 +20,10 @@ public class Tablero {
 		}
 	}
 	
+	public Casilla[][] getCasillas() {
+		return casillas;
+	}
+
 	public Tablero(int filas, int columnas, Set<Barco> barcos)
 	{
 		this(filas, columnas);
