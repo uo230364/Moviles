@@ -1,4 +1,4 @@
-package logica;
+package logica.modelo;
 
 public class Casilla {
 	

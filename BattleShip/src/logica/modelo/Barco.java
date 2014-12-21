@@ -1,4 +1,4 @@
-package logica;
+package logica.modelo;
 
 
 public class Barco {
@@ -13,6 +13,16 @@ public class Barco {
 		this.id = id;
 	}
 	
+	public Casilla[] getCasillasQueOcupa() {
+		return casillasQueOcupa;
+	}
+
+	public void setCasillasQueOcupa(Casilla[] casillasQueOcupa) {
+		if(casillasQueOcupa.length != this.tamaño)
+			throw new IllegalArgumentException("El número de casillas que ocupa el barco coincide con su tamaño.");
+		this.casillasQueOcupa = casillasQueOcupa;
+	}
+
 	public boolean estaTocado()
 	{
 		for (Casilla casilla : casillasQueOcupa) {
