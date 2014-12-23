@@ -7,5 +7,6 @@ public interface IA {
 	
 	public Casilla proximaCasillaADisparar();
 	public void setCasillasSinDispararDelJugador(Tablero tablero);
+	//comentario
 
 }
