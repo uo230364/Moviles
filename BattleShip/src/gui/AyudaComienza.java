@@ -23,5 +23,6 @@ public class AyudaComienza extends Activity {
 	public void masAyuda(View view){
 		Intent mInten=new Intent(AyudaComienza.this,SegundaAyuda.class);
 		startActivity(mInten);
+		//Prueba
 	}
 }
