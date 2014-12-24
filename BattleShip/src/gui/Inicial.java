@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 public class Inicial extends Activity {
@@ -25,6 +26,9 @@ public class Inicial extends Activity {
     
     public void cargaAyuda (View view){
     	Intent mIntent=new Intent(Inicial.this,AyudaComienza.class);
+    	int posActual=mediaPlayer.getCurrentPosition();
+    	mIntent.putExtra("posActual", posActual);
+    	mediaPlayer.pause();
     	startActivity(mIntent);
     }
     
@@ -41,4 +45,15 @@ public class Inicial extends Activity {
     	mediaPlayer.pause();
     }
     
+    @Override
+    public void onBackPressed() {
+    	mediaPlayer.stop();
+    	super.onBackPressed();
+    }
+    
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+    	// TODO Auto-generated method stub
+    	return super.onKeyDown(keyCode, event);
+    }
 }
