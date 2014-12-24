@@ -1,13 +1,14 @@
 package gui;
 
-import com.example.battleship.R;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+
+import com.example.battleship.R;
 
 public class Inicial extends Activity {
 	
@@ -51,9 +52,13 @@ public class Inicial extends Activity {
     	super.onBackPressed();
     }
     
-    @Override
+   /* @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-    	// TODO Auto-generated method stub
-    	return super.onKeyDown(keyCode, event);
-    }
+    	boolean defaultAction = super.onKeyDown(keyCode, event);
+    	if (keyCode == KeyEvent.KEYCODE_HOME){
+    		Log.i("HOME","HOME");
+    	}
+    	  System.out.println(keyCode);
+    	return defaultAction;
+    }*/
 }
