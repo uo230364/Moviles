@@ -13,6 +13,7 @@ import com.example.battleship.R;
 public class Inicial extends Activity {
 	
 	private MediaPlayer mediaPlayer;
+	private int posActual=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +23,17 @@ public class Inicial extends Activity {
         mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
         mediaPlayer.setLooping(true);
         mediaPlayer.setVolume(100, 100);
-        mediaPlayer.start();
+        mediaPlayer.seekTo(posActual);
+       //mediaPlayer.start();
     }
     
     public void cargaAyuda (View view){
     	Intent mIntent=new Intent(Inicial.this,AyudaComienza.class);
-    	int posActual=mediaPlayer.getCurrentPosition();
+    	posActual=mediaPlayer.getCurrentPosition();
     	mIntent.putExtra("posActual", posActual);
     	mediaPlayer.pause();
     	startActivity(mIntent);
+    	
     }
     
     public void paraReproduceMusica (View view){
@@ -49,10 +52,11 @@ public class Inicial extends Activity {
     @Override
     public void onBackPressed() {
     	mediaPlayer.stop();
+    	finish();
     	super.onBackPressed();
     }
     
-   /* @Override
+   /*@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
     	boolean defaultAction = super.onKeyDown(keyCode, event);
     	if (keyCode == KeyEvent.KEYCODE_HOME){

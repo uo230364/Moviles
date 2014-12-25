@@ -5,5 +5,26 @@
     android:background="@drawable/segundaayuda"
     tools:context="${relativePackage}.${activityClass}" >
 
+    <Button
+        android:id="@+id/btAtrasSegunda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="23dp"
+        android:layout_marginLeft="18dp"
+        android:background="@drawable/botonatras"
+        android:onClick="primeraAyuda"
+    />
+
+    <Button
+        android:id="@+id/btAlanteSegunda"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/btAtrasSegunda"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="26dp"
+        android:background="@drawable/botonalante"
+        android:onClick="terceraAyuda"/>
 
 </RelativeLayout>

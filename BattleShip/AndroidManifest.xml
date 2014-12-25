@@ -30,7 +30,18 @@
         </activity>
         <activity
             android:name="gui.SegundaAyuda"
-            android:label="@string/title_activity_segunda_ayuda" >
+            android:label="@string/title_activity_segunda_ayuda"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.TerceraAyuda"
+            android:label="@string/title_activity_tercera_ayuda"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.UltimaAyuda"
+            android:label="@string/title_activity_ultima_ayuda" 
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
         </activity>
     </application>
 
