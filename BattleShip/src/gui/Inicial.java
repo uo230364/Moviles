@@ -4,16 +4,13 @@ import android.app.Activity;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.KeyEvent;
 import android.view.View;
 
 import com.example.battleship.R;
 
 public class Inicial extends Activity {
 	
-	private MediaPlayer mediaPlayer;
-	private int posActual=0;
+	private static MediaPlayer mediaPlayer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,17 +20,15 @@ public class Inicial extends Activity {
         mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
         mediaPlayer.setLooping(true);
         mediaPlayer.setVolume(100, 100);
-        mediaPlayer.seekTo(posActual);
-       //mediaPlayer.start();
+	    mediaPlayer.start();
     }
     
     public void cargaAyuda (View view){
     	Intent mIntent=new Intent(Inicial.this,AyudaComienza.class);
-    	posActual=mediaPlayer.getCurrentPosition();
-    	mIntent.putExtra("posActual", posActual);
-    	mediaPlayer.pause();
-    	startActivity(mIntent);
-    	
+//    	posActual=mediaPlayer.getCurrentPosition();
+//    	mIntent.putExtra("posActual", posActual);
+//    	mediaPlayer.pause();
+    	startActivity(mIntent);  	
     }
     
     public void paraReproduceMusica (View view){
@@ -54,6 +49,10 @@ public class Inicial extends Activity {
     	mediaPlayer.stop();
     	finish();
     	super.onBackPressed();
+    }
+    
+    public static void parar(){
+    	mediaPlayer.stop();
     }
     
    /*@Override
