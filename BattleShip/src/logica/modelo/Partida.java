@@ -59,7 +59,7 @@ public class Partida {
 	
 	public boolean partidaTerminada() //TODO métodos temporales, echarle un ojo a esto
 	{
-		return haGanadoElJugador() && haGanadoElRival();
+		return haGanadoElJugador() || haGanadoElRival();
 	}
 	
 	public boolean efectuarDisparoDelJugador(int fila, int columna)
