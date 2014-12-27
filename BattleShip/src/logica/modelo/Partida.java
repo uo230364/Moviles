@@ -1,6 +1,6 @@
 package logica.modelo;
 
-import java.util.Set;
+import java.util.List;
 
 import logica.IA.IA;
 
@@ -14,7 +14,7 @@ public class Partida {
 	private IA rival;
 	private boolean turnoDelJugador = true; //true si le toca jugar al jugador, false si le toca al rival
 	
-	public Partida(IA dificultadDelRival, Set<Barco> barcos)
+	public Partida(IA dificultadDelRival, List<Barco> barcos)
 	{
 		this.rival = dificultadDelRival;
 		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
@@ -22,7 +22,7 @@ public class Partida {
 		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
 	}
 	
-	public Partida(int filasPorTablero, int columnasPorTablero, IA dificultadDelRival, Set<Barco> barcos)
+	public Partida(int filasPorTablero, int columnasPorTablero, IA dificultadDelRival, List<Barco> barcos)
 	{
 		this.rival = dificultadDelRival;
 		tableroDelJugador = new Tablero(filasPorTablero, columnasPorTablero, barcos);
@@ -30,6 +30,14 @@ public class Partida {
 		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
 	}
 	
+	public Tablero getTableroDelJugador() {
+		return tableroDelJugador;
+	}
+
+	public Tablero getTableroDelRival() {
+		return tableroDelRival;
+	}
+
 	/**
 	 * Método que devuelve true si es el turno del jugador, false si es el turno del rival
 	 * @return boolean

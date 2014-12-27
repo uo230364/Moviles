@@ -1,13 +1,13 @@
 package logica.modelo;
 
-import java.util.Set;
+import java.util.List;
 
 public class Tablero {
 	
 	private Casilla[][] casillas;
-	private Set<Barco> barcos;
+	private List<Barco> barcos;
 	
-	public Tablero(int filas, int columnas)
+	public Tablero(int filas, int columnas) //dejar como privado/eliminar y eliminar setBarcos()?
 	{
 		casillas = new Casilla[filas][columnas];
 		for(int i = 0; i < filas; i++)
@@ -23,7 +23,7 @@ public class Tablero {
 		return casillas;
 	}
 
-	public Tablero(int filas, int columnas, Set<Barco> barcos)
+	public Tablero(int filas, int columnas, List<Barco> barcos)
 	{
 		this(filas, columnas);
 		this.barcos = barcos;
@@ -37,10 +37,14 @@ public class Tablero {
 		return true;
 	}
 
-	public Set<Barco> getBarcos() {
+	public List<Barco> getBarcos() {
 		return barcos;
 	}
 	
+	public void setBarcos(List<Barco> barcos) {
+		this.barcos = barcos;
+	}
+
 	public boolean estanTodosLosBarcosHundidos()
 	{
 		for (Barco barco : barcos) {
