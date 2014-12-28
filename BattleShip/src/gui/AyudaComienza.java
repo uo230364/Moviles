@@ -30,4 +30,6 @@ public class AyudaComienza extends Activity {
     	finish();
     	super.onBackPressed();
     }
+    
+    
 }

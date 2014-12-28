@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" 
+    android:background="@drawable/fondo">
+
+    <Button
+        android:id="@+id/btMedio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btFacil"
+        android:layout_below="@+id/btFacil"
+        android:layout_marginTop="37dp"
+        android:background="@drawable/botonjugar"/>
+
+    <Button
+        android:id="@+id/btDificil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btMedio"
+        android:layout_below="@+id/btMedio"
+        android:layout_marginTop="36dp"
+        android:background="@drawable/botonjugar" />
+
+    <Button
+        android:id="@+id/btFacil"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="121dp"
+        android:background="@drawable/botonjugar" />
+
+    <Button
+        android:id="@+id/btMusicaNivel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_toLeftOf="@+id/btDificil"
+        android:background="@drawable/botonmusica"
+        android:onClick="pararMusica" />
+
+</RelativeLayout>

@@ -25,13 +25,15 @@ public class Inicial extends Activity {
     
     public void cargaAyuda (View view){
     	Intent mIntent=new Intent(Inicial.this,AyudaComienza.class);
-//    	posActual=mediaPlayer.getCurrentPosition();
-//    	mIntent.putExtra("posActual", posActual);
-//    	mediaPlayer.pause();
     	startActivity(mIntent);  	
     }
     
-    public void paraReproduceMusica (View view){
+    public void seleccionNivel(View view){
+    	Intent mIntent=new Intent(Inicial.this,Nivel.class);
+    	startActivity(mIntent);
+    }
+    
+    public static void paraReproduceMusica (View view){
     	if(mediaPlayer.isPlaying())
     		mediaPlayer.pause();
     	else
@@ -39,9 +41,9 @@ public class Inicial extends Activity {
     }
     
     @Override
-    public void onDestroy(){
-    	super.onDestroy();
+    public void onDestroy(){  	
     	mediaPlayer.pause();
+    	super.onDestroy();
     }
     
     @Override
@@ -58,8 +60,9 @@ public class Inicial extends Activity {
    /*@Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
     	boolean defaultAction = super.onKeyDown(keyCode, event);
-    	if (keyCode == KeyEvent.KEYCODE_HOME){
-    		Log.i("HOME","HOME");
+    	if (keyCode == KeyEvent.KEYCODE_HOME||keyCode == KeyEvent.KEYCODE_MENU){
+    		mediaPlayer.stop();
+    		finish();
     	}
     	  System.out.println(keyCode);
     	return defaultAction;

@@ -21,6 +21,10 @@ public class UltimaAyuda extends Activity {
 		finish();
 	}
 	
+	public void vuelveMenu(View view){
+		finish();
+	}
+	
 	@Override
 	public void onBackPressed() {
 		Intent mIntent=new Intent(this, TerceraAyuda.class);

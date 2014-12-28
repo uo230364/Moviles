@@ -9,5 +9,7 @@
     <string name="title_activity_segunda_ayuda">SegundaAyuda</string>
     <string name="title_activity_tercera_ayuda">TerceraAyuda</string>
     <string name="title_activity_ultima_ayuda">UltimaAyuda</string>
+    <string name="title_activity_nivel">Nivel</string>
+    <string name="title_activity_coloca_barcos">ColocaBarcos</string>
 
 </resources>

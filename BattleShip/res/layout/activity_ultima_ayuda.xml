@@ -16,4 +16,15 @@
         android:background="@drawable/botonatras"
         android:onClick="terceraAyuda"/>
 
+    <Button
+        android:id="@+id/btVuelveMenu"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/btAtrasUltima"
+        android:layout_alignBottom="@+id/btAtrasUltima"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/botonalante" 
+        android:onClick="vuelveMenu"/>
+
 </RelativeLayout>

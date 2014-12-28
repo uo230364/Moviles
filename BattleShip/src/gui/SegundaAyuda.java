@@ -35,4 +35,4 @@ public class SegundaAyuda extends Activity {
 		super.onBackPressed();
 	}
 	
-	}
+}

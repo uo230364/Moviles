@@ -40,8 +40,18 @@
         </activity>
         <activity
             android:name="gui.UltimaAyuda"
-            android:label="@string/title_activity_ultima_ayuda" 
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:label="@string/title_activity_ultima_ayuda"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.Nivel"
+            android:label="@string/title_activity_nivel"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.ColocaBarcos"
+            android:label="@string/title_activity_coloca_barcos"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
     </application>
 
