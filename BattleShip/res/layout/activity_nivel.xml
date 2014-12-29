@@ -12,7 +12,7 @@
         android:layout_alignLeft="@+id/btFacil"
         android:layout_below="@+id/btFacil"
         android:layout_marginTop="37dp"
-        android:background="@drawable/botonjugar"/>
+        android:background="@drawable/botonmedio"/>
 
     <Button
         android:id="@+id/btDificil"
@@ -21,7 +21,7 @@
         android:layout_alignLeft="@+id/btMedio"
         android:layout_below="@+id/btMedio"
         android:layout_marginTop="36dp"
-        android:background="@drawable/botonjugar" />
+        android:background="@drawable/botondificil" />
 
     <Button
         android:id="@+id/btFacil"
@@ -30,7 +30,7 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="121dp"
-        android:background="@drawable/botonjugar" />
+        android:background="@drawable/botonfacil" />
 
     <Button
         android:id="@+id/btMusicaNivel"

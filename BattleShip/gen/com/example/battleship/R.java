@@ -16,14 +16,17 @@ public final class R {
         public static final int botonalante=0x7f020002;
         public static final int botonatras=0x7f020003;
         public static final int botonayuda=0x7f020004;
-        public static final int botonjugar=0x7f020005;
-        public static final int botonmusica=0x7f020006;
-        public static final int fondo=0x7f020007;
-        public static final int logo=0x7f020008;
-        public static final int primerapantalla=0x7f020009;
-        public static final int segundaayuda=0x7f02000a;
-        public static final int terceraayuda=0x7f02000b;
-        public static final int ultimaayuda=0x7f02000c;
+        public static final int botondificil=0x7f020005;
+        public static final int botonfacil=0x7f020006;
+        public static final int botonjugar=0x7f020007;
+        public static final int botonmedio=0x7f020008;
+        public static final int botonmusica=0x7f020009;
+        public static final int fondo=0x7f02000a;
+        public static final int logo=0x7f02000b;
+        public static final int primerapantalla=0x7f02000c;
+        public static final int segundaayuda=0x7f02000d;
+        public static final int terceraayuda=0x7f02000e;
+        public static final int ultimaayuda=0x7f02000f;
     }
     public static final class id {
         public static final int btAlante=0x7f070001;

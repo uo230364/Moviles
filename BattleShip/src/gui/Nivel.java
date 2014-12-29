@@ -17,4 +17,10 @@ public class Nivel extends Activity {
 	public void pararMusica(View view){
 		Inicial.paraReproduceMusica(view);
 	}
+	
+	@Override
+	public void onBackPressed() {
+		finish();
+		super.onBackPressed();
+	}
 }
