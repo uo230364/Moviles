@@ -56,18 +56,18 @@ public class Inicial extends Activity {
     
     @Override
     public void onDestroy(){  	
-    	mediaPlayer.pause();
+    	pararReproductor();
     	super.onDestroy();
     }
     
     @Override
     public void onBackPressed() {
-    	mediaPlayer.stop();
+    	pararReproductor();
     	finish();
     	super.onBackPressed();
     }
     
-    public static void parar(){
+    public static void pararReproductor(){
     	mediaPlayer.stop();
     }
     
