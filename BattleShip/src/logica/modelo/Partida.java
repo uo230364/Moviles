@@ -23,7 +23,7 @@ public class Partida {
 	 */
 	public Partida(IA dificultadDelRival, List<Barco> barcos)
 	{
-		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos); //TODO clonar barcos
+		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
 		tableroDelRival = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
 		this.rival = dificultadDelRival;
 		this.rival.setTableroDelJugador(tableroDelJugador);
