@@ -14,20 +14,39 @@ public class Partida {
 	private IA rival;
 	private boolean turnoDelJugador = true; //true si le toca jugar al jugador, false si le toca al rival
 	
+	
+	/**
+	 * Constructor por defecto de Partida, crea dos tableros con el tamaño por defecto, requiere como parámetro los barcos
+	 * con los que se va a jugar la partida y una instancia de la IA del rival ( por ejemplo new IAFacil() )
+	 * @param dificultadDelRival
+	 * @param barcos
+	 */
 	public Partida(IA dificultadDelRival, List<Barco> barcos)
 	{
-		this.rival = dificultadDelRival;
-		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
+		tableroDelJugador = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos); //TODO clonar barcos
 		tableroDelRival = new Tablero(FILAS_POR_DEFECTO, COLUMNAS_POR_DEFECTO, barcos);
-		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
+		this.rival = dificultadDelRival;
+		this.rival.setTableroDelJugador(tableroDelJugador);
 	}
 	
+	/**
+	 * Crea una partida con el tamaño de tablero, barcos y dificultad introducidos como parámetros
+	 * @param filasPorTablero
+	 * @param columnasPorTablero
+	 * @param dificultadDelRival
+	 * @param barcos
+	 */
 	public Partida(int filasPorTablero, int columnasPorTablero, IA dificultadDelRival, List<Barco> barcos)
 	{
-		this.rival = dificultadDelRival;
 		tableroDelJugador = new Tablero(filasPorTablero, columnasPorTablero, barcos);
 		tableroDelRival = new Tablero(filasPorTablero, columnasPorTablero, barcos);
-		this.rival.setCasillasSinDispararDelJugador(tableroDelJugador);
+		this.rival = dificultadDelRival;
+		this.rival.setTableroDelJugador(tableroDelJugador);
+	}
+	
+	public void setDificultad(IA dificultadDelRival)
+	{
+		this.rival = dificultadDelRival;
 	}
 	
 	public Tablero getTableroDelJugador() {

@@ -1,5 +1,6 @@
 package logica.modelo;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Tablero {
@@ -26,7 +27,7 @@ public class Tablero {
 	public Tablero(int filas, int columnas, List<Barco> barcos)
 	{
 		this(filas, columnas);
-		this.barcos = barcos;
+		setBarcos(barcos);
 	}
 	
 	public boolean dispararCasilla(int fila, int columna)
@@ -42,7 +43,10 @@ public class Tablero {
 	}
 	
 	public void setBarcos(List<Barco> barcos) {
-		this.barcos = barcos;
+		this.barcos = new ArrayList<Barco>();
+		for (Barco barco : barcos) {
+			this.barcos.add(barco.clonar());
+		}
 	}
 
 	public boolean estanTodosLosBarcosHundidos()

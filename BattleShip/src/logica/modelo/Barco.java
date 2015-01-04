@@ -20,7 +20,13 @@ public class Barco {
 	public void setCasillasQueOcupa(Casilla[] casillasQueOcupa) {
 		if(casillasQueOcupa.length != this.tamaño)
 			throw new IllegalArgumentException("El número de casillas que ocupa el barco coincide con su tamaño.");
+		for (Casilla casilla : this.casillasQueOcupa) {
+			casilla.setBarco(null);
+		}
 		this.casillasQueOcupa = casillasQueOcupa;
+		for (Casilla casilla : this.casillasQueOcupa) {
+			casilla.setBarco(this);
+		}
 	}
 
 	public boolean estaTocado()
@@ -72,6 +78,10 @@ public class Barco {
 		if (id != other.id)
 			return false;
 		return true;
+	}
+
+	public Barco clonar() {
+		return new Barco(tamaño, id);
 	}
 	
 	

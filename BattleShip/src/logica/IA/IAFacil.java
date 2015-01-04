@@ -20,10 +20,10 @@ public class IAFacil implements IA {
 	}
 
 	public IAFacil(Tablero tablero) {
-		setCasillasSinDispararDelJugador(tablero);
+		setTableroDelJugador(tablero);
 	}
 
-	public void setCasillasSinDispararDelJugador(Tablero tablero) {
+	public void setTableroDelJugador(Tablero tablero) {
 		Casilla[][] tablero2 = tablero.getCasillas();
 		for (Casilla[] casillas : tablero2) {
 			for (Casilla casilla : casillas) {
