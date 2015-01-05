@@ -1,6 +1,7 @@
 package gui;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -16,6 +17,24 @@ public class Nivel extends Activity {
 	
 	public void pararMusica(View view){
 		Inicial.paraReproduceMusica(view);
+	}
+	
+	public void colocaBarcos(View view){
+		int nivel=view.getId();
+		Intent mIntent=new Intent();
+		switch(nivel){
+			case R.id.btFacil:
+				mIntent=new Intent(Nivel.this,JuegoFacil.class);
+				break;
+			case R.id.btMedio:
+				mIntent=new Intent(Nivel.this,JuegoMedio.class);
+				break;
+			case R.id.btDificil:
+				mIntent=new Intent(Nivel.this,JuegoDificil.class);
+				break;
+		}
+		startActivity(mIntent);
+		finish();
 	}
 	
 	@Override

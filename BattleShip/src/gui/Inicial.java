@@ -23,11 +23,11 @@ public class Inicial extends Activity {
         
         preferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
         
-        mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
-        mediaPlayer.setLooping(true);
-        mediaPlayer.setVolume(100, 100);
-        if(preferences.getBoolean("reproductor", true))
-	    	mediaPlayer.start();
+	    mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
+	    mediaPlayer.setLooping(true);
+	    mediaPlayer.setVolume(100, 100);
+	    if(preferences.getBoolean("reproductor", true))
+		   mediaPlayer.start();
     }
     
     public void cargaAyuda (View view){
@@ -55,8 +55,8 @@ public class Inicial extends Activity {
     }
     
     @Override
-    public void onDestroy(){  	
-    	pararReproductor();
+    public void onDestroy(){  
+    	mediaPlayer.reset();
     	super.onDestroy();
     }
     

@@ -49,8 +49,18 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
-            android:name="gui.ColocaBarcos"
+            android:name="gui.JuegoFacil"
             android:label="@string/title_activity_coloca_barcos"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.JuegoMedio"
+            android:label="@string/title_activity_juego_medio" 
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
+            android:name="gui.JuegoDificil"
+            android:label="@string/title_activity_juego_dificil" 
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
     </application>

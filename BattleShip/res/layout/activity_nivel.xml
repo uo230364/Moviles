@@ -12,7 +12,8 @@
         android:layout_alignLeft="@+id/btFacil"
         android:layout_below="@+id/btFacil"
         android:layout_marginTop="37dp"
-        android:background="@drawable/botonmedio"/>
+        android:background="@drawable/botonmedio"
+        android:onClick="colocaBarcos"/>
 
     <Button
         android:id="@+id/btDificil"
@@ -21,7 +22,8 @@
         android:layout_alignLeft="@+id/btMedio"
         android:layout_below="@+id/btMedio"
         android:layout_marginTop="36dp"
-        android:background="@drawable/botondificil" />
+        android:background="@drawable/botondificil" 
+        android:onClick="colocaBarcos"/>
 
     <Button
         android:id="@+id/btFacil"
@@ -30,7 +32,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="121dp"
-        android:background="@drawable/botonfacil" />
+        android:background="@drawable/botonfacil" 
+        android:onClick="colocaBarcos"/>
 
     <Button
         android:id="@+id/btMusicaNivel"

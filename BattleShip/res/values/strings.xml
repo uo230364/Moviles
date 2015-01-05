@@ -11,5 +11,7 @@
     <string name="title_activity_ultima_ayuda">UltimaAyuda</string>
     <string name="title_activity_nivel">Nivel</string>
     <string name="title_activity_coloca_barcos">ColocaBarcos</string>
+    <string name="title_activity_juego_medio">JuegoMedio</string>
+    <string name="title_activity_juego_dificil">JuegoDificil</string>
 
 </resources>

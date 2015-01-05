@@ -49,10 +49,12 @@ public final class R {
         public static final int activity_ayuda=0x7f030000;
         public static final int activity_coloca_barcos=0x7f030001;
         public static final int activity_inicial=0x7f030002;
-        public static final int activity_nivel=0x7f030003;
-        public static final int activity_segunda_ayuda=0x7f030004;
-        public static final int activity_tercera_ayuda=0x7f030005;
-        public static final int activity_ultima_ayuda=0x7f030006;
+        public static final int activity_juego_dificil=0x7f030003;
+        public static final int activity_juego_medio=0x7f030004;
+        public static final int activity_nivel=0x7f030005;
+        public static final int activity_segunda_ayuda=0x7f030006;
+        public static final int activity_tercera_ayuda=0x7f030007;
+        public static final int activity_ultima_ayuda=0x7f030008;
     }
     public static final class raw {
         public static final int bensound=0x7f040000;
@@ -64,6 +66,8 @@ public final class R {
         public static final int jugar=0x7f050002;
         public static final int title_activity_ayuda=0x7f050003;
         public static final int title_activity_coloca_barcos=0x7f050009;
+        public static final int title_activity_juego_dificil=0x7f05000b;
+        public static final int title_activity_juego_medio=0x7f05000a;
         public static final int title_activity_nivel=0x7f050008;
         public static final int title_activity_segunda_ayuda=0x7f050005;
         public static final int title_activity_tercera_ayuda=0x7f050006;
