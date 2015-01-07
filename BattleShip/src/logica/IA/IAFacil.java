@@ -71,9 +71,10 @@ public class IAFacil implements IA {
 		ColocadorDeBarcos colocadorDeBarcos = new ColocadorDeBarcos(tablero);
 		Casilla primeraCasilla = obtenerCasillaAleatoria(tablero, rand);
 
-		while (primeraCasilla.getFila() + barco.getTamaño() - 1 > tablero
-				.getCasillas().length)
-			// si el barco no entra en el tablero...
+		while (primeraCasilla.getBarco() != null || primeraCasilla.getFila() + barco.getTamaño() - 1 > tablero
+				.getCasillas().length - 1 || tablero
+				.getCasillas()[primeraCasilla.getFila() + barco.getTamaño() - 1][primeraCasilla.getColumna()].getBarco() != null)
+			//TODO  si el barco no entra en el tablero... AÑADIDO o si la casilla esta ocupada
 			primeraCasilla = obtenerCasillaAleatoria(tablero, rand);
 
 		return colocadorDeBarcos.colocarBarco(
