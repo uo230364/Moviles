@@ -1,27 +1,29 @@
 package logica.modelo;
 
-
 public class Barco {
-	
+
 	private Casilla[] casillasQueOcupa;
 	private int tamaño;
-	private int id; //para guardar un set de barcos y poder identificarlos de alguna manera desde el resto de clases
-	
-	
+	private int id; // para guardar un set de barcos y poder identificarlos de
+					// alguna manera desde el resto de clases
+
 	public Barco(int tamaño, int id) {
 		this.tamaño = tamaño;
 		this.id = id;
 	}
-	
+
 	public Casilla[] getCasillasQueOcupa() {
 		return casillasQueOcupa;
 	}
 
 	public void setCasillasQueOcupa(Casilla[] casillasQueOcupa) {
-		if(casillasQueOcupa.length != this.tamaño)
-			throw new IllegalArgumentException("El número de casillas que ocupa el barco coincide con su tamaño.");
-		for (Casilla casilla : this.casillasQueOcupa) {
-			casilla.setBarco(null);
+		if (casillasQueOcupa.length != this.tamaño)
+			throw new IllegalArgumentException(
+					"El número de casillas que ocupa el barco coincide con su tamaño.");
+		if (this.casillasQueOcupa != null) {
+			for (Casilla casilla : this.casillasQueOcupa) {
+				casilla.setBarco(null);
+			}
 		}
 		this.casillasQueOcupa = casillasQueOcupa;
 		for (Casilla casilla : this.casillasQueOcupa) {
@@ -29,8 +31,7 @@ public class Barco {
 		}
 	}
 
-	public boolean estaTocado()
-	{
+	public boolean estaTocado() {
 		for (Casilla casilla : casillasQueOcupa) {
 			if (casilla.estaTocada()) {
 				return true;
@@ -38,23 +39,20 @@ public class Barco {
 		}
 		return false;
 	}
-	
-	public boolean estaHundido()
-	{
+
+	public boolean estaHundido() {
 		for (Casilla casilla : casillasQueOcupa) {
-			if(!casilla.estaTocada())
+			if (!casilla.estaTocada())
 				return false;
 		}
 		return true;
 	}
-	
-	public int getTamaño()
-	{
+
+	public int getTamaño() {
 		return tamaño;
 	}
-	
-	public int getId()
-	{
+
+	public int getId() {
 		return id;
 	}
 
@@ -83,7 +81,5 @@ public class Barco {
 	public Barco clonar() {
 		return new Barco(tamaño, id);
 	}
-	
-	
 
 }
