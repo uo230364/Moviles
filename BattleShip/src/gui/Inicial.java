@@ -14,20 +14,16 @@ import com.example.battleship.R;
 public class Inicial extends Activity {
 	
 	private static MediaPlayer mediaPlayer;
-	private static SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
         
-        preferences = getSharedPreferences("Preferencias", Context.MODE_PRIVATE);
-        
 	    mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
 	    mediaPlayer.setLooping(true);
 	    mediaPlayer.setVolume(100, 100);
-	    if(preferences.getBoolean("reproductor", true))
-		   mediaPlayer.start();
+		mediaPlayer.start();
     }
     
     public void cargaAyuda (View view){
@@ -42,38 +38,12 @@ public class Inicial extends Activity {
     
     public static void paraReproduceMusica (View view){
     	
-    	Editor editor = preferences.edit();
-    	
     	if(mediaPlayer.isPlaying()){
     		mediaPlayer.pause();
-    		editor.putBoolean("reproductor", false);
     	} else {
     		mediaPlayer.start();
-    		editor.putBoolean("reproductor", true);
     	}
-    	editor.commit();
     }
-    
-    @Override
-    public void onDestroy(){  
-    	mediaPlayer.reset();
-    	super.onDestroy();
-    }
-    
-    @Override
-	protected void onRestart() {
-		
-		super.onRestart();
-		mediaPlayer.start();
-	}
-
-	/*@Override
-	protected void onUserLeaveHint() {
-		// TODO Auto-generated method stub
-    	pararReproductor();
-		super.onUserLeaveHint();
-		
-	}*/
 
 	@Override
     public void onBackPressed() {
