@@ -12,7 +12,7 @@ public class Traductor {
 	 */
 	public static int[] traducir (String cadena)
 	{
-		int[] array = { traducir(cadena.charAt(0)), traducir(Integer.parseInt(cadena, 1)) };
+		int[] array = { traducir(cadena.charAt(0)), traducir(Character.getNumericValue(cadena.charAt(1))) };
 		return array;
 	}
 	
