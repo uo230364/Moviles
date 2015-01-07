@@ -64,6 +64,8 @@ public class JuegoFacil extends Activity {
 				}
 			}				
 		}	
+		
+		//Probandooooo
 	};
 	
 	private Button obtenerBotonAbajo(int fila, int columna){
