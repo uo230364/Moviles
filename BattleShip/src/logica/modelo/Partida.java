@@ -56,6 +56,11 @@ public class Partida {
 	public Tablero getTableroDelRival() {
 		return tableroDelRival;
 	}
+	
+	public void colocarBarcosDelRival()
+	{
+		this.rival.colocarBarcos(tableroDelRival);
+	}
 
 	/**
 	 * Método que devuelve true si es el turno del jugador, false si es el turno del rival
