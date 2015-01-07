@@ -1,10 +1,7 @@
 package gui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.SharedPreferences.Editor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
@@ -55,15 +52,4 @@ public class Inicial extends Activity {
     public static void pararReproductor(){
     	mediaPlayer.stop();
     }
-    
-   /*@Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-    	boolean defaultAction = super.onKeyDown(keyCode, event);
-    	if (keyCode == KeyEvent.KEYCODE_HOME||keyCode == KeyEvent.KEYCODE_MENU){
-    		mediaPlayer.stop();
-    		finish();
-    	}
-    	  System.out.println(keyCode);
-    	return defaultAction;
-    }*/
 }

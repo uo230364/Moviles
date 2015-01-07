@@ -12,9 +12,9 @@ public final class R {
     }
     public static final class drawable {
         public static final int ayudacomienza=0x7f020000;
-        public static final int barcoparte1=0x7f020001;
-        public static final int barcovertical1=0x7f020002;
-        public static final int barcovertical2=0x7f020003;
+        public static final int barcovertical1=0x7f020001;
+        public static final int barcovertical2=0x7f020002;
+        public static final int bomba=0x7f020003;
         public static final int boton=0x7f020004;
         public static final int botonajustes=0x7f020005;
         public static final int botonalante=0x7f020006;

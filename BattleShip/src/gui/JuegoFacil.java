@@ -6,10 +6,10 @@ import java.util.List;
 import logica.IA.IAFacil;
 import logica.modelo.Barco;
 import logica.modelo.Casilla;
-import logica.modelo.ColocadorDeBarcos;
 import logica.modelo.Partida;
 import util.Traductor;
 import android.app.Activity;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,8 +23,6 @@ public class JuegoFacil extends Activity {
 	
 	private Estado estado=Estado.COLOCACION;
 	private Partida partida;
-	private List<Casilla> casillasBarco=new ArrayList<Casilla>();
-	private List<Button> botonesNecesitanBarco=new ArrayList<Button>();
 	private int barco=0;
 	private int barcosSinColocar=5;
 	private List<View> allButtons;
@@ -35,6 +33,16 @@ public class JuegoFacil extends Activity {
 		setContentView(R.layout.activity_coloca_barcos);
 		crearPartida();
 		allButtons=((RelativeLayout)findViewById(R.id.panelFacil)).getTouchables();
+	}
+	
+	public void empezarAJugar(View view){
+		for(View vista:allButtons){
+			if(vista.getTag().toString()!="salir" && vista.getTag().toString()!="jugar"){
+				Button boton=(Button)vista;
+				boton.setBackgroundResource(R.drawable.boton);
+			}
+		}
+		findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 	}
 	
 	public void jugadaRealizada(View view){
@@ -59,11 +67,20 @@ public class JuegoFacil extends Activity {
 					
 					if (barcosSinColocar==0){
 						this.estado=Estado.JUEGO;
-						partida.colocarBarcosDelRival();
+						//partida.colocarBarcosDelRival();
 					}
 				}
 			}				
 		}	
+		else{
+			if (partida.efectuarDisparoDelJugador(array[0], array[1])){
+				if(casillas[array[0]][array[1]].getBarco()==null)
+					view.setBackgroundColor(Color.TRANSPARENT);
+				else
+					view.setBackgroundResource(R.drawable.bomba);
+				partida.efectuarDisparoDelRival();
+			}
+		}
 		
 		//Probandooooo
 	};
@@ -78,15 +95,6 @@ public class JuegoFacil extends Activity {
 			}
 		}
 		return botton;
-	}
-		
-	private void asignaBarco (List<Casilla>casillas, int barco){
-		List<Barco>barcos=partida.getTableroDelJugador().getBarcos();
-		Casilla[] casillasBarco={casillas.get(0),casillas.get(1)};
-		for (Barco barquito: barcos){
-			if (barquito.getId()==barco)
-				barquito.setCasillasQueOcupa(casillasBarco);
-		}
 	}
 	
 	private void crearPartida (){
