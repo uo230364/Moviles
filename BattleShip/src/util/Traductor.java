@@ -16,6 +16,12 @@ public class Traductor {
 		return array;
 	}
 	
+	public static String traducirALaInversa(int fila, int columna)
+	{
+		String string = "" + Character.toString((char) (CARACTER_BASE.hashCode() + fila)) + (columna + 1);
+		return string;
+	}
+	
 	
 	/**
 	 * Método para traducir las letras de las filas a números para las matrices de casillas
