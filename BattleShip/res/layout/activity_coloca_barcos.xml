@@ -306,4 +306,12 @@
         android:onClick="jugadaRealizada"
         android:tag="E5" />
 
+    <Button
+        android:id="@+id/empezar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/botonjugar" />
+
 </RelativeLayout>

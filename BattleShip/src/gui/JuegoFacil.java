@@ -45,20 +45,25 @@ public class JuegoFacil extends Activity {
 		List<Barco> barcos=partida.getTableroDelJugador().getBarcos();
 		
 		if (this.estado==Estado.COLOCACION && barcosSinColocar!=0){
-			if (array[0]+1<4){
+			if (array[0]+1<=4){
 				if(casillas[array[0]][array[1]].getBarco()==null &&
 						casillas[array[0]+1][array[1]].getBarco()==null){
 					casillas[array[0]][array[1]].setBarco(barcos.get(barco));
 					casillas[array[0]+1][array[1]].setBarco(barcos.get(barco));
 					Button boton1=(Button)findViewById(view.getId());
 					Button boton2=obtenerBotonAbajo(array[0]+1,array[1]);
-					boton1.setBackgroundResource(R.drawable.barcoparte1);
-					boton2.setBackgroundResource(R.drawable.barcoparte1);
+					boton1.setBackgroundResource(R.drawable.barcovertical1);
+					boton2.setBackgroundResource(R.drawable.barcovertical2);
 					barco++;
 					barcosSinColocar--;
+					
+					if (barcosSinColocar==0){
+						this.estado=Estado.JUEGO;
+						partida.colocarBarcosDelRival();
+					}
 				}
 			}				
-		}
+		}	
 	};
 	
 	private Button obtenerBotonAbajo(int fila, int columna){
