@@ -1,7 +1,6 @@
 package gui;
 
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -14,16 +13,20 @@ import com.example.battleship.R;
 public class Inicial extends Activity {
 	
 	private static MediaPlayer mediaPlayer;
+	private static SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicial);
         
+        preferences = getSharedPreferences("preferences", MODE_PRIVATE);
+        
 	    mediaPlayer = MediaPlayer.create(this, R.raw.bensound);
 	    mediaPlayer.setLooping(true);
 	    mediaPlayer.setVolume(100, 100);
-		mediaPlayer.start();
+	    if(preferences.getBoolean("reproductor", false));
+	    	mediaPlayer.start();
     }
     
     public void cargaAyuda (View view){
@@ -38,11 +41,16 @@ public class Inicial extends Activity {
     
     public static void paraReproduceMusica (View view){
     	
+    	Editor editor = preferences.edit();
+    	
     	if(mediaPlayer.isPlaying()){
     		mediaPlayer.pause();
+    		editor.putBoolean("reproductor", false);
     	} else {
     		mediaPlayer.start();
+    		editor.putBoolean("reproductor", true);
     	}
+    	editor.commit();
     }
 
 	@Override
