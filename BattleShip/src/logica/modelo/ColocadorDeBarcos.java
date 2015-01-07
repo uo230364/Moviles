@@ -53,13 +53,13 @@ public class ColocadorDeBarcos {
 			if(lista.get(lista.size()-2).getFila() + 1 < lista.get(lista.size()-1).getFila()
 					&& lista.get(lista.size()-2).getColumna() == lista.get(lista.size()-1).getColumna()) //el barco esta en vertical
 			{
-				lista.add(lista.size()-2,
+				lista.add(lista.size()-1,
 						tableroConBarcos.getCasillas()[lista.get(lista.size()-2).getFila() + 1][lista.get(lista.size()-2).getColumna()]);
-			}//TODO comprobar que funciona bien
+			}//TODO comprobar que funciona bien (revisado)
 			else if(lista.get(lista.size()-2).getFila() == lista.get(lista.size()-1).getFila()
 					&& lista.get(lista.size()-2).getColumna() + 1 < lista.get(lista.size()-1).getColumna()) //el barco esta en horizontal
 			{
-				lista.add(lista.size()-2,
+				lista.add(lista.size()-1,
 						tableroConBarcos.getCasillas()[lista.get(lista.size()-2).getFila()][lista.get(lista.size()-2).getColumna()+1]);
 			}
 			else
