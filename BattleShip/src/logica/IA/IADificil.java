@@ -9,7 +9,7 @@ import logica.modelo.Casilla;
 import logica.modelo.ColocadorDeBarcos;
 import logica.modelo.Tablero;
 
-public class IAMedio implements IA {
+public class IADificil implements IA {
 
 	/*
 	 * guarda una lista de las casillas del tablero del jugador humano, y va
@@ -17,11 +17,12 @@ public class IAMedio implements IA {
 	 */
 	private List<Casilla> casillasSinDispararDelJugador = new ArrayList<Casilla>();
 	private List<Casilla> casillasConBarco = new ArrayList<Casilla>();
+	private int counter = 0;
 
-	public IAMedio() {
+	public IADificil() {
 	}
 
-	public IAMedio(Tablero tablero) {
+	public IADificil(Tablero tablero) {
 		setTableroDelJugador(tablero);
 	}
 
@@ -48,14 +49,16 @@ public class IAMedio implements IA {
 					"No hay mas casillas para disparar en el tablero del jugador.");
 		Random rand = new Random();
 		Casilla casilla;
-		if (rand.nextInt(2) == 0) {
-
+		
+		if(counter >= 3){
 			casilla = casillasSinDispararDelJugador.remove(rand
 					.nextInt(casillasSinDispararDelJugador.size()));
 			casillasConBarco.remove(casilla);
+			counter = 0;
 		} else {
 			casilla = casillasConBarco.remove(0);
 			casillasSinDispararDelJugador.remove(casilla);
+			counter++;
 		}
 		if (casilla.estaTocada())
 			throw new IllegalStateException(
