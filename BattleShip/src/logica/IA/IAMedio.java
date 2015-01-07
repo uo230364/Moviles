@@ -14,7 +14,9 @@ public class IAMedio implements IA {
 	/*
 	 * guarda una lista de las casillas del tablero del jugador humano, y va
 	 * eliminando a medida que las devuelve para que disparen en ellas
-	 */private List<Casilla> casillasSinDispararDelJugador = new ArrayList<Casilla>();
+	 */
+	private List<Casilla> casillasSinDispararDelJugador = new ArrayList<Casilla>();
+	private List<Casilla> casillasConBarco = new ArrayList<Casilla>();
 
 	public IAMedio() {
 	}
@@ -32,14 +34,29 @@ public class IAMedio implements IA {
 		}
 	}
 
+	public void setCasillasConBarco(Tablero tablero) {
+		for (Barco barco : tablero.getBarcos()) {
+			for (Casilla casilla : barco.getCasillasQueOcupa())
+				casillasConBarco.add(casilla);
+		}
+	}
+
 	@Override
 	public Casilla proximaCasillaADisparar() {
 		if (casillasSinDispararDelJugador.size() == 0)
 			throw new IllegalStateException(
 					"No hay mas casillas para disparar en el tablero del jugador.");
 		Random rand = new Random();
-		Casilla casilla = casillasSinDispararDelJugador.remove(rand
-				.nextInt(casillasSinDispararDelJugador.size()));
+		Casilla casilla;
+		if (rand.nextInt(2) == 0) {
+
+			casilla = casillasSinDispararDelJugador.remove(rand
+					.nextInt(casillasSinDispararDelJugador.size()));
+			casillasConBarco.remove(casilla);
+		} else {
+			casilla = casillasConBarco.remove(0);
+			casillasSinDispararDelJugador.remove(casilla);
+		}
 		if (casilla.estaTocada())
 			throw new IllegalStateException(
 					"Hay al menos una casilla tocada en el set de casillas libres, error de consistencia.");
@@ -54,8 +71,8 @@ public class IAMedio implements IA {
 			barcosSinColocar.add(barco);
 		}
 		while (barcosSinColocar.size() != 0) {
-			if(colocarBarco(barcosSinColocar.get(0), tablero))
-				barcosSinColocar.remove(0); //TODO testear
+			if (colocarBarco(barcosSinColocar.get(0), tablero))
+				barcosSinColocar.remove(0); // TODO testear
 		}
 	}
 
