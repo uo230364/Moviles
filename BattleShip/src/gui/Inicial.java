@@ -67,13 +67,13 @@ public class Inicial extends Activity {
 		mediaPlayer.start();
 	}
 
-	@Override
+	/*@Override
 	protected void onUserLeaveHint() {
 		// TODO Auto-generated method stub
     	pararReproductor();
 		super.onUserLeaveHint();
 		
-	}
+	}*/
 
 	@Override
     public void onBackPressed() {
