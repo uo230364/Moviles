@@ -88,7 +88,11 @@ public class Partida {
 	
 	public boolean efectuarDisparoDelJugador(int fila, int columna)
 	{
-		return tableroDelRival.dispararCasilla(fila, columna);
+		if(tableroDelRival.dispararCasilla(fila, columna)){
+			cambioTurno();
+			return true;
+		}
+		return false;
 	}
 	
 	public boolean efectuarDisparoDelRival()
@@ -96,7 +100,15 @@ public class Partida {
 		if(turnoDelJugador)
 			return false;
 		rival.proximaCasillaADisparar().setTocada(true);
+		cambioTurno();
 		return true;
+	}
+	
+	private void cambioTurno(){
+		if(turnoDelJugador)
+			turnoDelJugador = false;
+		else
+			turnoDelJugador = true;
 	}
 
 }
