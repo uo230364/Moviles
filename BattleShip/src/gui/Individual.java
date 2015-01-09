@@ -21,6 +21,7 @@ import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.battleship.R;
 
@@ -75,6 +76,12 @@ public class Individual extends Activity implements OnInitListener{
 					if (partidaGanada()){
 						tts.speak("Has descubierto todos los barcos, enhorabuena!",TextToSpeech.QUEUE_ADD,null);
 						finish();
+					}
+					else{
+						Toast.makeText(
+								this,
+								"Te quedan "+barcosSinHundir+" barcos por hundir",
+								Toast.LENGTH_LONG).show();
 					}
 				}
 			}
