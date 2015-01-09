@@ -67,14 +67,15 @@ public class JuegoFacil extends Activity {
 					
 					if (barcosSinColocar==0){
 						this.estado=Estado.JUEGO;
-						//partida.colocarBarcosDelRival();
+						partida.colocarBarcosDelRival();
 					}
 				}
 			}				
 		}	
 		else{
+			Casilla [][] casillasDelRival=partida.getTableroDelRival().getCasillas();
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])){
-				if(casillas[array[0]][array[1]].getBarco()==null)
+				if(casillasDelRival[array[0]][array[1]].getBarco()==null)
 					view.setBackgroundColor(Color.TRANSPARENT);
 				else
 					view.setBackgroundResource(R.drawable.bomba);
