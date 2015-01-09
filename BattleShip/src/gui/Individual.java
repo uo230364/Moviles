@@ -14,17 +14,23 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
+import android.widget.TextView;
 
 import com.example.battleship.R;
 
-public class Individual extends Activity {
+public class Individual extends Activity implements OnInitListener{
 	
 	private Partida partida;
 	private int barcosSinColocar=15;
-	private int jugadasDisponibles=20;
+	private int jugadasDisponibles=200;
 	private int barcosSinHundir=15;
 	private Vibrator vibrator;
+	private TextView restantes;
+	
+	private TextToSpeech tts;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +39,9 @@ public class Individual extends Activity {
 		crearPartida();
 		colocaBarcos();
 		vibrator=(Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
+		this.restantes=(TextView)findViewById(R.id.remainingShoots);
+		restantes.setText(String.valueOf(jugadasDisponibles));
+		tts=new TextToSpeech(this, this);
 	}
 	
 	public void pararMusica(View view){
@@ -51,9 +60,14 @@ public class Individual extends Activity {
 					view.setBackgroundResource(R.drawable.bomba);
 					barcosSinHundir--;
 					vibrator.vibrate(500);
+					if (partidaGanada()){
+						tts.speak("Has descubierto todos los barcos, enhorabuena!",TextToSpeech.QUEUE_ADD,null);
+						finish();
+					}
 				}
 			}
-			jugadasDisponibles--;	
+			jugadasDisponibles--;
+			restantes.setText(String.valueOf(jugadasDisponibles));
 		}		
 	}
 	
@@ -65,7 +79,8 @@ public class Individual extends Activity {
 			int fila=random.nextInt(9);
 			int columna=random.nextInt(7);
 			if (asignaBarco(fila, columna,barcos.get(barco))){
-				barco++;barcosSinColocar--;
+				barco++;
+				barcosSinColocar--;
 			}
 		}
 	}
@@ -97,5 +112,10 @@ public class Individual extends Activity {
 	
 	private boolean partidaGanada(){
 		return barcosSinHundir==0;
+	}
+	
+	@Override
+	public void onInit(int arg0) {
+		
 	}
 }

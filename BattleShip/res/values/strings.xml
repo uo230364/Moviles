@@ -15,5 +15,6 @@
     <string name="title_activity_juego_dificil">JuegoDificil</string>
     <string name="title_activity_modo">Modo</string>
     <string name="title_activity_individual">Individual</string>
+    <string name="jugadas">Jugadas:</string>
 
 </resources>
