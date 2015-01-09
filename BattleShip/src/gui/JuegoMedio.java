@@ -4,7 +4,6 @@ package gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import logica.IA.IAFacil;
 import logica.IA.IAMedio;
 import logica.modelo.Barco;
 import logica.modelo.Casilla;

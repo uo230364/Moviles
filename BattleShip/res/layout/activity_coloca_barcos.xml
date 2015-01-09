@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/panelFacil"
+    android:id="@+id/panelFacilEnemigo"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
@@ -324,5 +324,14 @@
         android:layout_alignRight="@+id/a5"
         android:background="@drawable/botonreanudar"
         android:onClick="cambioLayout"/>
+
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/tablero_enemigo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
 
 </RelativeLayout>

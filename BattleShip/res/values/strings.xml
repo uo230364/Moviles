@@ -16,5 +16,7 @@
     <string name="title_activity_modo">Modo</string>
     <string name="title_activity_individual">Individual</string>
     <string name="jugadas">Jugadas:</string>
+    <string name="tablero_enemigo">Tablero enemigo</string>
+    <string name="tablero_jugador">Tu tablero</string>
 
 </resources>
