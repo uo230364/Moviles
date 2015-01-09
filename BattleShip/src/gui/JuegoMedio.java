@@ -83,8 +83,6 @@ public class JuegoMedio extends Activity {
 				partida.efectuarDisparoDelRival();
 			}
 		}
-		
-		//Probandooooo
 	};
 	
 	private Button obtenerBotonAbajo(int fila, int columna){

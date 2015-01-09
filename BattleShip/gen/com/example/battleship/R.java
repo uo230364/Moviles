@@ -172,6 +172,31 @@ public final class R {
         public static final int bensound=0x7f040000;
     }
     public static final class string {
+        public static final int A1=0x7f050011;
+        public static final int A2=0x7f050012;
+        public static final int A3=0x7f050013;
+        public static final int A4=0x7f050014;
+        public static final int A5=0x7f050015;
+        public static final int B1=0x7f050016;
+        public static final int B2=0x7f050017;
+        public static final int B3=0x7f050018;
+        public static final int B4=0x7f050019;
+        public static final int B5=0x7f05001a;
+        public static final int C1=0x7f05001b;
+        public static final int C2=0x7f05001c;
+        public static final int C3=0x7f05001d;
+        public static final int C4=0x7f05001e;
+        public static final int C5=0x7f05001f;
+        public static final int D1=0x7f050020;
+        public static final int D2=0x7f050021;
+        public static final int D3=0x7f050022;
+        public static final int D4=0x7f050023;
+        public static final int D5=0x7f050024;
+        public static final int E1=0x7f050025;
+        public static final int E2=0x7f050026;
+        public static final int E3=0x7f050027;
+        public static final int E4=0x7f050028;
+        public static final int E5=0x7f050029;
         public static final int app_name=0x7f050000;
         public static final int ayuda=0x7f050004;
         public static final int hello_world=0x7f050001;

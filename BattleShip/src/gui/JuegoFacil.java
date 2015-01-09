@@ -8,6 +8,7 @@ import logica.modelo.Barco;
 import logica.modelo.Casilla;
 import logica.modelo.Partida;
 import util.Traductor;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -17,7 +18,7 @@ import android.widget.RelativeLayout;
 
 import com.example.battleship.R;
 
-public class JuegoFacil extends Activity {
+@SuppressLint("DefaultLocale") public class JuegoFacil extends Activity {
 
 	private Button cambioLayout;
 
@@ -107,7 +108,6 @@ public class JuegoFacil extends Activity {
 			}
 		}
 
-		// Probandooooo
 	};
 
 	private Button obtenerBotonAbajo(int fila, int columna) {
