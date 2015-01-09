@@ -7,11 +7,15 @@ import logica.IA.IAFacil;
 import logica.modelo.Barco;
 import logica.modelo.Casilla;
 import logica.modelo.Partida;
+import util.SoundManager;
 import util.Traductor;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
+import android.speech.tts.TextToSpeech;
+import android.speech.tts.TextToSpeech.OnInitListener;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -19,7 +23,8 @@ import android.widget.Toast;
 
 import com.example.battleship.R;
 
-@SuppressLint("DefaultLocale") public class JuegoFacil extends Activity {
+@SuppressLint("DefaultLocale") 
+public class JuegoFacil extends Activity implements OnInitListener{
 
 	private Button cambioLayout;
 
@@ -35,26 +40,28 @@ import com.example.battleship.R;
 
 	private int barco = 0;
 	private int barcosSinColocar = 5;
-	// private List<View> botonesEnemigo;
 	private List<View> botonesJugador;
 	private static int currentLayout;
-
-	// Casilla[][] casillasJugador;
-	// Casilla[][] casillasDelRival;
+	private TextToSpeech tts;
+	
+	private int water,bomb;
+	private SoundManager sound;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_coloca_barcos);
+		
+		sound=new SoundManager(getApplicationContext());
+		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		water=sound.load(R.raw.splash);
+		bomb=sound.load(R.raw.bomb);
+		
 		crearPartida();
-		// botonesEnemigo = ((RelativeLayout)
-		// findViewById(R.id.panelFacilEnemigo))
-		// .getTouchables();
 
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
-		// casillasJugador = partida.getTableroDelJugador().getCasillas();
-		// casillasDelRival = partida.getTableroDelRival().getCasillas();
+		tts=new TextToSpeech(this,this);
 	}
 
 	public void empezarAJugar(View view) {
@@ -81,6 +88,7 @@ import com.example.battleship.R;
 		int[] array = Traductor.traducir(identificador);
 		Casilla[][] casillas = partida.getTableroDelJugador().getCasillas();
 		List<Barco> barcos = partida.getTableroDelJugador().getBarcos();
+		Casilla[]casillasQueOcupa=new Casilla[2];
 
 		if (this.estado == Estado.COLOCACION) {
 			if (barcosSinColocar != 0) {
@@ -94,6 +102,9 @@ import com.example.battleship.R;
 						Button boton1 = (Button) findViewById(view.getId());
 						Button boton2 = obtenerBotonAbajo(array[0] + 1,
 								array[1]);
+						casillasQueOcupa[0]=casillas[array[0]][array[1]];
+						casillasQueOcupa[1]=casillas[array[0] + 1][array[1]];
+						barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
 						boton1.setBackgroundResource(R.drawable.barcovertical1);
 						boton2.setBackgroundResource(R.drawable.barcovertical2);
 						barco++;
@@ -106,13 +117,21 @@ import com.example.battleship.R;
 						"Ya estan puestos todos los barcos, dale al boton Jugar para comenzar",
 						Toast.LENGTH_LONG).show();
 			}
-		} else if (this.estado == Estado.JUEGO) {
+		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null)
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
+					sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
-				else
+				}
+				else{
+					sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
+					if (partida.haGanadoElJugador())
+						tts.speak("Enhorabuena, has ganado", TextToSpeech.QUEUE_ADD,null);
+				}
 				partida.efectuarDisparoDelRival();
+				if (partida.haGanadoElRival())
+					tts.speak("Has perdido, prueba otra vez", TextToSpeech.QUEUE_ADD,null);
 			}
 		}
 
@@ -247,9 +266,9 @@ import com.example.battleship.R;
 				.getTouchables();
 	}
 
-	private List<View> getBotonesJugador() {
-		return ((RelativeLayout) findViewById(R.id.panelFacilJugador))
-				.getTouchables();
+	@Override
+	public void onInit(int status) {
+		
 	}
 
 }
