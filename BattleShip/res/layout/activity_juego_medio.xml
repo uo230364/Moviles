@@ -1,6 +1,529 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+     android:id="@+id/panelMedio"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fondo"
     tools:context="${relativePackage}.${activityClass}" >
+<Button
+        android:id="@+id/button1"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="29dp"
+        android:layout_marginTop="52dp"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A1" />
+
+    <Button
+        android:id="@+id/Button01"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/button1"
+        android:layout_alignBottom="@+id/button1"
+        android:layout_toRightOf="@+id/button1"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A2" />
+
+    <Button
+        android:id="@+id/Button06"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button01"
+        android:layout_alignBottom="@+id/Button01"
+        android:layout_toRightOf="@+id/Button01"
+         android:onClick="jugadaRealizada"
+        android:background="@drawable/botonpeq" />
+
+    <Button
+        android:id="@+id/Button05"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button06"
+        android:layout_alignBottom="@+id/Button06"
+        android:layout_toRightOf="@+id/Button06"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A4" />
+
+    <Button
+        android:id="@+id/Button04"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button05"
+        android:layout_alignBottom="@+id/Button05"
+        android:layout_toRightOf="@+id/Button05"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A5" />
+
+    <Button
+        android:id="@+id/Button03"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button04"
+        android:layout_alignBottom="@+id/Button04"
+        android:layout_toRightOf="@+id/Button04"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A6" />
+
+    <Button
+        android:id="@+id/Button02"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button03"
+        android:layout_alignBottom="@+id/Button03"
+        android:layout_toRightOf="@+id/Button03"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="A7" />
+
+    <Button
+        android:id="@+id/Button11"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/button1"
+        android:layout_below="@+id/button1"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B1" />
+
+    <Button
+        android:id="@+id/Button10"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button01"
+        android:layout_toLeftOf="@+id/Button06"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B2" />
+
+    <Button
+        android:id="@+id/Button09"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button06"
+        android:layout_toLeftOf="@+id/Button05"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B3" />
+
+    <Button
+        android:id="@+id/Button08"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button09"
+        android:layout_alignBottom="@+id/Button09"
+        android:layout_toLeftOf="@+id/Button04"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B4" />
+
+    <Button
+        android:id="@+id/Button07"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button04"
+        android:layout_toLeftOf="@+id/Button03"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B5" />
+
+    <Button
+        android:id="@+id/Button27"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button03"
+        android:layout_toLeftOf="@+id/Button02"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B6" />
+
+    <Button
+        android:id="@+id/Button26"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/Button02"
+        android:layout_below="@+id/Button02"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="B7" />
+
+    <Button
+        android:id="@+id/Button25"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button11"
+        android:layout_toLeftOf="@+id/Button10"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C1" />
+
+    <Button
+        android:id="@+id/Button24"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button25"
+        android:layout_alignBottom="@+id/Button25"
+        android:layout_toRightOf="@+id/Button25"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C2" />
+
+    <Button
+        android:id="@+id/Button23"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button24"
+        android:layout_alignBottom="@+id/Button24"
+        android:layout_toRightOf="@+id/Button24"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C3" />
+
+    <Button
+        android:id="@+id/Button22"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button23"
+        android:layout_alignBottom="@+id/Button23"
+        android:layout_toLeftOf="@+id/Button07"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C4" />
+
+    <Button
+        android:id="@+id/Button21"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button22"
+        android:layout_alignBottom="@+id/Button22"
+        android:layout_toLeftOf="@+id/Button27"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C5" />
+
+    <Button
+        android:id="@+id/Button20"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button21"
+        android:layout_alignBottom="@+id/Button21"
+        android:layout_toLeftOf="@+id/Button26"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C6" />
+
+    <Button
+        android:id="@+id/Button19"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button27"
+        android:layout_toRightOf="@+id/Button27"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="C7" />
+
+    <Button
+        android:id="@+id/Button18"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button25"
+        android:layout_toLeftOf="@+id/Button24"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D1" />
+
+    <Button
+        android:id="@+id/Button17"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button18"
+        android:layout_alignBottom="@+id/Button18"
+        android:layout_toLeftOf="@+id/Button23"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D2" />
+
+    <Button
+        android:id="@+id/Button16"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button17"
+        android:layout_alignBottom="@+id/Button17"
+        android:layout_toRightOf="@+id/Button17"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D3" />
+
+    <Button
+        android:id="@+id/Button15"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button16"
+        android:layout_alignBottom="@+id/Button16"
+        android:layout_toRightOf="@+id/Button16"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D4" />
+
+    <Button
+        android:id="@+id/Button14"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button21"
+        android:layout_toLeftOf="@+id/Button20"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D5" />
+
+    <Button
+        android:id="@+id/Button13"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button21"
+        android:layout_toRightOf="@+id/Button21"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D6" />
+
+    <Button
+        android:id="@+id/Button12"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button13"
+        android:layout_alignBottom="@+id/Button13"
+        android:layout_toRightOf="@+id/Button13"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="D7" />
+
+    <Button
+        android:id="@+id/Button48"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/Button18"
+        android:layout_below="@+id/Button18"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E1" />
+
+    <Button
+        android:id="@+id/Button47"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button48"
+        android:layout_alignBottom="@+id/Button48"
+        android:layout_toRightOf="@+id/Button48"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E2" />
+
+    <Button
+        android:id="@+id/Button46"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button47"
+        android:layout_alignBottom="@+id/Button47"
+        android:layout_alignLeft="@+id/Button16"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E3" />
+
+    <Button
+        android:id="@+id/Button45"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button46"
+        android:layout_alignBottom="@+id/Button46"
+        android:layout_alignLeft="@+id/Button15"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E4" />
+
+    <Button
+        android:id="@+id/Button44"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button15"
+        android:layout_toRightOf="@+id/Button15"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E5" />
+
+    <Button
+        android:id="@+id/Button43"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button14"
+        android:layout_toRightOf="@+id/Button14"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E6" />
+
+    <Button
+        android:id="@+id/Button42"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button13"
+        android:layout_toRightOf="@+id/Button13"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="E7" />
+
+    <Button
+        android:id="@+id/Button41"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button48"
+        android:layout_toLeftOf="@+id/Button47"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F1" />
+
+    <Button
+        android:id="@+id/Button40"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button41"
+        android:layout_alignBottom="@+id/Button41"
+        android:layout_toLeftOf="@+id/Button46"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F2" />
+
+    <Button
+        android:id="@+id/Button38"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button39"
+        android:layout_alignBottom="@+id/Button39"
+        android:layout_alignLeft="@+id/Button45"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F4" />
+
+    <Button
+        android:id="@+id/Button37"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button45"
+        android:layout_toRightOf="@+id/Button45"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F5" />
+
+    <Button
+        android:id="@+id/Button36"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button37"
+        android:layout_alignBottom="@+id/Button37"
+        android:layout_toLeftOf="@+id/Button42"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F6" />
+
+    <Button
+        android:id="@+id/Button35"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button36"
+        android:layout_alignBottom="@+id/Button36"
+        android:layout_alignLeft="@+id/Button42"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="F7" />
+
+    <Button
+        android:id="@+id/Button34"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button41"
+        android:layout_toLeftOf="@+id/Button40"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="G1" />
+
+    <Button
+        android:id="@+id/Button33"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button41"
+        android:layout_toRightOf="@+id/Button41"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="G2" />
+
+    <Button
+        android:id="@+id/Button32"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button33"
+        android:layout_alignBottom="@+id/Button33"
+        android:layout_toLeftOf="@+id/Button38"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="G3" />
+
+    <Button
+        android:id="@+id/Button31"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button39"
+        android:layout_toRightOf="@+id/Button39"
+         android:onClick="jugadaRealizada"
+        android:background="@drawable/botonpeq" />
+
+    <Button
+        android:id="@+id/Button29"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button36"
+        android:layout_toLeftOf="@+id/Button35"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="G6" />
+
+    <Button
+        android:id="@+id/Button28"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button36"
+        android:layout_toRightOf="@+id/Button36"
+        android:background="@drawable/botonpeq"
+         android:onClick="jugadaRealizada"
+        android:tag="G7" />
+
+    <Button
+        android:id="@+id/Button39"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_above="@+id/Button32"
+        android:layout_toLeftOf="@+id/Button38"
+         android:onClick="jugadaRealizada"
+        android:background="@drawable/botonpeq" />
+
+    <Button
+        android:id="@+id/Button30"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button38"
+        android:layout_toRightOf="@+id/Button38"
+         android:onClick="jugadaRealizada"
+        android:background="@drawable/botonpeq" />
+    <Button
+        android:id="@+id/empezar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/e2"
+        android:layout_toRightOf="@+id/button1"
+        android:background="@drawable/botonjugar" 
+        android:onClick="empezarAJugar"
+        android:tag="jugar"/>
+
 </RelativeLayout>
