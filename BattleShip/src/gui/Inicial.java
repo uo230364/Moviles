@@ -34,8 +34,8 @@ public class Inicial extends Activity {
     	startActivity(mIntent);  	
     }
     
-    public void seleccionNivel(View view){
-    	Intent mIntent=new Intent(Inicial.this,Nivel.class);
+    public void seleccionModo(View view){
+    	Intent mIntent=new Intent(Inicial.this,Modo.class);
     	startActivity(mIntent);
     }
     

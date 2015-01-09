@@ -1,0 +1,27 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="${relativePackage}.${activityClass}" 
+    android:background="@drawable/fondo">
+
+    <Button
+        android:id="@+id/btindividual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="158dp"
+        android:background="@drawable/botonindividual" />
+
+    <Button
+        android:id="@+id/btclasico"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btindividual"
+        android:layout_below="@+id/btindividual"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/botonclasico" 
+        android:onClick="nivel"/>
+
+</RelativeLayout>

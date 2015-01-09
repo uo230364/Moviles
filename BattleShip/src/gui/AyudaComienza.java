@@ -1,7 +1,6 @@
 package gui;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -39,9 +38,6 @@ public class AyudaComienza extends Activity {
 	}
 
 	public void masAyuda(View view) {
-		// Intent mInten=new Intent(AyudaComienza.this,SegundaAyuda.class);
-		// startActivity(mInten);
-		// finish();
 		switch (currentLayout) {
 		case PRIMERA_AYUDA:
 			setContentView(R.layout.activity_segunda_ayuda);
