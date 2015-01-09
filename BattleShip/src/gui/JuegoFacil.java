@@ -67,22 +67,21 @@ public class JuegoFacil extends Activity {
 		}
 	}
 
-	public void jugadaRealizada(View view) {
-
-		String identificador = getResources()
-				.getResourceEntryName(view.getId()).toUpperCase();
-		int[] array = Traductor.traducir(identificador);
-		List<Barco> barcos = partida.getTableroDelJugador().getBarcos();
-
-		if (this.estado == Estado.COLOCACION && barcosSinColocar != 0) {
-			if (array[0] + 1 <= 4) {
-				if (casillasJugador[array[0]][array[1]].getBarco() == null
-						&& casillasJugador[array[0] + 1][array[1]].getBarco() == null) {
-					casillasJugador[array[0]][array[1]].setBarco(barcos.get(barco));
-					casillasJugador[array[0] + 1][array[1]]
-							.setBarco(barcos.get(barco));
-					Button boton1 = (Button) findViewById(view.getId());
-					Button boton2 = obtenerBotonAbajo(array[0] + 1, array[1]);
+	public void jugadaRealizada(View view){
+		
+		String identificador=getResources().getResourceEntryName(view.getId()).toUpperCase();
+		int[] array=Traductor.traducir(identificador);
+		Casilla [][] casillas=partida.getTableroDelJugador().getCasillas();
+		List<Barco> barcos=partida.getTableroDelJugador().getBarcos();
+		
+		if (this.estado==Estado.COLOCACION && barcosSinColocar!=0){
+			if (array[0]+1<=4){
+				if(casillas[array[0]][array[1]].getBarco()==null &&
+						casillas[array[0]+1][array[1]].getBarco()==null){
+					casillas[array[0]][array[1]].setBarco(barcos.get(barco));
+					casillas[array[0]+1][array[1]].setBarco(barcos.get(barco));
+					Button boton1=(Button)findViewById(view.getId());
+					Button boton2=obtenerBotonAbajo(array[0]+1,array[1]);
 					boton1.setBackgroundResource(R.drawable.barcovertical1);
 					boton2.setBackgroundResource(R.drawable.barcovertical2);
 					barco++;
@@ -121,7 +120,7 @@ public class JuegoFacil extends Activity {
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
-		barcos = creaBarcos(5);
+		barcos = creaBarcos(15);
 		this.partida = new Partida(5, 5, new IAFacil(), barcos);
 	}
 

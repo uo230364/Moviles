@@ -15,7 +15,8 @@
         android:layout_marginLeft="29dp"
         android:layout_marginTop="52dp"
         android:background="@drawable/botonpeq"
-        android:tag="A1" />
+        android:tag="A1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button01"
@@ -25,7 +26,8 @@
         android:layout_alignBottom="@+id/button1"
         android:layout_toRightOf="@+id/button1"
         android:background="@drawable/botonpeq"
-        android:tag="A2" />
+        android:tag="A2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button06"
@@ -34,7 +36,9 @@
         android:layout_alignBaseline="@+id/Button01"
         android:layout_alignBottom="@+id/Button01"
         android:layout_toRightOf="@+id/Button01"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="buscando"
+        android:tag="A3" />
 
     <Button
         android:id="@+id/Button05"
@@ -44,7 +48,8 @@
         android:layout_alignBottom="@+id/Button06"
         android:layout_toRightOf="@+id/Button06"
         android:background="@drawable/botonpeq"
-        android:tag="A4" />
+        android:tag="A4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button04"
@@ -54,7 +59,8 @@
         android:layout_alignBottom="@+id/Button05"
         android:layout_toRightOf="@+id/Button05"
         android:background="@drawable/botonpeq"
-        android:tag="A5" />
+        android:tag="A5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button03"
@@ -64,7 +70,8 @@
         android:layout_alignBottom="@+id/Button04"
         android:layout_toRightOf="@+id/Button04"
         android:background="@drawable/botonpeq"
-        android:tag="A6" />
+        android:tag="A6" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button02"
@@ -74,7 +81,8 @@
         android:layout_alignBottom="@+id/Button03"
         android:layout_toRightOf="@+id/Button03"
         android:background="@drawable/botonpeq"
-        android:tag="A7" />
+        android:tag="A7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button11"
@@ -83,7 +91,8 @@
         android:layout_alignLeft="@+id/button1"
         android:layout_below="@+id/button1"
         android:background="@drawable/botonpeq"
-        android:tag="B1" />
+        android:tag="B1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button10"
@@ -92,7 +101,8 @@
         android:layout_below="@+id/Button01"
         android:layout_toLeftOf="@+id/Button06"
         android:background="@drawable/botonpeq"
-        android:tag="B2" />
+        android:tag="B2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button09"
@@ -101,7 +111,8 @@
         android:layout_below="@+id/Button06"
         android:layout_toLeftOf="@+id/Button05"
         android:background="@drawable/botonpeq"
-        android:tag="B3" />
+        android:tag="B3" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button08"
@@ -111,7 +122,8 @@
         android:layout_alignBottom="@+id/Button09"
         android:layout_toLeftOf="@+id/Button04"
         android:background="@drawable/botonpeq"
-        android:tag="B4" />
+        android:tag="B4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button07"
@@ -120,7 +132,8 @@
         android:layout_below="@+id/Button04"
         android:layout_toLeftOf="@+id/Button03"
         android:background="@drawable/botonpeq"
-        android:tag="B5" />
+        android:tag="B5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button27"
@@ -129,7 +142,8 @@
         android:layout_below="@+id/Button03"
         android:layout_toLeftOf="@+id/Button02"
         android:background="@drawable/botonpeq"
-        android:tag="B6" />
+        android:tag="B6" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button26"
@@ -138,7 +152,8 @@
         android:layout_alignLeft="@+id/Button02"
         android:layout_below="@+id/Button02"
         android:background="@drawable/botonpeq"
-        android:tag="B7" />
+        android:tag="B7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button25"
@@ -147,7 +162,8 @@
         android:layout_below="@+id/Button11"
         android:layout_toLeftOf="@+id/Button10"
         android:background="@drawable/botonpeq"
-        android:tag="C1" />
+        android:tag="C1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button24"
@@ -157,7 +173,8 @@
         android:layout_alignBottom="@+id/Button25"
         android:layout_toRightOf="@+id/Button25"
         android:background="@drawable/botonpeq"
-        android:tag="C2" />
+        android:tag="C2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button23"
@@ -167,7 +184,8 @@
         android:layout_alignBottom="@+id/Button24"
         android:layout_toRightOf="@+id/Button24"
         android:background="@drawable/botonpeq"
-        android:tag="C3" />
+        android:tag="C3"
+        android:onClick="buscando" />
 
     <Button
         android:id="@+id/Button22"
@@ -177,7 +195,8 @@
         android:layout_alignBottom="@+id/Button23"
         android:layout_toLeftOf="@+id/Button07"
         android:background="@drawable/botonpeq"
-        android:tag="C4" />
+        android:tag="C4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button21"
@@ -187,7 +206,8 @@
         android:layout_alignBottom="@+id/Button22"
         android:layout_toLeftOf="@+id/Button27"
         android:background="@drawable/botonpeq"
-        android:tag="C5" />
+        android:tag="C5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button20"
@@ -197,7 +217,8 @@
         android:layout_alignBottom="@+id/Button21"
         android:layout_toLeftOf="@+id/Button26"
         android:background="@drawable/botonpeq"
-        android:tag="C6" />
+        android:tag="C6"
+		android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button19"
@@ -206,7 +227,8 @@
         android:layout_below="@+id/Button27"
         android:layout_toRightOf="@+id/Button27"
         android:background="@drawable/botonpeq"
-        android:tag="C7" />
+        android:tag="C7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button18"
@@ -215,7 +237,8 @@
         android:layout_below="@+id/Button25"
         android:layout_toLeftOf="@+id/Button24"
         android:background="@drawable/botonpeq"
-        android:tag="D1" />
+        android:tag="D1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button17"
@@ -225,7 +248,8 @@
         android:layout_alignBottom="@+id/Button18"
         android:layout_toLeftOf="@+id/Button23"
         android:background="@drawable/botonpeq"
-        android:tag="D2" />
+        android:tag="D2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button16"
@@ -235,7 +259,8 @@
         android:layout_alignBottom="@+id/Button17"
         android:layout_toRightOf="@+id/Button17"
         android:background="@drawable/botonpeq"
-        android:tag="D3" />
+        android:tag="D3" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button15"
@@ -245,7 +270,8 @@
         android:layout_alignBottom="@+id/Button16"
         android:layout_toRightOf="@+id/Button16"
         android:background="@drawable/botonpeq"
-        android:tag="D4" />
+        android:tag="D4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button14"
@@ -254,7 +280,8 @@
         android:layout_below="@+id/Button21"
         android:layout_toLeftOf="@+id/Button20"
         android:background="@drawable/botonpeq"
-        android:tag="D5" />
+        android:tag="D5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button13"
@@ -263,7 +290,8 @@
         android:layout_below="@+id/Button21"
         android:layout_toRightOf="@+id/Button21"
         android:background="@drawable/botonpeq"
-        android:tag="D6" />
+        android:tag="D6" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button12"
@@ -273,7 +301,8 @@
         android:layout_alignBottom="@+id/Button13"
         android:layout_toRightOf="@+id/Button13"
         android:background="@drawable/botonpeq"
-        android:tag="D7" />
+        android:tag="D7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button48"
@@ -282,7 +311,8 @@
         android:layout_alignLeft="@+id/Button18"
         android:layout_below="@+id/Button18"
         android:background="@drawable/botonpeq"
-        android:tag="E1" />
+        android:tag="E1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button47"
@@ -292,7 +322,8 @@
         android:layout_alignBottom="@+id/Button48"
         android:layout_toRightOf="@+id/Button48"
         android:background="@drawable/botonpeq"
-        android:tag="E2" />
+        android:tag="E2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button46"
@@ -302,7 +333,8 @@
         android:layout_alignBottom="@+id/Button47"
         android:layout_alignLeft="@+id/Button16"
         android:background="@drawable/botonpeq"
-        android:tag="E3" />
+        android:tag="E3" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button45"
@@ -312,7 +344,8 @@
         android:layout_alignBottom="@+id/Button46"
         android:layout_alignLeft="@+id/Button15"
         android:background="@drawable/botonpeq"
-        android:tag="E4" />
+        android:tag="E4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button44"
@@ -321,7 +354,8 @@
         android:layout_below="@+id/Button15"
         android:layout_toRightOf="@+id/Button15"
         android:background="@drawable/botonpeq"
-        android:tag="E5" />
+        android:tag="E5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button43"
@@ -339,7 +373,8 @@
         android:layout_below="@+id/Button13"
         android:layout_toRightOf="@+id/Button13"
         android:background="@drawable/botonpeq"
-        android:tag="E7" />
+        android:tag="E7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button41"
@@ -348,7 +383,8 @@
         android:layout_below="@+id/Button48"
         android:layout_toLeftOf="@+id/Button47"
         android:background="@drawable/botonpeq"
-        android:tag="F1" />
+        android:tag="F1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button40"
@@ -358,7 +394,8 @@
         android:layout_alignBottom="@+id/Button41"
         android:layout_toLeftOf="@+id/Button46"
         android:background="@drawable/botonpeq"
-        android:tag="F2" />
+        android:tag="F2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button38"
@@ -368,7 +405,8 @@
         android:layout_alignBottom="@+id/Button39"
         android:layout_alignLeft="@+id/Button45"
         android:background="@drawable/botonpeq"
-        android:tag="F4" />
+        android:tag="F4" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button37"
@@ -377,7 +415,8 @@
         android:layout_below="@+id/Button45"
         android:layout_toRightOf="@+id/Button45"
         android:background="@drawable/botonpeq"
-        android:tag="F5" />
+        android:tag="F5" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button36"
@@ -387,7 +426,8 @@
         android:layout_alignBottom="@+id/Button37"
         android:layout_toLeftOf="@+id/Button42"
         android:background="@drawable/botonpeq"
-        android:tag="F6" />
+        android:tag="F6" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button35"
@@ -397,7 +437,8 @@
         android:layout_alignBottom="@+id/Button36"
         android:layout_alignLeft="@+id/Button42"
         android:background="@drawable/botonpeq"
-        android:tag="F7" />
+        android:tag="F7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button34"
@@ -406,7 +447,8 @@
         android:layout_below="@+id/Button41"
         android:layout_toLeftOf="@+id/Button40"
         android:background="@drawable/botonpeq"
-        android:tag="G1" />
+        android:tag="G1" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button33"
@@ -415,7 +457,8 @@
         android:layout_below="@+id/Button41"
         android:layout_toRightOf="@+id/Button41"
         android:background="@drawable/botonpeq"
-        android:tag="G2" />
+        android:tag="G2" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button32"
@@ -425,7 +468,8 @@
         android:layout_alignBottom="@+id/Button33"
         android:layout_toLeftOf="@+id/Button38"
         android:background="@drawable/botonpeq"
-        android:tag="G3" />
+        android:tag="G3" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button31"
@@ -433,7 +477,9 @@
         android:layout_height="37dp"
         android:layout_below="@+id/Button39"
         android:layout_toRightOf="@+id/Button39"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="buscando"
+        android:tag="G4" />
 
     <Button
         android:id="@+id/Button29"
@@ -442,7 +488,8 @@
         android:layout_below="@+id/Button36"
         android:layout_toLeftOf="@+id/Button35"
         android:background="@drawable/botonpeq"
-        android:tag="G6" />
+        android:tag="G6" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button28"
@@ -451,7 +498,8 @@
         android:layout_below="@+id/Button36"
         android:layout_toRightOf="@+id/Button36"
         android:background="@drawable/botonpeq"
-        android:tag="G7" />
+        android:tag="G7" 
+        android:onClick="buscando"/>
 
     <Button
         android:id="@+id/Button39"
@@ -459,7 +507,9 @@
         android:layout_height="37dp"
         android:layout_above="@+id/Button32"
         android:layout_toLeftOf="@+id/Button38"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="buscando"
+        android:tag="F3" />
 
     <Button
         android:id="@+id/Button30"
@@ -467,6 +517,164 @@
         android:layout_height="37dp"
         android:layout_below="@+id/Button38"
         android:layout_toRightOf="@+id/Button38"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="buscando"
+        android:tag="G5" />
+
+    <Button
+        android:id="@+id/Button55"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button34"
+        android:layout_toLeftOf="@+id/Button33"
+        android:background="@drawable/botonpeq"
+        android:tag="H1" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button54"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button34"
+        android:layout_toRightOf="@+id/Button34"
+        android:background="@drawable/botonpeq"
+        android:tag="H2" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button53"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button54"
+        android:layout_alignBottom="@+id/Button54"
+        android:layout_toRightOf="@+id/Button54"
+        android:background="@drawable/botonpeq"
+        android:tag="H3" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button52"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button31"
+        android:layout_toLeftOf="@+id/Button30"
+        android:background="@drawable/botonpeq"
+        android:tag="H4" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button51"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button52"
+        android:layout_alignBottom="@+id/Button52"
+        android:layout_toLeftOf="@+id/Button29"
+        android:background="@drawable/botonpeq"
+        android:tag="H5" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button50"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button29"
+        android:layout_toLeftOf="@+id/Button28"
+        android:background="@drawable/botonpeq"
+        android:tag="H6" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button49"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button50"
+        android:layout_alignBottom="@+id/Button50"
+        android:layout_toRightOf="@+id/Button50"
+        android:background="@drawable/botonpeq"
+        android:tag="H7" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button61"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button55"
+        android:layout_toLeftOf="@+id/Button54"
+        android:background="@drawable/botonpeq"
+        android:tag="I1" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button60"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button55"
+        android:layout_toLeftOf="@+id/Button53"
+        android:layout_toRightOf="@+id/Button55"
+        android:background="@drawable/botonpeq"
+        android:onClick="buscando"
+        android:tag="I2" />
+
+    <Button
+        android:id="@+id/Button59"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button60"
+        android:layout_alignBottom="@+id/Button60"
+        android:layout_toRightOf="@+id/Button60"
+        android:background="@drawable/botonpeq"
+        android:tag="I3" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button58"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignBaseline="@+id/Button59"
+        android:layout_alignBottom="@+id/Button59"
+        android:layout_toLeftOf="@+id/Button51"
+        android:background="@drawable/botonpeq"
+        android:tag="I4" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button57"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_alignLeft="@+id/Button51"
+        android:layout_below="@+id/Button51"
+        android:background="@drawable/botonpeq"
+        android:tag="I5" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button56"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button51"
+        android:layout_toRightOf="@+id/Button51"
+        android:background="@drawable/botonpeq"
+        android:tag="I6" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/Button62"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button50"
+        android:layout_toRightOf="@+id/Button50"
+        android:background="@drawable/botonpeq"
+        android:tag="I7" 
+        android:onClick="buscando"/>
+
+    <Button
+        android:id="@+id/btMusicaIndividual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:background="@drawable/botonmusica" 
+        android:onClick="pararMusica"
+       />
 
 </RelativeLayout>
