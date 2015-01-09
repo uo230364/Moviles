@@ -18,7 +18,7 @@ import android.widget.RelativeLayout;
 import com.example.battleship.R;
 
 public class JuegoFacil extends Activity {
-	
+
 	private Button cambioLayout;
 
 	private enum Estado {
@@ -45,7 +45,7 @@ public class JuegoFacil extends Activity {
 		crearPartida();
 		botonesEnemigo = ((RelativeLayout) findViewById(R.id.panelFacilEnemigo))
 				.getTouchables();
-		
+
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
 		casillasJugador = partida.getTableroDelJugador().getCasillas();
@@ -67,21 +67,23 @@ public class JuegoFacil extends Activity {
 		}
 	}
 
-	public void jugadaRealizada(View view){
-		
-		String identificador=getResources().getResourceEntryName(view.getId()).toUpperCase();
-		int[] array=Traductor.traducir(identificador);
-		Casilla [][] casillas=partida.getTableroDelJugador().getCasillas();
-		List<Barco> barcos=partida.getTableroDelJugador().getBarcos();
-		
-		if (this.estado==Estado.COLOCACION && barcosSinColocar!=0){
-			if (array[0]+1<=4){
-				if(casillas[array[0]][array[1]].getBarco()==null &&
-						casillas[array[0]+1][array[1]].getBarco()==null){
+	public void jugadaRealizada(View view) {
+
+		String identificador = getResources()
+				.getResourceEntryName(view.getId()).toUpperCase();
+		int[] array = Traductor.traducir(identificador);
+		Casilla[][] casillas = partida.getTableroDelJugador().getCasillas();
+		List<Barco> barcos = partida.getTableroDelJugador().getBarcos();
+
+		if (this.estado == Estado.COLOCACION && barcosSinColocar != 0) {
+			if (array[0] + 1 <= 4) {
+				if (casillas[array[0]][array[1]].getBarco() == null
+						&& casillas[array[0] + 1][array[1]].getBarco() == null) {
 					casillas[array[0]][array[1]].setBarco(barcos.get(barco));
-					casillas[array[0]+1][array[1]].setBarco(barcos.get(barco));
-					Button boton1=(Button)findViewById(view.getId());
-					Button boton2=obtenerBotonAbajo(array[0]+1,array[1]);
+					casillas[array[0] + 1][array[1]]
+							.setBarco(barcos.get(barco));
+					Button boton1 = (Button) findViewById(view.getId());
+					Button boton2 = obtenerBotonAbajo(array[0] + 1, array[1]);
 					boton1.setBackgroundResource(R.drawable.barcovertical1);
 					boton2.setBackgroundResource(R.drawable.barcovertical2);
 					barco++;
@@ -120,7 +122,7 @@ public class JuegoFacil extends Activity {
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
-		barcos = creaBarcos(15);
+		barcos = creaBarcos(5);
 		this.partida = new Partida(5, 5, new IAFacil(), barcos);
 	}
 
@@ -138,16 +140,65 @@ public class JuegoFacil extends Activity {
 			setContentView(R.layout.activity_tablero_jugador);
 			botonesJugador = ((RelativeLayout) findViewById(R.id.panelFacilJugador))
 					.getTouchables();
-			for(View boton : botonesJugador){
-				if(boton.getTag() != null && !boton.getTag().equals("cambioLayout"))
-				boton.setBackgroundColor(Color.TRANSPARENT);
+			for (View boton : botonesJugador) {
+				if (boton.getTag() != null
+						&& !boton.getTag().equals("cambioLayout")) {
+					boton.setBackgroundColor(Color.TRANSPARENT);
+					boton.setEnabled(false);
+				}
 			}
-			
+			pintarCasillas(casillasJugador);
 			break;
 		case TABLERO_JUGADOR:
 			setContentView(R.layout.activity_coloca_barcos);
+			pintarCasillas(casillasDelRival);
 			break;
 		}
+	}
+
+	private void pintarCasillas(Casilla[][] casillas) {
+		for (int i = 0; i < casillas.length; i++)
+			for (int j = 0; j < casillas[0].length; j++) {
+				Casilla casillaActual = casillas[i][j];
+				String tagCasillaActual = Traductor.traducirALaInversa(i, j);
+				Casilla casillaAbajo = null;
+				Casilla casillaArriba = null;
+				if (i < 4)
+					casillaAbajo = casillas[i + 1][j];
+				if (i != 0)
+					casillaArriba = casillas[i - 1][j];
+				pintarSegunLayout(casillaActual, tagCasillaActual,
+						casillaAbajo, casillaArriba);
+			}
+	}
+
+	private void pintarSegunLayout(Casilla casillaActual,
+			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba) {
+
+		if (currentLayout == TABLERO_JUGADOR)
+			if (casillaActual.getBarco() != null) {
+				for (View boton : botonesJugador) {
+					if (boton.getTag() != null
+							&& boton.getTag().equals(tagCasillaActual)) {
+						if (casillaAbajo != null
+								&& casillaAbajo.getBarco() != null
+								&& casillaAbajo.getBarco().getId() == casillaActual
+										.getBarco().getId())
+							boton.setBackgroundResource(R.drawable.barcovertical1);
+						if (casillaArriba != null
+								&& casillaArriba.getBarco() != null
+								&& casillaArriba.getBarco().getId() == casillaActual
+										.getBarco().getId())
+							boton.setBackgroundResource(R.drawable.barcovertical2);
+					}
+				}
+			}
+		if (currentLayout == TABLERO_RIVAL)
+			if (casillaActual.estaTocada())
+				for (View boton : botonesEnemigo)
+					if (boton.getTag() != null
+							&& boton.getTag().equals(tagCasillaActual))
+						boton.setBackgroundColor(Color.TRANSPARENT);
 	}
 
 	@Override
