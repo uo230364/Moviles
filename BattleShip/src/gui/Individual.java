@@ -25,7 +25,7 @@ public class Individual extends Activity implements OnInitListener{
 	
 	private Partida partida;
 	private int barcosSinColocar=15;
-	private int jugadasDisponibles=30;
+	private int jugadasDisponibles=25;
 	private int barcosSinHundir=15;
 	private Vibrator vibrator;
 	private TextView restantes;
