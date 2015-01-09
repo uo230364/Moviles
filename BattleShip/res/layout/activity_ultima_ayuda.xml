@@ -14,7 +14,7 @@
         android:layout_marginBottom="26dp"
         android:layout_marginLeft="17dp"
         android:background="@drawable/botonatras"
-        android:onClick="terceraAyuda"/>
+        android:onClick="atrasAyuda"/>
 
     <Button
         android:id="@+id/btVuelveMenu"
@@ -25,6 +25,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="24dp"
         android:background="@drawable/botonalante" 
-        android:onClick="vuelveMenu"/>
+        android:onClick="masAyuda"/>
 
 </RelativeLayout>

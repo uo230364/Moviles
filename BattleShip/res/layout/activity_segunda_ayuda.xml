@@ -14,7 +14,7 @@
         android:layout_marginBottom="23dp"
         android:layout_marginLeft="18dp"
         android:background="@drawable/botonatras"
-        android:onClick="primeraAyuda"
+        android:onClick="atrasAyuda"
     />
 
     <Button
@@ -25,6 +25,6 @@
         android:layout_alignParentRight="true"
         android:layout_marginRight="26dp"
         android:background="@drawable/botonalante"
-        android:onClick="terceraAyuda"/>
+        android:onClick="masAyuda"/>
 
 </RelativeLayout>
