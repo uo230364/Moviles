@@ -25,7 +25,7 @@ public class Individual extends Activity implements OnInitListener{
 	
 	private Partida partida;
 	private int barcosSinColocar=15;
-	private int jugadasDisponibles=200;
+	private int jugadasDisponibles=30;
 	private int barcosSinHundir=15;
 	private Vibrator vibrator;
 	private TextView restantes;
@@ -68,7 +68,10 @@ public class Individual extends Activity implements OnInitListener{
 			}
 			jugadasDisponibles--;
 			restantes.setText(String.valueOf(jugadasDisponibles));
-		}		
+			if (jugadasDisponibles==0 && !partidaGanada())
+				tts.speak("Has perdido,  prueba suerte otra vez", TextToSpeech.QUEUE_ADD,null);
+		}	
+		
 	}
 	
 	private void colocaBarcos(){
