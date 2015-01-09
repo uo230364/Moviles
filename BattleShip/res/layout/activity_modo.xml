@@ -12,7 +12,8 @@
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="158dp"
-        android:background="@drawable/botonindividual" />
+        android:background="@drawable/botonindividual" 
+        android:onClick="individual"/>
 
     <Button
         android:id="@+id/btclasico"
