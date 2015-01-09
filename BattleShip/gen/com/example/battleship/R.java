@@ -170,6 +170,8 @@ public final class R {
     }
     public static final class raw {
         public static final int bensound=0x7f040000;
+        public static final int bomb=0x7f040001;
+        public static final int splash=0x7f040002;
     }
     public static final class string {
         public static final int A1=0x7f050011;

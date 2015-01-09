@@ -9,10 +9,12 @@ import logica.IA.IAFacil;
 import logica.modelo.Barco;
 import logica.modelo.Casilla;
 import logica.modelo.Partida;
+import util.SoundManager;
 import util.Traductor;
 import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
+import android.media.AudioManager;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.speech.tts.TextToSpeech;
@@ -30,13 +32,19 @@ public class Individual extends Activity implements OnInitListener{
 	private int barcosSinHundir=15;
 	private Vibrator vibrator;
 	private TextView restantes;
+	private int water,bomb;
 	
 	private TextToSpeech tts;
+	private SoundManager sound;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_individual);
+		sound=new SoundManager(getApplicationContext());
+		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
+		water=sound.load(R.raw.splash);
+		bomb=sound.load(R.raw.bomb);
 		crearPartida();
 		colocaBarcos();
 		vibrator=(Vibrator)this.getSystemService(Context.VIBRATOR_SERVICE);
@@ -55,12 +63,15 @@ public class Individual extends Activity implements OnInitListener{
 		int[] array=Traductor.traducir(identificador);
 		if (jugadasDisponibles!=0 && !partidaGanada()){	
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])){
-				if(casillas[array[0]][array[1]].getBarco()==null)
+				if(casillas[array[0]][array[1]].getBarco()==null){
 					view.setBackgroundColor(Color.TRANSPARENT);
+					sound.play(water);
+				}
 				else{
 					view.setBackgroundResource(R.drawable.bomba);
 					barcosSinHundir--;
 					vibrator.vibrate(500);
+					sound.play(bomb);
 					if (partidaGanada()){
 						tts.speak("Has descubierto todos los barcos, enhorabuena!",TextToSpeech.QUEUE_ADD,null);
 						finish();
