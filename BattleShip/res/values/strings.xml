@@ -15,5 +15,7 @@
     <string name="title_activity_juego_dificil">JuegoDificil</string>
     <string name="title_activity_modo">Modo</string>
     <string name="title_activity_individual">Individual</string>
+    <string name="tablero_enemigo">Tablero enemigo</string>
+    <string name="tablero_jugador">Tu tablero</string>
 
 </resources>
