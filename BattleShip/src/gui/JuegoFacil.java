@@ -111,4 +111,8 @@ public class JuegoFacil extends Activity {
 		}
 		return barcos;
 	}
+	
+	public void cambioLayout(View view){
+		setContentView(R.layout.activity_tablero_jugador);
+	}
 }
