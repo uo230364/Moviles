@@ -13,5 +13,6 @@
     <string name="title_activity_coloca_barcos">ColocaBarcos</string>
     <string name="title_activity_juego_medio">JuegoMedio</string>
     <string name="title_activity_juego_dificil">JuegoDificil</string>
+    <string name="title_activity_modo">Modo</string>
 
 </resources>

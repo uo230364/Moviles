@@ -24,7 +24,7 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="184dp"
         android:background="@drawable/botonjugar"
-        android:onClick="seleccionNivel"
+        android:onClick="seleccionModo"
     />
 
     <Button
