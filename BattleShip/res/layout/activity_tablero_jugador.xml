@@ -275,16 +275,6 @@
         android:tag="A1" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/a3"
-        android:layout_alignLeft="@+id/a1"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/botonbarco"
-        android:tag="salir" />
-
-    <Button
         android:id="@+id/d5"
         android:layout_width="57dp"
         android:layout_height="57dp"
@@ -307,13 +297,13 @@
         android:tag="E5" />
 
     <Button
-        android:id="@+id/empezar"
+        android:id="@+id/cambiarVista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/e2"
-        android:layout_toRightOf="@+id/button1"
-        android:background="@drawable/botonjugar" 
-        android:onClick="empezarAJugar"
-        android:tag="jugar"/>
+        android:layout_above="@+id/a4"
+        android:layout_alignRight="@+id/a5"
+        android:layout_marginBottom="25dp"
+        android:background="@drawable/botonreanudar"
+        android:onClick="cambioLayout" />
 
 </RelativeLayout>
