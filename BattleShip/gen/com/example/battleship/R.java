@@ -160,6 +160,7 @@ public final class R {
         public static final int title_activity_coloca_barcos=0x7f050009;
         public static final int title_activity_juego_dificil=0x7f05000b;
         public static final int title_activity_juego_medio=0x7f05000a;
+        public static final int title_activity_modo=0x7f05000c;
         public static final int title_activity_nivel=0x7f050008;
         public static final int title_activity_segunda_ayuda=0x7f050005;
         public static final int title_activity_tercera_ayuda=0x7f050006;

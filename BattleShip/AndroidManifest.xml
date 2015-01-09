@@ -59,6 +59,11 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
         <activity
+            android:name="gui.Modo"
+            android:label="@string/title_activity_modo"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+        </activity>
+        <activity
             android:name="gui.JuegoDificil"
             android:label="@string/title_activity_juego_dificil" 
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
