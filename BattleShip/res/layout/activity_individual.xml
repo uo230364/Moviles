@@ -690,9 +690,8 @@
         android:id="@+id/remainingShoots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/jugadas"
-        android:layout_alignLeft="@+id/Button05"
-        android:text="Large Text"
+        android:layout_above="@+id/Button05"
+        android:layout_toLeftOf="@+id/Button02"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

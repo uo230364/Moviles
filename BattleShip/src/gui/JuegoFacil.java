@@ -25,7 +25,7 @@ import com.example.battleship.R;
 	private Estado estado=Estado.COLOCACION;
 	private Partida partida;
 	private int barco=0;
-	private int barcosSinColocar=5;
+	private int barcosSinColocar=6;
 	private List<View> allButtons;
 
 	@Override

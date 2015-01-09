@@ -35,8 +35,9 @@
         android:layout_alignBaseline="@+id/Button01"
         android:layout_alignBottom="@+id/Button01"
         android:layout_toRightOf="@+id/Button01"
-         android:onClick="jugadaRealizada"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="jugadaRealizada"
+        android:tag="A3" />
 
     <Button
         android:id="@+id/Button05"
@@ -476,8 +477,9 @@
         android:layout_height="37dp"
         android:layout_below="@+id/Button39"
         android:layout_toRightOf="@+id/Button39"
-         android:onClick="jugadaRealizada"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="jugadaRealizada"
+        android:tag="G4" />
 
     <Button
         android:id="@+id/Button29"
@@ -505,8 +507,9 @@
         android:layout_height="37dp"
         android:layout_above="@+id/Button32"
         android:layout_toLeftOf="@+id/Button38"
-         android:onClick="jugadaRealizada"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="jugadaRealizada"
+        android:tag="F3" />
 
     <Button
         android:id="@+id/Button30"
@@ -514,8 +517,10 @@
         android:layout_height="37dp"
         android:layout_below="@+id/Button38"
         android:layout_toRightOf="@+id/Button38"
-         android:onClick="jugadaRealizada"
-        android:background="@drawable/botonpeq" />
+        android:background="@drawable/botonpeq"
+        android:onClick="jugadaRealizada"
+        android:tag="G5" />
+
     <Button
         android:id="@+id/empezar"
         android:layout_width="wrap_content"
