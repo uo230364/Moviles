@@ -21,6 +21,12 @@ public class Modo extends Activity {
 		finish();
 	}
 	
+	public void individual (View view){
+		Intent mIntent=new Intent(Modo.this,Individual.class);
+		startActivity(mIntent);
+		finish();
+	}
+	
 	@Override
 	public void onBackPressed() {
 		finish();
