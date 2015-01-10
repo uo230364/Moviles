@@ -35,7 +35,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	private int barcosSinColocar = 6;
 	private List<View> allButtons;
 	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
-	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador;
+	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
 	private static int currentLayout;
 	private TextToSpeech tts;
 
@@ -177,7 +177,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	public void cambioLayout(View view) {
 		switch (currentLayout) {
 		case TABLERO_RIVAL:
-			setContentView(R.layout.activity_tablero_jugador);
+			setContentView(R.layout.activity_tablero_jugador_facil);
 			pintarCasillas(getCasillasJugador());
 			break;
 		case TABLERO_JUGADOR:
