@@ -84,10 +84,10 @@ public class JuegoMedio extends Activity implements OnInitListener {
 
 		if (this.estado == Estado.COLOCACION) {
 			if (barcosSinColocar != 0) {
-				if (array[0] + 1 <= 6) {
+				
 					if (casillas[array[0]][array[1]].getBarco() == null) {
 						if (barcosSinColocar <= 3
-								&& casillas[array[0]][array[1] + 1].getBarco() == null) {
+								&& casillas[array[0]][array[1] + 1].getBarco() == null && (array[0] + 1 <= 6) ) {
 							casillas[array[0]][array[1]]
 									.setBarco(barcos.get(barco));
 							casillas[array[0]][array[1]+1].setBarco(barcos
@@ -100,7 +100,8 @@ public class JuegoMedio extends Activity implements OnInitListener {
 									array[1] + 1);
 							boton1.setBackgroundResource(R.drawable.barcohorizontal1);
 							boton2.setBackgroundResource(R.drawable.barcohorizontal2);
-						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null) {
+						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null
+			 					&& (array[1] + 1 <= 6)) {
 							casillas[array[0]][array[1]]
 									.setBarco(barcos.get(barco));
 							casillas[array[0] + 1][array[1]].setBarco(barcos
@@ -117,7 +118,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 						barco++;
 						barcosSinColocar--;
 				}
-				}
+				
 			} else {
 				Toast toast = Toast
 						.makeText(
