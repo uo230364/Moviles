@@ -207,7 +207,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 					}
 				} else {
 					if (casillaActual.estaTocada())
-						boton.setBackgroundResource(R.drawable.bomba);
+						boton.setBackgroundResource(R.drawable.botonagua);
 				}
 			}
 		// }
