@@ -1,4 +1,3 @@
-
 package gui;
 
 import java.util.ArrayList;
@@ -15,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
+import android.widget.Toast;
 
 import com.example.battleship.R;
 
@@ -60,15 +60,28 @@ public class JuegoMedio extends Activity {
 					casillas[array[0]][array[1]].setBarco(barcos.get(barco));
 					casillas[array[0]+1][array[1]].setBarco(barcos.get(barco));
 					Button boton1=(Button)findViewById(view.getId());
-					Button boton2=obtenerBotonAbajo(array[0]+1,array[1]);
-					boton1.setBackgroundResource(R.drawable.barcovertical1);
-				    boton2.setBackgroundResource(R.drawable.barcovertical2);
+					if(barcosSinColocar<=3 && casillas[array[0]][array[1]+1].getBarco()==null ){
+						Button boton2=obtenerBotonDerecha(array[0],array[1]+1);
+						boton1.setBackgroundResource(R.drawable.barcohorizontal1);
+						boton2.setBackgroundResource(R.drawable.barcohorizontal2);
+						
+					}
+					else {
+						Button boton2=obtenerBotonAbajo(array[0]+1,array[1]);
+						boton1.setBackgroundResource(R.drawable.barcovertical1);
+						boton2.setBackgroundResource(R.drawable.barcovertical2);
+					}
+					
+					
+				    
 					barco++;
 					barcosSinColocar--;
 					
 					if (barcosSinColocar==0){
 						this.estado=Estado.JUEGO;
 						partida.colocarBarcosDelRival();
+						Toast toast = Toast.makeText(this, "Ya colocaste todos tus barcos. Pulsa JUGAR para comenzar", Toast.LENGTH_SHORT);
+				        toast.show(); 
 					}
 				}
 			}				
@@ -83,6 +96,8 @@ public class JuegoMedio extends Activity {
 				partida.efectuarDisparoDelRival();
 			}
 		}
+		
+		//Probandooooo
 	};
 	
 	private Button obtenerBotonAbajo(int fila, int columna){
@@ -96,10 +111,22 @@ public class JuegoMedio extends Activity {
 		}
 		return botton;
 	}
+	private Button obtenerBotonDerecha(int fila, int columna){
+		String id=Traductor.traducirALaInversa(fila, columna);
+		Button botton=null;
+		for (View button: allButtons){
+			if (button.getTag().toString().equals(id)){
+				botton=(Button)button;
+				break;
+			}
+		}
+		return botton;
+	}
+	
 	
 	private void crearPartida (){
 		List<Barco>barcos=new ArrayList<Barco>();
-		barcos=creaBarcos(6);
+		barcos=creaBarcos(7);
 		this.partida=new Partida(7,7,new IAMedio(),barcos);
 	}
 	
@@ -111,5 +138,7 @@ public class JuegoMedio extends Activity {
 		return barcos;
 	}
 }
+
+
 
 
