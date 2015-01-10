@@ -40,6 +40,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	private int barco = 0;
 	private int barcosSinColocar = 5;
 	private static int currentLayout;
+	
 	private TextToSpeech tts;
 
 	private int water, bomb;
