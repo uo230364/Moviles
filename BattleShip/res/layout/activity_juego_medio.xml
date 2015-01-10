@@ -525,9 +525,11 @@
         android:id="@+id/empezar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/button1"
-        android:background="@drawable/botonjugar" 
+        android:layout_alignLeft="@+id/Button33"
+        android:layout_below="@+id/Button33"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/botonjugar"
         android:onClick="empezarAJugar"
-        android:tag="jugar"/>
+        android:tag="jugar" />
 
 </RelativeLayout>

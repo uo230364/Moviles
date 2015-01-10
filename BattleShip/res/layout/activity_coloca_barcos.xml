@@ -307,16 +307,6 @@
         android:tag="salir" />
 
     <Button
-        android:id="@+id/empezar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/e2"
-        android:layout_toRightOf="@+id/button1"
-        android:background="@drawable/botonjugar" 
-        android:onClick="empezarAJugar"
-        android:tag="jugar"/>
-
-    <Button
         android:id="@+id/cambiarVista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -333,5 +323,33 @@
         android:layout_centerHorizontal="true"
         android:text="@string/tablero_enemigo"
         android:textAppearance="?android:attr/textAppearanceMedium" />
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:onClick="paraMusica" 
+        android:background="@drawable/botonmusica"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:background="@drawable/botonsonido"
+        android:onClick="paraEfectos" />
+
+    <Button
+        android:id="@+id/empezar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignRight="@+id/TextView01"
+        android:layout_below="@+id/e1"
+        android:background="@drawable/botonjugar"
+        android:onClick="empezarAJugar"
+        android:tag="jugar" />
 
 </RelativeLayout>

@@ -37,6 +37,7 @@ public class Individual extends Activity implements OnInitListener{
 	
 	private TextToSpeech tts;
 	private SoundManager sound;
+	private boolean sonido=true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -66,13 +67,13 @@ public class Individual extends Activity implements OnInitListener{
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])){
 				if(casillas[array[0]][array[1]].getBarco()==null){
 					view.setBackgroundColor(Color.TRANSPARENT);
-					sound.play(water);
+					if (sonido)sound.play(water);
 				}
 				else{
 					view.setBackgroundResource(R.drawable.bomba);
 					barcosSinHundir--;
 					vibrator.vibrate(500);
-					sound.play(bomb);
+					if (sonido)sound.play(bomb);
 					if (partidaGanada()){
 						tts.speak("Has descubierto todos los barcos, enhorabuena!",TextToSpeech.QUEUE_ADD,null);
 						finish();
@@ -134,6 +135,12 @@ public class Individual extends Activity implements OnInitListener{
 	
 	private boolean partidaGanada(){
 		return barcosSinHundir==0;
+	}
+	
+	public void pausaEfectos(View view){
+		if (sonido)
+			sonido=false;
+		else sonido=true;
 	}
 	
 	@Override
