@@ -11,8 +11,12 @@ public class AyudaComienza extends Activity {
 	private final static int PRIMERA_AYUDA = R.layout.activity_ayuda;
 	private final static int SEGUNDA_AYUDA = R.layout.activity_segunda_ayuda;
 	private final static int TERCERA_AYUDA = R.layout.activity_tercera_ayuda;
-	private final static int CUARTA_AYUDA = R.layout.activity_ultima_ayuda;
+	private final static int CUARTA_AYUDA = R.layout.activity_cuarta_ayuda;
+	private final static int QUINTA_AYUDA = R.layout.activity_quinta_ayuda;
+	private final static int SEXTA_AYUDA = R.layout.activity_sexta_ayuda;
+	private final static int SEPTIMA_AYUDA= R.layout.activity_septima_ayuda;
 	private static int currentLayout;
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -34,8 +38,19 @@ public class AyudaComienza extends Activity {
 		case CUARTA_AYUDA:
 			setContentView(R.layout.activity_tercera_ayuda);
 			break;
+		case QUINTA_AYUDA:
+			setContentView(R.layout.activity_cuarta_ayuda);
+			break;
+		case SEXTA_AYUDA:
+			setContentView(R.layout.activity_quinta_ayuda);
+			break;
+		case SEPTIMA_AYUDA:
+			setContentView(R.layout.activity_sexta_ayuda);
+			break;
 		}
 	}
+		
+	
 
 	public void masAyuda(View view) {
 		switch (currentLayout) {
@@ -46,9 +61,18 @@ public class AyudaComienza extends Activity {
 			setContentView(R.layout.activity_tercera_ayuda);
 			break;
 		case TERCERA_AYUDA:
-			setContentView(R.layout.activity_ultima_ayuda);
+			setContentView(R.layout.activity_cuarta_ayuda);
 			break;
 		case CUARTA_AYUDA:
+			setContentView(R.layout.activity_quinta_ayuda);
+			break;
+		case QUINTA_AYUDA:
+			setContentView(R.layout.activity_sexta_ayuda);
+			break;
+		case SEXTA_AYUDA:
+			setContentView(R.layout.activity_septima_ayuda);
+			break;
+		case SEPTIMA_AYUDA:
 			setContentView(R.layout.activity_ayuda);
 			break;
 		}

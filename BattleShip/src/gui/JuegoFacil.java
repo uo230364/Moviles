@@ -26,15 +26,14 @@ import com.example.battleship.R;
 @SuppressLint("DefaultLocale")
 public class JuegoFacil extends Activity implements OnInitListener {
 
-	private Button cambioLayout;
-
+	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
+	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador;
 	private enum Estado {
 		COLOCACION, JUEGO
 	}
-
-	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
-	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador;
-
+	
+	private Button cambioLayout;
+	private boolean sonido=true;
 	private Estado estado = Estado.COLOCACION;
 	private Partida partida;
 
@@ -116,16 +115,17 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			}
 		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
-					sound.play(water);
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
+					if (sonido)sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
-				} else {
-					sound.play(bomb);
+				}
+				else{
+					if (sonido)sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
 					if (partida.haGanadoElJugador())
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
-				}
+			}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
 					tts.speak("Has perdido, prueba otra vez",
@@ -133,7 +133,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			}
 		}
 
-	};
+	}
 
 	private Button obtenerBotonAbajo(int fila, int columna) {
 		String id = Traductor.traducirALaInversa(fila, columna);
@@ -207,7 +207,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 					}
 				} else {
 					if (casillaActual.estaTocada())
-						boton.setBackgroundResource(R.drawable.bomba);
+						boton.setBackgroundResource(R.drawable.botonagua);
 				}
 			}
 		// }
@@ -263,6 +263,15 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	private List<View> getBotonesRival() {
 		return ((RelativeLayout) findViewById(R.id.panelFacilEnemigo))
 				.getTouchables();
+	}
+	
+	public void paraMusica(View view){
+		Inicial.paraReproduceMusica(view);
+	}
+	
+	public void paraEfectos(View view){
+		if (sonido)sonido=false;
+		else sonido=true;
 	}
 
 	@Override

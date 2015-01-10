@@ -667,16 +667,6 @@
         android:tag="I7" 
         android:onClick="buscando"/>
 
-    <Button
-        android:id="@+id/btMusicaIndividual"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:background="@drawable/botonmusica" 
-        android:onClick="pararMusica"
-       />
-
     <TextView
         android:id="@+id/jugadas"
         android:layout_width="wrap_content"
@@ -686,12 +676,33 @@
         android:text="@string/jugadas"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_alignRight="@+id/Button59"
+        android:background="@drawable/botonsonido"
+        android:onClick="pausaEfectos" />
+
+    <Button
+        android:id="@+id/btMusicaIndividual"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignRight="@+id/Button61"
+        android:layout_marginBottom="30dp"
+        android:background="@drawable/botonmusica"
+        android:onClick="pararMusica" />
+
     <TextView
         android:id="@+id/remainingShoots"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/Button05"
-        android:layout_toLeftOf="@+id/Button02"
+        android:layout_alignBottom="@+id/jugadas"
+        android:layout_alignRight="@+id/Button05"
+        android:layout_toRightOf="@+id/jugadas"
         android:textAppearance="?android:attr/textAppearanceLarge" />
 
 </RelativeLayout>

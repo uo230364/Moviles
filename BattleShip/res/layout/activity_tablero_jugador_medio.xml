@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/panelFacilEnemigo"
+    android:id="@+id/panelFacilJugador"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
@@ -14,8 +14,8 @@
         android:layout_alignParentTop="true"
         android:layout_marginLeft="20dp"
         android:layout_marginTop="104dp"
-        android:background="@drawable/boton"
-        android:hint="@string/A1"
+        android:background="#00000000"
+        android:hint="A1"
         android:onClick="jugadaRealizada"
         android:tag="A1" />
     
@@ -26,8 +26,8 @@
         android:layout_alignBaseline="@+id/a1"
         android:layout_alignBottom="@+id/a1"
         android:layout_toRightOf="@+id/a1"
-        android:background="@drawable/boton"
-        android:hint="@string/A2"
+        android:background="#00000000"
+        android:hint="A2"
         android:onClick="jugadaRealizada"
         android:tag="A2" />
     
@@ -37,8 +37,8 @@
         android:layout_height="57dp"
         android:layout_above="@+id/b3"
         android:layout_toRightOf="@+id/b2"
-        android:background="@drawable/boton"
-        android:hint="@string/A3"
+        android:background="#00000000"
+        android:hint="A3"
         android:onClick="jugadaRealizada"
         android:tag="A3" />
 
@@ -48,8 +48,8 @@
         android:layout_height="57dp"
         android:layout_alignBottom="@+id/a2"
         android:layout_toRightOf="@+id/a3"
-        android:background="@drawable/boton"
-        android:hint="@string/A4"
+        android:background="#00000000"
+        android:hint="A4"
         android:onClick="jugadaRealizada"
         android:tag="A4" />
 
@@ -59,8 +59,8 @@
         android:layout_height="57dp"
         android:layout_alignBottom="@+id/a2"
         android:layout_toRightOf="@+id/a4"
-        android:background="@drawable/boton"
-        android:hint="@string/A5"
+        android:background="#00000000"
+        android:hint="A5"
         android:onClick="jugadaRealizada"
         android:tag="A5" />
 
@@ -70,8 +70,8 @@
         android:layout_height="57dp"
         android:layout_below="@+id/a2"
         android:layout_toLeftOf="@+id/a2"
-        android:background="@drawable/boton"
-        android:hint="@string/B1"
+        android:background="#00000000"
+        android:hint="B1"
         android:onClick="jugadaRealizada"
         android:tag="B1" />
     
@@ -82,8 +82,8 @@
         android:layout_alignBaseline="@+id/b1"
         android:layout_alignBottom="@+id/b1"
         android:layout_alignLeft="@+id/a2"
-        android:background="@drawable/boton"
-        android:hint="@string/B2"
+        android:background="#00000000"
+        android:hint="B2"
         android:onClick="jugadaRealizada"
         android:tag="B2" />
 
@@ -94,8 +94,8 @@
         android:layout_alignBaseline="@+id/b2"
         android:layout_alignBottom="@+id/b2"
         android:layout_toRightOf="@+id/a2"
-        android:background="@drawable/boton"
-        android:hint="@string/B3"
+        android:background="#00000000"
+        android:hint="B3"
         android:onClick="jugadaRealizada"
         android:tag="B3" />
 
@@ -106,8 +106,8 @@
         android:layout_alignBaseline="@+id/b3"
         android:layout_alignBottom="@+id/b3"
         android:layout_toLeftOf="@+id/a5"
-        android:background="@drawable/boton"
-        android:hint="@string/B4"
+        android:background="#00000000"
+        android:hint="B4"
         android:onClick="jugadaRealizada"
         android:tag="B4" />
 
@@ -118,8 +118,8 @@
         android:layout_alignBaseline="@+id/b4"
         android:layout_alignBottom="@+id/b4"
         android:layout_toRightOf="@+id/b4"
-        android:background="@drawable/boton"
-        android:hint="@string/B5"
+        android:background="#00000000"
+        android:hint="B5"
         android:onClick="jugadaRealizada"
         android:tag="B5" />
 
@@ -129,8 +129,8 @@
         android:layout_height="57dp"
         android:layout_below="@+id/b1"
         android:layout_toLeftOf="@+id/b2"
-        android:background="@drawable/boton"
-        android:hint="@string/C1"
+        android:background="#00000000"
+        android:hint="C1"
         android:onClick="jugadaRealizada"
         android:tag="C1" />
 
@@ -141,8 +141,8 @@
         android:layout_alignBaseline="@+id/c1"
         android:layout_alignBottom="@+id/c1"
         android:layout_toLeftOf="@+id/a3"
-        android:background="@drawable/boton"
-        android:hint="@string/C2"
+        android:background="#00000000"
+        android:hint="C2"
         android:onClick="jugadaRealizada"
         android:tag="C2" />
 
@@ -153,8 +153,8 @@
         android:layout_alignBaseline="@+id/c2"
         android:layout_alignBottom="@+id/c2"
         android:layout_toLeftOf="@+id/b4"
-        android:background="@drawable/boton"
-        android:hint="@string/C3"
+        android:background="#00000000"
+        android:hint="C3"
         android:onClick="jugadaRealizada"
         android:tag="C3" />
 
@@ -165,8 +165,8 @@
         android:layout_alignBaseline="@+id/c3"
         android:layout_alignBottom="@+id/c3"
         android:layout_toLeftOf="@+id/b5"
-        android:background="@drawable/boton"
-        android:hint="@string/C4"
+        android:background="#00000000"
+        android:hint="C4"
         android:onClick="jugadaRealizada"
         android:tag="C4" />
 
@@ -177,8 +177,8 @@
         android:layout_alignBaseline="@+id/c4"
         android:layout_alignBottom="@+id/c4"
         android:layout_toRightOf="@+id/c4"
-        android:background="@drawable/boton"
-        android:hint="@string/C5"
+        android:background="#00000000"
+        android:hint="C5"
         android:onClick="jugadaRealizada"
         android:tag="C5" />
 
@@ -188,8 +188,8 @@
         android:layout_height="57dp"
         android:layout_below="@+id/c1"
         android:layout_toLeftOf="@+id/c2"
-        android:background="@drawable/boton"
-        android:hint="@string/D1"
+        android:background="#00000000"
+        android:hint="D1"
         android:onClick="jugadaRealizada"
         android:tag="D1" />
 
@@ -199,8 +199,8 @@
         android:layout_height="57dp"
         android:layout_below="@+id/c2"
         android:layout_toLeftOf="@+id/c3"
-        android:background="@drawable/boton"
-        android:hint="@string/D2"
+        android:background="#00000000"
+        android:hint="D2"
         android:onClick="jugadaRealizada"
         android:tag="D2" />
 
@@ -211,8 +211,8 @@
         android:layout_alignBaseline="@+id/d2"
         android:layout_alignBottom="@+id/d2"
         android:layout_toLeftOf="@+id/c4"
-        android:background="@drawable/boton"
-        android:hint="@string/D3"
+        android:background="#00000000"
+        android:hint="D3"
         android:onClick="jugadaRealizada"
         android:tag="D3" />
 
@@ -223,8 +223,8 @@
         android:layout_alignBaseline="@+id/d3"
         android:layout_alignBottom="@+id/d3"
         android:layout_toLeftOf="@+id/c5"
-        android:background="@drawable/boton"
-        android:hint="@string/D4"
+        android:background="#00000000"
+        android:hint="D4"
         android:onClick="jugadaRealizada"
         android:tag="D4" />
     
@@ -234,8 +234,8 @@
         android:layout_height="57dp"
         android:layout_above="@+id/e4"
         android:layout_alignLeft="@+id/c5"
-        android:background="@drawable/boton"
-        android:hint="@string/D5"
+        android:background="#00000000"
+        android:hint="D5"
         android:onClick="jugadaRealizada"
         android:tag="D5" />
 
@@ -245,8 +245,8 @@
         android:layout_height="57dp"
         android:layout_below="@+id/d1"
         android:layout_toLeftOf="@+id/d2"
-        android:background="@drawable/boton"
-        android:hint="@string/E1"
+        android:background="#00000000"
+        android:hint="E1"
         android:onClick="jugadaRealizada"
         android:tag="E1" />
 
@@ -257,8 +257,8 @@
         android:layout_alignBaseline="@+id/e1"
         android:layout_alignBottom="@+id/e1"
         android:layout_alignLeft="@+id/d2"
-        android:background="@drawable/boton"
-        android:hint="@string/E2"
+        android:background="#00000000"
+        android:hint="E2"
         android:onClick="jugadaRealizada"
         android:tag="E2" />
 
@@ -269,8 +269,8 @@
         android:layout_alignBaseline="@+id/e2"
         android:layout_alignBottom="@+id/e2"
         android:layout_toLeftOf="@+id/d4"
-        android:background="@drawable/boton"
-        android:hint="@string/E3"
+        android:background="#00000000"
+        android:hint="E3"
         android:onClick="jugadaRealizada"
         android:tag="E3" />
 
@@ -280,76 +280,40 @@
         android:layout_height="57dp"
         android:layout_below="@+id/d4"
         android:layout_toLeftOf="@+id/d5"
-        android:background="@drawable/boton"
-        android:hint="@string/E4"
+        android:background="#00000000"
+        android:hint="E4"
         android:onClick="jugadaRealizada"
         android:tag="E4" />
-    
+
     <Button
         android:id="@+id/e5"
         android:layout_width="57dp"
         android:layout_height="57dp"
         android:layout_alignLeft="@+id/d5"
         android:layout_below="@+id/d5"
-        android:background="@drawable/boton"
-        android:hint="@string/E5"
+        android:background="#00000000"
+        android:hint="E5"
         android:onClick="jugadaRealizada"
         android:tag="E5" />
-
-    <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/a3"
-        android:layout_alignLeft="@+id/a1"
-        android:layout_marginBottom="25dp"
-        android:background="@drawable/botonbarco"
-        android:tag="salir" />
 
     <Button
         android:id="@+id/cambiarVista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_above="@+id/a4"
         android:layout_alignRight="@+id/a5"
+        android:layout_marginBottom="25dp"
         android:background="@drawable/botonreanudar"
-        android:onClick="cambioLayout"/>
+        android:onClick="cambioLayout"
+        android:tag="cambioLayout"/>
 
     <TextView
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/cambiarVista"
         android:layout_centerHorizontal="true"
-        android:text="@string/tablero_enemigo"
+        android:text="@string/tablero_jugador"
         android:textAppearance="?android:attr/textAppearanceMedium" />
-
-    <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:onClick="paraMusica" 
-        android:background="@drawable/botonmusica"/>
-
-    <Button
-        android:id="@+id/button3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:background="@drawable/botonsonido"
-        android:onClick="paraEfectos" />
-
-    <Button
-        android:id="@+id/empezar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignRight="@+id/TextView01"
-        android:layout_below="@+id/e1"
-        android:background="@drawable/botonjugar"
-        android:onClick="empezarAJugar"
-        android:tag="jugar" />
 
 </RelativeLayout>
