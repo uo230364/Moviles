@@ -17,7 +17,8 @@
         <activity
             android:name="gui.Inicial"
             android:label="@string/app_name"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -27,52 +28,62 @@
         <activity
             android:name="gui.AyudaComienza"
             android:label="@string/title_activity_ayuda"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.SegundaAyuda"
             android:label="@string/title_activity_segunda_ayuda"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.TerceraAyuda"
             android:label="@string/title_activity_tercera_ayuda"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.UltimaAyuda"
             android:label="@string/title_activity_ultima_ayuda"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.Nivel"
             android:label="@string/title_activity_nivel"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.JuegoFacil"
             android:label="@string/title_activity_coloca_barcos"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.JuegoMedio"
             android:label="@string/title_activity_juego_medio" 
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.Modo"
             android:label="@string/title_activity_modo"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
 		</activity>
         <activity
             android:name="gui.JuegoDificil"
             android:label="@string/title_activity_juego_dificil" 
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
         </activity>
         <activity
             android:name="gui.Individual"
             android:label="@string/title_activity_individual"
-            android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen"
+            android:screenOrientation="portrait">
         </activity>
     </application>
 

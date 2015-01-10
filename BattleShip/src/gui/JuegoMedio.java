@@ -15,6 +15,7 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -41,6 +42,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 
 	private int water, bomb;
 	private SoundManager sound;
+	private boolean sonido=true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -86,20 +88,23 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			if (barcosSinColocar != 0) {
 				
 					if (casillas[array[0]][array[1]].getBarco() == null) {
-						if (barcosSinColocar <= 3
-								&& casillas[array[0]][array[1] + 1].getBarco() == null && (array[0] + 1 <= 6) ) {
-							casillas[array[0]][array[1]]
-									.setBarco(barcos.get(barco));
-							casillas[array[0]][array[1]+1].setBarco(barcos
-									.get(barco));
-							casillasQueOcupa[0] = casillas[array[0]][array[1]];
-							casillasQueOcupa[1] = casillas[array[0]][array[1]+1];
-							barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
-							Button boton1 = (Button) findViewById(view.getId());
-							Button boton2 = obtenerBotonDerecha(array[0],
-									array[1] + 1);
-							boton1.setBackgroundResource(R.drawable.barcohorizontal1);
-							boton2.setBackgroundResource(R.drawable.barcohorizontal2);
+						if (barcosSinColocar <= 3 && array[1] + 1 <= 6){
+							if(casillas[array[0]][array[1] + 1].getBarco() == null)  {
+								casillas[array[0]][array[1]]
+										.setBarco(barcos.get(barco));
+								casillas[array[0]][array[1]+1].setBarco(barcos
+										.get(barco));
+								casillasQueOcupa[0] = casillas[array[0]][array[1]];
+								casillasQueOcupa[1] = casillas[array[0]][array[1]+1];
+								barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+								Button boton1 = (Button) findViewById(view.getId());
+								Button boton2 = obtenerBotonDerecha(array[0],
+										array[1] + 1);
+								boton1.setBackgroundResource(R.drawable.barcohorizontal1);
+								boton2.setBackgroundResource(R.drawable.barcohorizontal2);
+								barco++;
+								barcosSinColocar--;
+							}
 						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null
 			 					&& (array[1] + 1 <= 6)) {
 							casillas[array[0]][array[1]]
@@ -114,9 +119,10 @@ public class JuegoMedio extends Activity implements OnInitListener {
 									array[1]);
 							boton1.setBackgroundResource(R.drawable.barcovertical1);
 							boton2.setBackgroundResource(R.drawable.barcovertical2);
+							barco++;
+							barcosSinColocar--;
 						}
-						barco++;
-						barcosSinColocar--;
+						
 				}
 				
 			} else {
@@ -129,16 +135,17 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			}
 		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
-					sound.play(water);
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
+					if (sonido)sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
-				} else {
-					sound.play(bomb);
+				}
+				else{
+					if (sonido)sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
 					if (partida.haGanadoElJugador())
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
-				}
+			}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
 					tts.speak("Has perdido, prueba otra vez",
@@ -146,9 +153,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			}
 		}
 
-	};
-
-	// Probandooooo
+	}
 
 	private Button obtenerBotonAbajo(int fila, int columna) {
 		String id = Traductor.traducirALaInversa(fila, columna);
@@ -186,6 +191,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			deshabilitarBotonJugar();
 			break;
 		}
+		Log.i("cambio0","cambio");
 	}
 
 	private void deshabilitarBotonJugar() {
@@ -247,9 +253,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 						boton.setBackgroundResource(R.drawable.botonagua);
 				}
 			}
-		// }
 		if (currentLayout == TABLERO_RIVAL) {
-			// for (View boton : getBotonesRival()) {
 			if (boton.getTag() != null) {
 				if (casillaActual.estaTocada()) {
 					if (casillaActual.getBarco() != null)
@@ -258,7 +262,6 @@ public class JuegoMedio extends Activity implements OnInitListener {
 						boton.setBackgroundColor(Color.TRANSPARENT);
 				}
 			}
-			// }
 		}
 	}
 
@@ -282,7 +285,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
-		barcos = creaBarcos(7);
+		barcos = creaBarcos(6);
 		this.partida = new Partida(7, 7, new IAMedio(), barcos);
 	}
 
@@ -294,9 +297,16 @@ public class JuegoMedio extends Activity implements OnInitListener {
 		return barcos;
 	}
 
+	public void paraMusica (View view){
+		Inicial.paraReproduceMusica(view);
+	}
+	
+	public void paraEfecto(View view){
+		if (sonido)sonido=false;
+		else sonido=true;
+	}
 	@Override
 	public void onInit(int status) {
-		// TODO Auto-generated method stub
 
 	}
 

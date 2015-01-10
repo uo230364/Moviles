@@ -48,14 +48,22 @@ public class IAMedio implements IA {
 			throw new IllegalStateException(
 					"No hay mas casillas para disparar en el tablero del jugador.");
 		Random rand = new Random();
-		Casilla casilla;
+		Casilla casilla=casillasSinDispararDelJugador.get(0);
 		if (rand.nextInt(2) == 0) {
-
-			casilla = casillasSinDispararDelJugador.remove(rand
+			/*casilla = casillasSinDispararDelJugador.remove(rand
 					.nextInt(casillasSinDispararDelJugador.size()));
+			casillasConBarco.remove(casilla);*/
+			
+			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
+			while(casilla.estaTocada())
+				casilla=casillasSinDispararDelJugador.get(rand.nextInt(casillasSinDispararDelJugador.size()));
+			casillasSinDispararDelJugador.remove(casilla);
 			casillasConBarco.remove(casilla);
 		} else {
-			casilla = casillasConBarco.remove(0);
+			
+			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
+			while(casilla.estaTocada())
+				casilla = casillasConBarco.remove(0);		
 			casillasSinDispararDelJugador.remove(casilla);
 		}
 		if (casilla.estaTocada())
@@ -75,6 +83,7 @@ public class IAMedio implements IA {
 			if (colocarBarco(barcosSinColocar.get(0), tablero))
 				barcosSinColocar.remove(0); // TODO testear
 		}
+		setCasillasConBarco(tablero);
 	}
 
 	/**
