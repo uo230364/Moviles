@@ -23,6 +23,7 @@ public class IAMedio implements IA {
 
 	public IAMedio(Tablero tablero) {
 		setTableroDelJugador(tablero);
+		setCasillasConBarco(tablero);
 	}
 
 	public void setTableroDelJugador(Tablero tablero) {

@@ -1,6 +1,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-     android:id="@+id/panelMedio"
+     android:id="@+id/panelMedioRival"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/fondo"
@@ -521,13 +521,33 @@
         android:onClick="jugadaRealizada"
         android:tag="G5" />
 
+    <TextView
+        android:id="@+id/TextView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/button1"
+        android:layout_centerHorizontal="true"
+        android:text="@string/tablero_enemigo"
+        android:textAppearance="?android:attr/textAppearanceMedium" />
+
     <Button
         android:id="@+id/empezar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/button1"
-        android:background="@drawable/botonjugar" 
+        android:layout_below="@+id/Button33"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/botonjugar"
         android:onClick="empezarAJugar"
-        android:tag="jugar"/>
+        android:tag="jugar" />
+
+    <Button
+        android:id="@+id/cambiarVista"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignRight="@+id/Button02"
+        android:background="@drawable/botonreanudar"
+        android:onClick="cambioLayout" />
 
 </RelativeLayout>
