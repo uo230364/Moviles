@@ -184,7 +184,7 @@ public final class R {
         public static final int activity_segunda_ayuda=0x7f03000a;
         public static final int activity_septima_ayuda=0x7f03000b;
         public static final int activity_sexta_ayuda=0x7f03000c;
-        public static final int activity_tablero_jugador=0x7f03000d;
+        public static final int activity_tablero_jugador_facil=0x7f03000d;
         public static final int activity_tablero_jugador_medio=0x7f03000e;
         public static final int activity_tercera_ayuda=0x7f03000f;
         public static final int activity_ultima_ayuda=0x7f030010;
