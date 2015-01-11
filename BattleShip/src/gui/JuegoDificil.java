@@ -3,7 +3,7 @@ package gui;
 import java.util.ArrayList;
 import java.util.List;
 
-import logica.IA.IAFacil;
+import logica.IA.IADificil;
 import logica.modelo.Barco;
 import logica.modelo.Casilla;
 import logica.modelo.Partida;
@@ -27,13 +27,14 @@ import com.example.battleship.R;
 public class JuegoDificil extends Activity implements OnInitListener {
 
 	private Button cambioLayout;
+	private static final int ALTO_ANCHO_TABLERO = 7;
 
 	private enum Estado {
 		COLOCACION, JUEGO
 	}
 
-	private static final int TABLERO_RIVAL = R.layout.activity_juego_facil;
-	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
+	private static final int TABLERO_RIVAL = R.layout.activity_juego_dificil;
+	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_medio;
 
 	private Estado estado = Estado.COLOCACION;
 	private Partida partida;
@@ -42,9 +43,12 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	private int barcosSinColocar = 6;
 	private static int currentLayout;
 	private TextToSpeech tts;
+	
+	private List<View> allButtons;
 
 	private int water, bomb;
 	private SoundManager sound;
+	private boolean sonido=true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +61,8 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		bomb = sound.load(R.raw.bomb);
 
 		crearPartida();
+		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo ))
+				.getTouchables();
 
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
@@ -75,13 +81,13 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			}
 			findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 			cambioLayout.setVisibility(Button.VISIBLE);
+			partida.getRival().setTableroDelJugador(partida.getTableroDelJugador());
 		}
 	}
 
 	public void jugadaRealizada(View view) {
 
-		String identificador = getResources()
-				.getResourceEntryName(view.getId()).toUpperCase();
+		String identificador = view.getTag().toString();
 		int[] array = Traductor.traducir(identificador);
 		Casilla[][] casillas = partida.getTableroDelJugador().getCasillas();
 		List<Barco> barcos = partida.getTableroDelJugador().getBarcos();
@@ -89,50 +95,72 @@ public class JuegoDificil extends Activity implements OnInitListener {
 
 		if (this.estado == Estado.COLOCACION) {
 			if (barcosSinColocar != 0) {
-				if (array[0] + 1 <= 5) {
-					if (casillas[array[0]][array[1]].getBarco() == null
-							&& casillas[array[0] + 1][array[1]].getBarco() == null) {
-						casillas[array[0]][array[1]]
-								.setBarco(barcos.get(barco));
-						casillas[array[0] + 1][array[1]].setBarco(barcos
-								.get(barco));
-						Button boton1 = (Button) findViewById(view.getId());
-						Button boton2 = obtenerBotonAbajo(array[0] + 1,
-								array[1]);
-						casillasQueOcupa[0] = casillas[array[0]][array[1]];
-						casillasQueOcupa[1] = casillas[array[0] + 1][array[1]];
-						barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
-						boton1.setBackgroundResource(R.drawable.barcovertical1);
-						boton2.setBackgroundResource(R.drawable.barcovertical2);
-						barco++;
-						barcosSinColocar--;
-					}
+				
+					if (casillas[array[0]][array[1]].getBarco() == null) {
+						if (barcosSinColocar <= 3 && array[1] + 1 <= 6){
+							if(casillas[array[0]][array[1] + 1].getBarco() == null)  {
+								casillas[array[0]][array[1]]
+										.setBarco(barcos.get(barco));
+								casillas[array[0]][array[1]+1].setBarco(barcos
+										.get(barco));
+								casillasQueOcupa[0] = casillas[array[0]][array[1]];
+								casillasQueOcupa[1] = casillas[array[0]][array[1]+1];
+								barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+								Button boton1 = (Button) findViewById(view.getId());
+								Button boton2 = obtenerBotonDerecha(array[0],
+										array[1] + 1);
+								boton1.setBackgroundResource(R.drawable.barcohorizontal1);
+								boton2.setBackgroundResource(R.drawable.barcohorizontal2);
+								barco++;
+								barcosSinColocar--;
+							}
+						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null
+			 					&& (array[1] + 1 <= 6)) {
+							casillas[array[0]][array[1]]
+									.setBarco(barcos.get(barco));
+							casillas[array[0] + 1][array[1]].setBarco(barcos
+									.get(barco));
+							casillasQueOcupa[0] = casillas[array[0]][array[1]];
+							casillasQueOcupa[1] = casillas[array[0] + 1][array[1]];
+							barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+							Button boton1 = (Button) findViewById(view.getId());
+							Button boton2 = obtenerBotonAbajo(array[0] + 1,
+									array[1]);
+							boton1.setBackgroundResource(R.drawable.barcovertical1);
+							boton2.setBackgroundResource(R.drawable.barcovertical2);
+							barco++;
+							barcosSinColocar--;
+						}
+						
 				}
+				
 			} else {
-				Toast.makeText(
-						this,
-						"Ya estan puestos todos los barcos, dale al boton Jugar para comenzar",
-						Toast.LENGTH_LONG).show();
+				Toast toast = Toast
+						.makeText(
+								this,
+								"Ya colocaste todos tus barcos. Pulsa JUGAR para comenzar",
+								Toast.LENGTH_SHORT);
+				toast.show();
 			}
 		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
-					sound.play(water);
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
+					if (sonido)sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
-				} else {
-					sound.play(bomb);
+				}
+				else{
+					if (sonido)sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
 					if (partida.haGanadoElJugador())
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
-				}
+			}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
 			}
 		}
-
 	};
 
 	private Button obtenerBotonAbajo(int fila, int columna) {
@@ -146,11 +174,23 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		}
 		return botton;
 	}
+	
+	private Button obtenerBotonDerecha(int fila, int columna) {
+		String id = Traductor.traducirALaInversa(fila, columna);
+		Button botton = null;
+		for (View button : allButtons) {
+			if (button.getTag().toString().equals(id)) {
+				botton = (Button) button;
+				break;
+			}
+		}
+		return botton;
+	}
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
 		barcos = creaBarcos(6);
-		this.partida = new Partida(7, 7, new IAFacil(), barcos);
+		this.partida = new Partida(7, 7, new IADificil(), barcos);
 	}
 
 	private List<Barco> creaBarcos(int numeroDeBarcos) {
@@ -164,11 +204,11 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	public void cambioLayout(View view) {
 		switch (currentLayout) {
 		case TABLERO_RIVAL:
-			setContentView(R.layout.activity_tablero_jugador_facil);
+			setContentView(R.layout.activity_tablero_jugador_medio);
 			pintarCasillas(getCasillasJugador());
 			break;
 		case TABLERO_JUGADOR:
-			setContentView(R.layout.activity_juego_facil);
+			setContentView(R.layout.activity_juego_dificil);
 			pintarCasillas(getCasillasRival());
 			deshabilitarBotonJugar();
 			break;
@@ -182,21 +222,26 @@ public class JuegoDificil extends Activity implements OnInitListener {
 				String tagCasillaActual = Traductor.traducirALaInversa(i, j);
 				Casilla casillaAbajo = null;
 				Casilla casillaArriba = null;
-				if (i < 4)
+				Casilla casillaIzquierda = null;
+				Casilla casillaDerecha = null;
+				if (i < ALTO_ANCHO_TABLERO - 1)
 					casillaAbajo = casillas[i + 1][j];
 				if (i != 0)
 					casillaArriba = casillas[i - 1][j];
+				if (j != 0)
+					casillaIzquierda = casillas[i][j - 1];
+				if (j < ALTO_ANCHO_TABLERO - 1)
+					casillaDerecha = casillas[i][j + 1];
 				pintarSegunLayout(casillaActual, tagCasillaActual,
-						casillaAbajo, casillaArriba);
+						casillaAbajo, casillaArriba, casillaIzquierda, casillaDerecha);
 			}
 	}
 
 	private void pintarSegunLayout(Casilla casillaActual,
-			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba) {
+			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba, Casilla casillaIzquierda, Casilla casillaDerecha) {
 		Button boton = (Button) getWindow().getDecorView().findViewWithTag(
 				tagCasillaActual);
-		if (currentLayout == TABLERO_JUGADOR)
-			// for (View boton : botonesJugador) {
+		if (currentLayout == TABLERO_JUGADOR){
 			if (boton.getTag() != null) {
 				if (casillaActual.getBarco() != null) {
 					if (casillaActual.estaTocada())
@@ -204,15 +249,17 @@ public class JuegoDificil extends Activity implements OnInitListener {
 					else {
 						dibujarBarcoAbajo(casillaActual, casillaAbajo, boton);
 						dibujarBarcoArriba(casillaActual, casillaArriba, boton);
+						dibujarBarcoIzquierda(casillaActual, casillaIzquierda, boton);
+						dibujarBarcoDerecha(casillaActual, casillaDerecha, boton);
 					}
 				} else {
 					if (casillaActual.estaTocada())
 						boton.setBackgroundResource(R.drawable.botonagua);
 				}
 			}
-		// }
+			boton.setEnabled(false);
+		}
 		if (currentLayout == TABLERO_RIVAL) {
-			// for (View boton : getBotonesRival()) {
 			if (boton.getTag() != null) {
 				if (casillaActual.estaTocada()) {
 					if (casillaActual.getBarco() != null)
@@ -221,7 +268,6 @@ public class JuegoDificil extends Activity implements OnInitListener {
 						boton.setBackgroundColor(Color.TRANSPARENT);
 				}
 			}
-			// }
 		}
 	}
 	
@@ -239,6 +285,24 @@ public class JuegoDificil extends Activity implements OnInitListener {
 				&& casillaArriba.getBarco().getId() == casillaActual
 						.getBarco().getId())
 			boton.setBackgroundResource(R.drawable.barcovertical2);
+	}
+	
+	private void dibujarBarcoIzquierda(Casilla casillaActual, Casilla casillaIzquierda,
+			Button boton) {
+		if (casillaIzquierda != null
+				&& casillaIzquierda.getBarco() != null
+				&& casillaIzquierda.getBarco().getId() == casillaActual.getBarco()
+						.getId())
+			boton.setBackgroundResource(R.drawable.barcohorizontal2);
+	}
+	
+	private void dibujarBarcoDerecha(Casilla casillaActual, Casilla casillaDerecha,
+			Button boton) {
+		if (casillaDerecha != null
+				&& casillaDerecha.getBarco() != null
+				&& casillaDerecha.getBarco().getId() == casillaActual.getBarco()
+						.getId())
+			boton.setBackgroundResource(R.drawable.barcohorizontal1);
 	}
 
 	private void deshabilitarBotonJugar() {
@@ -261,8 +325,17 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	}
 
 	private List<View> getBotonesRival() {
-		return ((RelativeLayout) findViewById(R.id.panelFacilEnemigo))
+		return ((RelativeLayout) findViewById(R.id.panelDificilEnemigo))
 				.getTouchables();
+	}
+	
+	public void paraMusica(View view){
+		Inicial.paraReproduceMusica(view);
+	}
+	
+	public void paraEfectos(View view){
+		if (sonido)sonido=false;
+		else sonido=true;
 	}
 
 	@Override

@@ -81,7 +81,7 @@ public class Partida {
 		return tableroDelJugador.estanTodosLosBarcosHundidos();
 	}
 	
-	public boolean partidaTerminada() //TODO métodos temporales, echarle un ojo a esto
+	public boolean partidaTerminada()
 	{
 		return haGanadoElJugador() || haGanadoElRival();
 	}

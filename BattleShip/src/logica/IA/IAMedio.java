@@ -23,7 +23,6 @@ public class IAMedio implements IA {
 
 	public IAMedio(Tablero tablero) {
 		setTableroDelJugador(tablero);
-//		setCasillasConBarco(tablero);
 	}
 
 	public void setTableroDelJugador(Tablero tablero) {
@@ -38,14 +37,6 @@ public class IAMedio implements IA {
 		}
 	}
 
-//	public void setCasillasConBarco(Tablero tablero) {
-//		for (Casilla[] casillas : tablero.getCasillas()) {
-//			for (Casilla casilla : casillas)
-//				if(casilla.getBarco() != null)
-//					casillasConBarco.add(casilla);
-//		}
-//	}
-
 	@Override
 	public Casilla proximaCasillaADisparar() {
 		if (casillasSinDispararDelJugador.size() == 0)
@@ -55,16 +46,11 @@ public class IAMedio implements IA {
 		int randNum = rand.nextInt(2);
 		Casilla casilla = null;
 		if (randNum == 0) {
-			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
-//			while(casilla.estaTocada())
 				casilla = casillasSinDispararDelJugador.get(rand.nextInt(casillasSinDispararDelJugador.size()));
 				casillasSinDispararDelJugador.remove(casilla);
 				if(casilla.getBarco() != null)
 					casillasConBarco.remove(casilla);
 		} else {
-			
-			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
-//			while(casilla.estaTocada())
 			casilla = casillasConBarco.remove(0);		
 			casillasSinDispararDelJugador.remove(casilla);
 		}
@@ -83,9 +69,8 @@ public class IAMedio implements IA {
 		}
 		while (barcosSinColocar.size() != 0) {
 			if (colocarBarco(barcosSinColocar.get(0), tablero))
-				barcosSinColocar.remove(0); // TODO testear
+				barcosSinColocar.remove(0); 
 		}
-//		setCasillasConBarco(tablero);
 	}
 
 	/**

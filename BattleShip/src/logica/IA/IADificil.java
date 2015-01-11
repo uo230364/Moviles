@@ -28,17 +28,13 @@ public class IADificil implements IA {
 
 	public void setTableroDelJugador(Tablero tablero) {
 		Casilla[][] tablero2 = tablero.getCasillas();
+		casillasSinDispararDelJugador.clear();
 		for (Casilla[] casillas : tablero2) {
 			for (Casilla casilla : casillas) {
 				casillasSinDispararDelJugador.add(casilla);
+				if(casilla.getBarco() != null)
+					casillasConBarco.add(casilla);
 			}
-		}
-	}
-
-	public void setCasillasConBarco(Tablero tablero) {
-		for (Barco barco : tablero.getBarcos()) {
-			for (Casilla casilla : barco.getCasillasQueOcupa())
-				casillasConBarco.add(casilla);
 		}
 	}
 

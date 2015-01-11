@@ -15,7 +15,6 @@ import android.media.AudioManager;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.speech.tts.TextToSpeech.OnInitListener;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RelativeLayout;
@@ -51,7 +50,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_juego_medio);
 		crearPartida();
-		allButtons = ((RelativeLayout) findViewById(R.id.panelMedioRival ))
+		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo ))
 				.getTouchables();
 		sound = new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -196,7 +195,6 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			deshabilitarBotonJugar();
 			break;
 		}
-		Log.i("cambio0","cambio");
 	}
 
 	private void deshabilitarBotonJugar() {
@@ -219,7 +217,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	}
 
 	private List<View> getBotonesRival() {
-		return ((RelativeLayout) findViewById(R.id.panelMedioRival))
+		return ((RelativeLayout) findViewById(R.id.panelDificilEnemigo))
 				.getTouchables();
 	}
 

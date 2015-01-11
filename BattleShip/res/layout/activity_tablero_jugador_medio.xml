@@ -15,7 +15,7 @@
         android:layout_marginLeft="20dp"
         android:layout_marginTop="104dp"
         android:background="#00000000"
-        android:hint="A1"
+        android:hint="@string/A1"
         android:onClick="jugadaRealizada"
         android:tag="A1" />
 
@@ -27,7 +27,7 @@
         android:layout_alignBottom="@+id/a1"
         android:layout_toRightOf="@+id/a1"
         android:background="#00000000"
-        android:hint="A2"
+        android:hint="@string/A2"
         android:onClick="jugadaRealizada"
         android:tag="A2" />
 
@@ -38,7 +38,7 @@
         android:layout_above="@+id/b3"
         android:layout_toRightOf="@+id/b2"
         android:background="#00000000"
-        android:hint="A3"
+        android:hint="@string/A3"
         android:onClick="jugadaRealizada"
         android:tag="A3" />
 
@@ -49,7 +49,7 @@
         android:layout_alignBottom="@+id/a2"
         android:layout_toRightOf="@+id/a3"
         android:background="#00000000"
-        android:hint="A4"
+        android:hint="@string/A4"
         android:onClick="jugadaRealizada"
         android:tag="A4" />
 
@@ -60,7 +60,7 @@
         android:layout_alignBottom="@+id/a2"
         android:layout_toRightOf="@+id/a4"
         android:background="#00000000"
-        android:hint="A5"
+        android:hint="@string/A5"
         android:onClick="jugadaRealizada"
         android:tag="A5" />
 
@@ -71,7 +71,7 @@
         android:layout_below="@+id/cambiarVista"
         android:layout_toLeftOf="@+id/a7"
         android:background="#00000000"
-        android:hint="A6"
+        android:hint="@string/A6"
         android:onClick="jugadaRealizada"
         android:tag="A6" />
 
@@ -82,7 +82,7 @@
         android:layout_above="@+id/b7"
         android:layout_toRightOf="@+id/b6"
         android:background="#00000000"
-        android:hint="A7"
+        android:hint="@string/A7"
         android:onClick="jugadaRealizada"
         android:tag="A7" />
 
@@ -93,7 +93,7 @@
         android:layout_below="@+id/a2"
         android:layout_toLeftOf="@+id/a2"
         android:background="#00000000"
-        android:hint="B1"
+        android:hint="@string/B1"
         android:onClick="jugadaRealizada"
         android:tag="B1" />
 
@@ -105,7 +105,7 @@
         android:layout_alignBottom="@+id/b1"
         android:layout_alignLeft="@+id/a2"
         android:background="#00000000"
-        android:hint="B2"
+        android:hint="@string/B2"
         android:onClick="jugadaRealizada"
         android:tag="B2" />
 
@@ -117,7 +117,7 @@
         android:layout_alignBottom="@+id/b2"
         android:layout_toRightOf="@+id/a2"
         android:background="#00000000"
-        android:hint="B3"
+        android:hint="@string/B3"
         android:onClick="jugadaRealizada"
         android:tag="B3" />
 
@@ -129,7 +129,7 @@
         android:layout_alignBottom="@+id/b3"
         android:layout_toLeftOf="@+id/a5"
         android:background="#00000000"
-        android:hint="B4"
+        android:hint="@string/B4"
         android:onClick="jugadaRealizada"
         android:tag="B4" />
 
@@ -141,7 +141,7 @@
         android:layout_alignBottom="@+id/b4"
         android:layout_toRightOf="@+id/b4"
         android:background="#00000000"
-        android:hint="B5"
+        android:hint="@string/B5"
         android:onClick="jugadaRealizada"
         android:tag="B5" />
 
@@ -152,7 +152,7 @@
         android:layout_below="@+id/a5"
         android:layout_toRightOf="@+id/a5"
         android:background="#00000000"
-        android:hint="B6"
+        android:hint="@string/B6"
         android:onClick="jugadaRealizada"
         android:tag="B6" />
 
@@ -163,7 +163,7 @@
         android:layout_above="@+id/c5"
         android:layout_toRightOf="@+id/d6"
         android:background="#00000000"
-        android:hint="B7"
+        android:hint="@string/B7"
         android:onClick="jugadaRealizada"
         android:tag="B7" />
 
@@ -174,7 +174,7 @@
         android:layout_below="@+id/b1"
         android:layout_toLeftOf="@+id/b2"
         android:background="#00000000"
-        android:hint="C1"
+        android:hint="@string/C1"
         android:onClick="jugadaRealizada"
         android:tag="C1" />
 
@@ -186,7 +186,7 @@
         android:layout_alignBottom="@+id/c1"
         android:layout_toLeftOf="@+id/a3"
         android:background="#00000000"
-        android:hint="C2"
+        android:hint="@string/C2"
         android:onClick="jugadaRealizada"
         android:tag="C2" />
 
@@ -198,7 +198,7 @@
         android:layout_alignBottom="@+id/c2"
         android:layout_toLeftOf="@+id/b4"
         android:background="#00000000"
-        android:hint="C3"
+        android:hint="@string/C3"
         android:onClick="jugadaRealizada"
         android:tag="C3" />
 
@@ -210,7 +210,7 @@
         android:layout_alignBottom="@+id/c3"
         android:layout_toLeftOf="@+id/b5"
         android:background="#00000000"
-        android:hint="C4"
+        android:hint="@string/C4"
         android:onClick="jugadaRealizada"
         android:tag="C4" />
 
@@ -222,7 +222,7 @@
         android:layout_alignBottom="@+id/c4"
         android:layout_toRightOf="@+id/c4"
         android:background="#00000000"
-        android:hint="C5"
+        android:hint="@string/C5"
         android:onClick="jugadaRealizada"
         android:tag="C5" />
 
@@ -233,7 +233,7 @@
         android:layout_below="@+id/b5"
         android:layout_toRightOf="@+id/b5"
         android:background="#00000000"
-        android:hint="C6"
+        android:hint="@string/C6"
         android:onClick="jugadaRealizada"
         android:tag="C6" />
 
@@ -244,7 +244,7 @@
         android:layout_below="@+id/b7"
         android:layout_toRightOf="@+id/b6"
         android:background="#00000000"
-        android:hint="C7"
+        android:hint="@string/C7"
         android:onClick="jugadaRealizada"
         android:tag="C7" />
 
@@ -255,7 +255,7 @@
         android:layout_below="@+id/c1"
         android:layout_toLeftOf="@+id/c2"
         android:background="#00000000"
-        android:hint="D1"
+        android:hint="@string/D1"
         android:onClick="jugadaRealizada"
         android:tag="D1" />
 
@@ -266,7 +266,7 @@
         android:layout_below="@+id/c2"
         android:layout_toLeftOf="@+id/c3"
         android:background="#00000000"
-        android:hint="D2"
+        android:hint="@string/D2"
         android:onClick="jugadaRealizada"
         android:tag="D2" />
 
@@ -278,7 +278,7 @@
         android:layout_alignBottom="@+id/d2"
         android:layout_toLeftOf="@+id/c4"
         android:background="#00000000"
-        android:hint="D3"
+        android:hint="@string/D3"
         android:onClick="jugadaRealizada"
         android:tag="D3" />
 
@@ -290,7 +290,7 @@
         android:layout_alignBottom="@+id/d3"
         android:layout_toLeftOf="@+id/c5"
         android:background="#00000000"
-        android:hint="D4"
+        android:hint="@string/D4"
         android:onClick="jugadaRealizada"
         android:tag="D4" />
 
@@ -301,7 +301,7 @@
         android:layout_above="@+id/e4"
         android:layout_alignLeft="@+id/c5"
         android:background="#00000000"
-        android:hint="D5"
+        android:hint="@string/D5"
         android:onClick="jugadaRealizada"
         android:tag="D5" />
 
@@ -312,7 +312,7 @@
         android:layout_below="@+id/c5"
         android:layout_toRightOf="@+id/c5"
         android:background="#00000000"
-        android:hint="D6"
+        android:hint="@string/D6"
         android:onClick="jugadaRealizada"
         android:tag="D6" />
 
@@ -323,7 +323,7 @@
         android:layout_above="@+id/e5"
         android:layout_toRightOf="@+id/b6"
         android:background="#00000000"
-        android:hint="D7"
+        android:hint="@string/D7"
         android:onClick="jugadaRealizada"
         android:tag="D7" />
 
@@ -334,7 +334,7 @@
         android:layout_below="@+id/d1"
         android:layout_toLeftOf="@+id/d2"
         android:background="#00000000"
-        android:hint="E1"
+        android:hint="@string/E1"
         android:onClick="jugadaRealizada"
         android:tag="E1" />
 
@@ -346,7 +346,7 @@
         android:layout_alignBottom="@+id/e1"
         android:layout_alignLeft="@+id/d2"
         android:background="#00000000"
-        android:hint="E2"
+        android:hint="@string/E2"
         android:onClick="jugadaRealizada"
         android:tag="E2" />
 
@@ -358,7 +358,7 @@
         android:layout_alignBottom="@+id/e2"
         android:layout_toLeftOf="@+id/d4"
         android:background="#00000000"
-        android:hint="E3"
+        android:hint="@string/E3"
         android:onClick="jugadaRealizada"
         android:tag="E3" />
 
@@ -369,7 +369,7 @@
         android:layout_below="@+id/d4"
         android:layout_toLeftOf="@+id/d5"
         android:background="#00000000"
-        android:hint="E4"
+        android:hint="@string/E4"
         android:onClick="jugadaRealizada"
         android:tag="E4" />
 
@@ -380,7 +380,7 @@
         android:layout_alignLeft="@+id/d5"
         android:layout_below="@+id/d5"
         android:background="#00000000"
-        android:hint="E5"
+        android:hint="@string/E5"
         android:onClick="jugadaRealizada"
         android:tag="E5" />
 
@@ -392,7 +392,7 @@
         android:layout_alignBottom="@+id/e5"
         android:layout_toLeftOf="@+id/d7"
         android:background="#00000000"
-        android:hint="E6"
+        android:hint="@string/E6"
         android:onClick="jugadaRealizada"
         android:tag="E6" />
 
@@ -403,7 +403,7 @@
         android:layout_alignLeft="@+id/d7"
         android:layout_below="@+id/d7"
         android:background="#00000000"
-        android:hint="E7"
+        android:hint="@string/E7"
         android:onClick="jugadaRealizada"
         android:tag="E7" />
 
@@ -434,7 +434,7 @@
         android:layout_below="@+id/e1"
         android:layout_toLeftOf="@+id/e2"
         android:background="#00000000"
-        android:hint="F1"
+        android:hint="@string/F1"
         android:onClick="jugadaRealizada"
         android:tag="F1" />
 
@@ -446,7 +446,7 @@
         android:layout_alignBottom="@+id/Button04"
         android:layout_toLeftOf="@+id/e3"
         android:background="#00000000"
-        android:hint="F2"
+        android:hint="@string/F2"
         android:onClick="jugadaRealizada"
         android:tag="F2" />
 
@@ -457,7 +457,7 @@
         android:layout_below="@+id/e2"
         android:layout_toRightOf="@+id/e2"
         android:background="#00000000"
-        android:hint="F3"
+        android:hint="@string/F3"
         android:onClick="jugadaRealizada"
         android:tag="F3" />
 
@@ -468,7 +468,7 @@
         android:layout_below="@+id/e3"
         android:layout_toRightOf="@+id/e3"
         android:background="#00000000"
-        android:hint="F4"
+        android:hint="@string/F4"
         android:onClick="jugadaRealizada"
         android:tag="F4" />
 
@@ -479,7 +479,7 @@
         android:layout_below="@+id/e4"
         android:layout_toRightOf="@+id/e4"
         android:background="#00000000"
-        android:hint="F5"
+        android:hint="@string/F5"
         android:onClick="jugadaRealizada"
         android:tag="F5" />
 
@@ -490,7 +490,7 @@
         android:layout_below="@+id/e5"
         android:layout_toRightOf="@+id/e5"
         android:background="#00000000"
-        android:hint="F6"
+        android:hint="@string/F6"
         android:onClick="jugadaRealizada"
         android:tag="F6" />
 
@@ -501,7 +501,7 @@
         android:layout_below="@+id/e6"
         android:layout_toRightOf="@+id/e6"
         android:background="#00000000"
-        android:hint="F7"
+        android:hint="@string/F7"
         android:onClick="jugadaRealizada"
         android:tag="F7" />
 
@@ -512,7 +512,7 @@
         android:layout_below="@+id/Button04"
         android:layout_toLeftOf="@+id/Button02"
         android:background="#00000000"
-        android:hint="G1"
+        android:hint="@string/G1"
         android:onClick="jugadaRealizada"
         android:tag="G1" />
 
@@ -523,7 +523,7 @@
         android:layout_below="@+id/Button04"
         android:layout_toRightOf="@+id/Button04"
         android:background="#00000000"
-        android:hint="G2"
+        android:hint="@string/G2"
         android:onClick="jugadaRealizada"
         android:tag="G2" />
 
@@ -534,7 +534,7 @@
         android:layout_below="@+id/Button02"
         android:layout_toRightOf="@+id/Button02"
         android:background="#00000000"
-        android:hint="G3"
+        android:hint="@string/G3"
         android:onClick="jugadaRealizada"
         android:tag="G3" />
 
@@ -545,7 +545,7 @@
         android:layout_below="@+id/Button09"
         android:layout_toRightOf="@+id/Button09"
         android:background="#00000000"
-        android:hint="G4"
+        android:hint="@string/G4"
         android:onClick="jugadaRealizada"
         android:tag="G4" />
 
@@ -556,7 +556,7 @@
         android:layout_below="@+id/Button07"
         android:layout_toRightOf="@+id/Button07"
         android:background="#00000000"
-        android:hint="G5"
+        android:hint="@string/G5"
         android:onClick="jugadaRealizada"
         android:tag="G5" />
 
@@ -567,7 +567,7 @@
         android:layout_below="@+id/Button13"
         android:layout_toRightOf="@+id/Button13"
         android:background="#00000000"
-        android:hint="G6"
+        android:hint="@string/G6"
         android:onClick="jugadaRealizada"
         android:tag="G6" />
 
@@ -578,7 +578,7 @@
         android:layout_below="@+id/Button11"
         android:layout_toRightOf="@+id/Button11"
         android:background="#00000000"
-        android:hint="G7"
+        android:hint="@string/G7"
         android:onClick="jugadaRealizada"
         android:tag="G7" />
 
