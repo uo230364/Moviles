@@ -13,6 +13,9 @@ public class Nivel extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_nivel);
+		
+		if (!Inicial.obtenerReproductor().isPlaying())
+			findViewById(R.id.btMusicaNivel).setBackgroundResource(R.drawable.botonmusicaquitado);
 	}
 	
 	public void pararMusica(View view){

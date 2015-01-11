@@ -7,6 +7,7 @@ import android.content.SharedPreferences.Editor;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 
 import com.example.battleship.R;
 
@@ -14,7 +15,8 @@ public class Inicial extends Activity {
 	
 	private static MediaPlayer mediaPlayer;
 	private static SharedPreferences preferences;
-
+	private static Button musica;
+	
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,6 +29,7 @@ public class Inicial extends Activity {
 	    mediaPlayer.setVolume(100, 100);
 	    if(preferences.getBoolean("reproductor", false));
 	    	mediaPlayer.start();
+	    musica=(Button)findViewById(R.id.btMusica);
     }
     
     public void cargaAyuda (View view){
@@ -46,11 +49,17 @@ public class Inicial extends Activity {
     	if(mediaPlayer.isPlaying()){
     		mediaPlayer.pause();
     		editor.putBoolean("reproductor", false);
+    		view.setBackgroundResource(R.drawable.botonmusicaquitado);
+    		musica.setBackgroundResource(R.drawable.botonmusicaquitado);
+    		
     	} else {
     		mediaPlayer.start();
     		editor.putBoolean("reproductor", true);
+    		view.setBackgroundResource(R.drawable.botonmusica);
+    		musica.setBackgroundResource(R.drawable.botonmusica);
     	}
     	editor.commit();
+    	
     }
 
 	@Override
@@ -62,5 +71,9 @@ public class Inicial extends Activity {
     
     public static void pararReproductor(){
     	mediaPlayer.stop();
+    }
+    
+    public static MediaPlayer obtenerReproductor(){
+    	return mediaPlayer;
     }
 }

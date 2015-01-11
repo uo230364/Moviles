@@ -53,6 +53,8 @@ public class Individual extends Activity implements OnInitListener{
 		this.restantes=(TextView)findViewById(R.id.remainingShoots);
 		restantes.setText(String.valueOf(jugadasDisponibles));
 		tts=new TextToSpeech(this, this);
+		if (!Inicial.obtenerReproductor().isPlaying())
+			findViewById(R.id.btMusicaIndividual).setBackgroundResource(R.drawable.botonmusicaquitado);
 	}
 	
 	public void pararMusica(View view){
@@ -138,9 +140,14 @@ public class Individual extends Activity implements OnInitListener{
 	}
 	
 	public void pausaEfectos(View view){
-		if (sonido)
+		if(sonido){
 			sonido=false;
-		else sonido=true;
+			view.setBackgroundResource(R.drawable.botonsonidoquitado);
+		}
+		else {
+			sonido=true;
+			view.setBackgroundResource(R.drawable.botonsonido);
+		}
 	}
 	
 	@Override

@@ -67,6 +67,9 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
 		tts = new TextToSpeech(this, this);
+		
+		if (!Inicial.obtenerReproductor().isPlaying())
+			findViewById(R.id.btMusicaDificl).setBackgroundResource(R.drawable.botonmusicaquitado);
 	}
 
 	public void empezarAJugar(View view) {
@@ -334,8 +337,14 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	}
 	
 	public void paraEfectos(View view){
-		if (sonido)sonido=false;
-		else sonido=true;
+		if(sonido){
+			sonido=false;
+			view.setBackgroundResource(R.drawable.botonsonidoquitado);
+		}
+		else {
+			sonido=true;
+			view.setBackgroundResource(R.drawable.botonsonido);
+		}
 	}
 
 	@Override
