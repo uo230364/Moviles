@@ -72,6 +72,8 @@ public class JuegoMedio extends Activity implements OnInitListener {
 					Button boton = (Button) vista;
 					boton.setBackgroundResource(R.drawable.boton);
 				}
+				findViewById(R.id.btMusicaMedio).setBackgroundResource(R.drawable.botonmusica);
+				findViewById(R.id.btSonidoMedio).setBackgroundResource(R.drawable.botonsonido);
 			}
 			findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 			cambioLayout.setVisibility(Button.VISIBLE);
