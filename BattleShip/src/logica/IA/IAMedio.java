@@ -23,24 +23,28 @@ public class IAMedio implements IA {
 
 	public IAMedio(Tablero tablero) {
 		setTableroDelJugador(tablero);
-		setCasillasConBarco(tablero);
+//		setCasillasConBarco(tablero);
 	}
 
 	public void setTableroDelJugador(Tablero tablero) {
 		Casilla[][] tablero2 = tablero.getCasillas();
+		casillasSinDispararDelJugador.clear();
 		for (Casilla[] casillas : tablero2) {
 			for (Casilla casilla : casillas) {
 				casillasSinDispararDelJugador.add(casilla);
+				if(casilla.getBarco() != null)
+					casillasConBarco.add(casilla);
 			}
 		}
 	}
 
-	public void setCasillasConBarco(Tablero tablero) {
-		for (Barco barco : tablero.getBarcos()) {
-			for (Casilla casilla : barco.getCasillasQueOcupa())
-				casillasConBarco.add(casilla);
-		}
-	}
+//	public void setCasillasConBarco(Tablero tablero) {
+//		for (Casilla[] casillas : tablero.getCasillas()) {
+//			for (Casilla casilla : casillas)
+//				if(casilla.getBarco() != null)
+//					casillasConBarco.add(casilla);
+//		}
+//	}
 
 	@Override
 	public Casilla proximaCasillaADisparar() {
@@ -48,22 +52,20 @@ public class IAMedio implements IA {
 			throw new IllegalStateException(
 					"No hay mas casillas para disparar en el tablero del jugador.");
 		Random rand = new Random();
-		Casilla casilla=casillasSinDispararDelJugador.get(0);
-		if (rand.nextInt(2) == 0) {
-			/*casilla = casillasSinDispararDelJugador.remove(rand
-					.nextInt(casillasSinDispararDelJugador.size()));
-			casillasConBarco.remove(casilla);*/
-			
+		int randNum = rand.nextInt(2);
+		Casilla casilla = null;
+		if (randNum == 0) {
 			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
-			while(casilla.estaTocada())
-				casilla=casillasSinDispararDelJugador.get(rand.nextInt(casillasSinDispararDelJugador.size()));
-			casillasSinDispararDelJugador.remove(casilla);
-			casillasConBarco.remove(casilla);
+//			while(casilla.estaTocada())
+				casilla = casillasSinDispararDelJugador.get(rand.nextInt(casillasSinDispararDelJugador.size()));
+				casillasSinDispararDelJugador.remove(casilla);
+				if(casilla.getBarco() != null)
+					casillasConBarco.remove(casilla);
 		} else {
 			
 			//Detectaba casillas que ya estaban tocadas meti la asignacion en un while
-			while(casilla.estaTocada())
-				casilla = casillasConBarco.remove(0);		
+//			while(casilla.estaTocada())
+			casilla = casillasConBarco.remove(0);		
 			casillasSinDispararDelJugador.remove(casilla);
 		}
 		if (casilla.estaTocada())
@@ -83,7 +85,7 @@ public class IAMedio implements IA {
 			if (colocarBarco(barcosSinColocar.get(0), tablero))
 				barcosSinColocar.remove(0); // TODO testear
 		}
-		setCasillasConBarco(tablero);
+//		setCasillasConBarco(tablero);
 	}
 
 	/**

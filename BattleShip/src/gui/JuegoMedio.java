@@ -28,6 +28,8 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	private enum Estado {
 		COLOCACION, JUEGO
 	};
+	
+	private static final int ALTO_ANCHO_TABLERO = 7;
 
 	private Button cambioLayout;
 	private Estado estado = Estado.COLOCACION;
@@ -35,8 +37,8 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	private int barco = 0;
 	private int barcosSinColocar = 6;
 	private List<View> allButtons;
-	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
-	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
+	private static final int TABLERO_RIVAL = R.layout.activity_juego_medio;
+	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_medio;
 	private static int currentLayout;
 	private TextToSpeech tts;
 
@@ -73,6 +75,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 			}
 			findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 			cambioLayout.setVisibility(Button.VISIBLE);
+			partida.getRival().setTableroDelJugador(partida.getTableroDelJugador());
 		}
 	}
 
@@ -182,11 +185,11 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	public void cambioLayout(View view) {
 		switch (currentLayout) {
 		case TABLERO_RIVAL:
-			setContentView(R.layout.activity_tablero_jugador_facil);
+			setContentView(R.layout.activity_tablero_jugador_medio);
 			pintarCasillas(getCasillasJugador());
 			break;
 		case TABLERO_JUGADOR:
-			setContentView(R.layout.activity_coloca_barcos);
+			setContentView(R.layout.activity_juego_medio);
 			pintarCasillas(getCasillasRival());
 			deshabilitarBotonJugar();
 			break;
@@ -225,21 +228,26 @@ public class JuegoMedio extends Activity implements OnInitListener {
 				String tagCasillaActual = Traductor.traducirALaInversa(i, j);
 				Casilla casillaAbajo = null;
 				Casilla casillaArriba = null;
-				if (i < 4)
+				Casilla casillaIzquierda = null;
+				Casilla casillaDerecha = null;
+				if (i < ALTO_ANCHO_TABLERO - 1)
 					casillaAbajo = casillas[i + 1][j];
 				if (i != 0)
 					casillaArriba = casillas[i - 1][j];
+				if (j != 0)
+					casillaIzquierda = casillas[i][j - 1];
+				if (j < ALTO_ANCHO_TABLERO - 1)
+					casillaDerecha = casillas[i][j + 1];
 				pintarSegunLayout(casillaActual, tagCasillaActual,
-						casillaAbajo, casillaArriba);
+						casillaAbajo, casillaArriba, casillaIzquierda, casillaDerecha);
 			}
 	}
 
 	private void pintarSegunLayout(Casilla casillaActual,
-			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba) {
+			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba, Casilla casillaIzquierda, Casilla casillaDerecha) {
 		Button boton = (Button) getWindow().getDecorView().findViewWithTag(
 				tagCasillaActual);
-		if (currentLayout == TABLERO_JUGADOR)
-			// for (View boton : botonesJugador) {
+		if (currentLayout == TABLERO_JUGADOR){
 			if (boton.getTag() != null) {
 				if (casillaActual.getBarco() != null) {
 					if (casillaActual.estaTocada())
@@ -247,12 +255,16 @@ public class JuegoMedio extends Activity implements OnInitListener {
 					else {
 						dibujarBarcoAbajo(casillaActual, casillaAbajo, boton);
 						dibujarBarcoArriba(casillaActual, casillaArriba, boton);
+						dibujarBarcoIzquierda(casillaActual, casillaIzquierda, boton);
+						dibujarBarcoDerecha(casillaActual, casillaDerecha, boton);
 					}
 				} else {
 					if (casillaActual.estaTocada())
 						boton.setBackgroundResource(R.drawable.botonagua);
 				}
 			}
+			boton.setEnabled(false);
+		}
 		if (currentLayout == TABLERO_RIVAL) {
 			if (boton.getTag() != null) {
 				if (casillaActual.estaTocada()) {
@@ -282,11 +294,29 @@ public class JuegoMedio extends Activity implements OnInitListener {
 						.getId())
 			boton.setBackgroundResource(R.drawable.barcovertical2);
 	}
+	
+	private void dibujarBarcoIzquierda(Casilla casillaActual, Casilla casillaIzquierda,
+			Button boton) {
+		if (casillaIzquierda != null
+				&& casillaIzquierda.getBarco() != null
+				&& casillaIzquierda.getBarco().getId() == casillaActual.getBarco()
+						.getId())
+			boton.setBackgroundResource(R.drawable.barcohorizontal2);
+	}
+	
+	private void dibujarBarcoDerecha(Casilla casillaActual, Casilla casillaDerecha,
+			Button boton) {
+		if (casillaDerecha != null
+				&& casillaDerecha.getBarco() != null
+				&& casillaDerecha.getBarco().getId() == casillaActual.getBarco()
+						.getId())
+			boton.setBackgroundResource(R.drawable.barcohorizontal1);
+	}
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
 		barcos = creaBarcos(6);
-		this.partida = new Partida(7, 7, new IAMedio(), barcos);
+		this.partida = new Partida(ALTO_ANCHO_TABLERO, ALTO_ANCHO_TABLERO, new IAMedio(), barcos);
 	}
 
 	private List<Barco> creaBarcos(int numeroDeBarcos) {

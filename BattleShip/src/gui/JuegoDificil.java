@@ -32,7 +32,7 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		COLOCACION, JUEGO
 	}
 
-	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
+	private static final int TABLERO_RIVAL = R.layout.activity_juego_facil;
 	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
 
 	private Estado estado = Estado.COLOCACION;
@@ -168,7 +168,7 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			pintarCasillas(getCasillasJugador());
 			break;
 		case TABLERO_JUGADOR:
-			setContentView(R.layout.activity_coloca_barcos);
+			setContentView(R.layout.activity_juego_facil);
 			pintarCasillas(getCasillasRival());
 			deshabilitarBotonJugar();
 			break;

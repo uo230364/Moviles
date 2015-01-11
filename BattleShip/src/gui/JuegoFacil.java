@@ -32,7 +32,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 		COLOCACION, JUEGO
 	}
 
-	private static final int TABLERO_RIVAL = R.layout.activity_coloca_barcos;
+	private static final int TABLERO_RIVAL = R.layout.activity_juego_facil;
 	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
 
 	private Estado estado = Estado.COLOCACION;
@@ -50,7 +50,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_coloca_barcos);
+		setContentView(R.layout.activity_juego_facil);
 
 		sound = new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -169,7 +169,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			pintarCasillas(getCasillasJugador());
 			break;
 		case TABLERO_JUGADOR:
-			setContentView(R.layout.activity_coloca_barcos);
+			setContentView(R.layout.activity_juego_facil);
 			pintarCasillas(getCasillasRival());
 			deshabilitarBotonJugar();
 			break;
@@ -196,8 +196,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba) {
 		Button boton = (Button) getWindow().getDecorView().findViewWithTag(
 				tagCasillaActual);
-		if (currentLayout == TABLERO_JUGADOR)
-			// for (View boton : botonesJugador) {
+		if (currentLayout == TABLERO_JUGADOR){
 			if (boton.getTag() != null) {
 				if (casillaActual.getBarco() != null) {
 					if (casillaActual.estaTocada())
@@ -211,7 +210,8 @@ public class JuegoFacil extends Activity implements OnInitListener {
 						boton.setBackgroundResource(R.drawable.bomba);
 				}
 			}
-		// }
+			boton.setEnabled(false);
+		}
 		if (currentLayout == TABLERO_RIVAL) {
 			// for (View boton : getBotonesRival()) {
 			if (boton.getTag() != null) {

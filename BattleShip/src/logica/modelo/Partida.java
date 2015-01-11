@@ -111,4 +111,8 @@ public class Partida {
 			turnoDelJugador = true;
 	}
 
+	public IA getRival() {
+		return rival;
+	}
+
 }
