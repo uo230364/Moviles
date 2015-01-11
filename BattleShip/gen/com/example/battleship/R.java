@@ -38,17 +38,19 @@ public final class R {
         public static final int botonjugar=0x7f020018;
         public static final int botonmedio=0x7f020019;
         public static final int botonmusica=0x7f02001a;
-        public static final int botonpeq=0x7f02001b;
-        public static final int botonreanudar=0x7f02001c;
-        public static final int botonsalir=0x7f02001d;
-        public static final int botonsonido=0x7f02001e;
-        public static final int fondo=0x7f02001f;
-        public static final int logo=0x7f020020;
-        public static final int nivelfacil=0x7f020021;
-        public static final int primerapantalla=0x7f020022;
-        public static final int segundaayuda=0x7f020023;
-        public static final int terceraayuda=0x7f020024;
-        public static final int ultimaayuda=0x7f020025;
+        public static final int botonmusicaquitado=0x7f02001b;
+        public static final int botonpeq=0x7f02001c;
+        public static final int botonreanudar=0x7f02001d;
+        public static final int botonsalir=0x7f02001e;
+        public static final int botonsonido=0x7f02001f;
+        public static final int botonsonidoquitado=0x7f020020;
+        public static final int fondo=0x7f020021;
+        public static final int logo=0x7f020022;
+        public static final int nivelfacil=0x7f020023;
+        public static final int primerapantalla=0x7f020024;
+        public static final int segundaayuda=0x7f020025;
+        public static final int terceraayuda=0x7f020026;
+        public static final int ultimaayuda=0x7f020027;
     }
     public static final class id {
         public static final int Button01=0x7f07007c;

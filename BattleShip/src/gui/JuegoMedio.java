@@ -27,7 +27,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 	private enum Estado {
 		COLOCACION, JUEGO
 	};
-	
+
 	private static final int ALTO_ANCHO_TABLERO = 7;
 
 	private Button cambioLayout;
@@ -43,14 +43,14 @@ public class JuegoMedio extends Activity implements OnInitListener {
 
 	private int water, bomb;
 	private SoundManager sound;
-	private boolean sonido=true;
+	private boolean sonido = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_juego_medio);
 		crearPartida();
-		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo ))
+		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo))
 				.getTouchables();
 		sound = new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
@@ -59,9 +59,10 @@ public class JuegoMedio extends Activity implements OnInitListener {
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
 		tts = new TextToSpeech(this, this);
-		
+
 		if (!Inicial.obtenerReproductor().isPlaying())
-			findViewById(R.id.btMusicaMedio).setBackgroundResource(R.drawable.botonmusicaquitado);
+			findViewById(R.id.btMusicaMedio).setBackgroundResource(
+					R.drawable.botonmusicaquitado);
 	}
 
 	public void empezarAJugar(View view) {
@@ -74,12 +75,15 @@ public class JuegoMedio extends Activity implements OnInitListener {
 					Button boton = (Button) vista;
 					boton.setBackgroundResource(R.drawable.boton);
 				}
-				findViewById(R.id.btMusicaMedio).setBackgroundResource(R.drawable.botonmusica);
-				findViewById(R.id.btSonidoMedio).setBackgroundResource(R.drawable.botonsonido);
+				findViewById(R.id.btMusicaMedio).setBackgroundResource(
+						R.drawable.botonmusica);
+				findViewById(R.id.btSonidoMedio).setBackgroundResource(
+						R.drawable.botonsonido);
 			}
 			findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 			cambioLayout.setVisibility(Button.VISIBLE);
-			partida.getRival().setTableroDelJugador(partida.getTableroDelJugador());
+			partida.getRival().setTableroDelJugador(
+					partida.getTableroDelJugador());
 		}
 	}
 
@@ -136,7 +140,9 @@ public class JuegoMedio extends Activity implements OnInitListener {
 							}
 						}
 					}
+
 				}
+
 			}
 			else {
 				Toast toast = Toast.makeText(this,
@@ -168,7 +174,7 @@ public class JuegoMedio extends Activity implements OnInitListener {
 		}
 
 	}
-
+	
 	private Button obtenerBotonAbajo(int fila, int columna) {
 		String id = Traductor.traducirALaInversa(fila, columna);
 		Button botton = null;
@@ -249,15 +255,18 @@ public class JuegoMedio extends Activity implements OnInitListener {
 				if (j < ALTO_ANCHO_TABLERO - 1)
 					casillaDerecha = casillas[i][j + 1];
 				pintarSegunLayout(casillaActual, tagCasillaActual,
-						casillaAbajo, casillaArriba, casillaIzquierda, casillaDerecha);
+						casillaAbajo, casillaArriba, casillaIzquierda,
+						casillaDerecha);
 			}
 	}
 
 	private void pintarSegunLayout(Casilla casillaActual,
-			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba, Casilla casillaIzquierda, Casilla casillaDerecha) {
+			String tagCasillaActual, Casilla casillaAbajo,
+			Casilla casillaArriba, Casilla casillaIzquierda,
+			Casilla casillaDerecha) {
 		Button boton = (Button) getWindow().getDecorView().findViewWithTag(
 				tagCasillaActual);
-		if (currentLayout == TABLERO_JUGADOR){
+		if (currentLayout == TABLERO_JUGADOR) {
 			if (boton.getTag() != null) {
 				if (casillaActual.getBarco() != null) {
 					if (casillaActual.estaTocada())
@@ -265,8 +274,10 @@ public class JuegoMedio extends Activity implements OnInitListener {
 					else {
 						dibujarBarcoAbajo(casillaActual, casillaAbajo, boton);
 						dibujarBarcoArriba(casillaActual, casillaArriba, boton);
-						dibujarBarcoIzquierda(casillaActual, casillaIzquierda, boton);
-						dibujarBarcoDerecha(casillaActual, casillaDerecha, boton);
+						dibujarBarcoIzquierda(casillaActual, casillaIzquierda,
+								boton);
+						dibujarBarcoDerecha(casillaActual, casillaDerecha,
+								boton);
 					}
 				} else {
 					if (casillaActual.estaTocada())
@@ -304,29 +315,30 @@ public class JuegoMedio extends Activity implements OnInitListener {
 						.getId())
 			boton.setBackgroundResource(R.drawable.barcovertical2);
 	}
-	
-	private void dibujarBarcoIzquierda(Casilla casillaActual, Casilla casillaIzquierda,
-			Button boton) {
+
+	private void dibujarBarcoIzquierda(Casilla casillaActual,
+			Casilla casillaIzquierda, Button boton) {
 		if (casillaIzquierda != null
 				&& casillaIzquierda.getBarco() != null
-				&& casillaIzquierda.getBarco().getId() == casillaActual.getBarco()
-						.getId())
+				&& casillaIzquierda.getBarco().getId() == casillaActual
+						.getBarco().getId())
 			boton.setBackgroundResource(R.drawable.barcohorizontal2);
 	}
-	
-	private void dibujarBarcoDerecha(Casilla casillaActual, Casilla casillaDerecha,
-			Button boton) {
+
+	private void dibujarBarcoDerecha(Casilla casillaActual,
+			Casilla casillaDerecha, Button boton) {
 		if (casillaDerecha != null
 				&& casillaDerecha.getBarco() != null
-				&& casillaDerecha.getBarco().getId() == casillaActual.getBarco()
-						.getId())
+				&& casillaDerecha.getBarco().getId() == casillaActual
+						.getBarco().getId())
 			boton.setBackgroundResource(R.drawable.barcohorizontal1);
 	}
 
 	private void crearPartida() {
 		List<Barco> barcos = new ArrayList<Barco>();
 		barcos = creaBarcos(6);
-		this.partida = new Partida(ALTO_ANCHO_TABLERO, ALTO_ANCHO_TABLERO, new IAMedio(), barcos);
+		this.partida = new Partida(ALTO_ANCHO_TABLERO, ALTO_ANCHO_TABLERO,
+				new IAMedio(), barcos);
 	}
 
 	private List<Barco> creaBarcos(int numeroDeBarcos) {
@@ -337,20 +349,20 @@ public class JuegoMedio extends Activity implements OnInitListener {
 		return barcos;
 	}
 
-	public void paraMusica (View view){
+	public void paraMusica(View view) {
 		Inicial.paraReproduceMusica(view);
 	}
-	
-	public void paraEfecto(View view){
-		if(sonido){
-			sonido=false;
+
+	public void paraEfecto(View view) {
+		if (sonido) {
+			sonido = false;
 			view.setBackgroundResource(R.drawable.botonsonidoquitado);
-		}
-		else {
-			sonido=true;
+		} else {
+			sonido = true;
 			view.setBackgroundResource(R.drawable.botonsonido);
 		}
 	}
+
 	@Override
 	public void onInit(int status) {
 
