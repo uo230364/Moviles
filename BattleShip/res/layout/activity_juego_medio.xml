@@ -398,17 +398,6 @@
         android:tag="F2" />
 
     <Button
-        android:id="@+id/Button38"
-        android:layout_width="36dp"
-        android:layout_height="37dp"
-        android:layout_alignBaseline="@+id/Button39"
-        android:layout_alignBottom="@+id/Button39"
-        android:layout_alignLeft="@+id/Button45"
-        android:background="@drawable/botonpeq"
-         android:onClick="jugadaRealizada"
-        android:tag="F4" />
-
-    <Button
         android:id="@+id/Button37"
         android:layout_width="36dp"
         android:layout_height="37dp"
@@ -541,7 +530,6 @@
         android:onClick="empezarAJugar"
         android:tag="jugar" />
 
-
     <Button
         android:id="@+id/cambiarVista"
         android:layout_width="wrap_content"
@@ -549,7 +537,8 @@
         android:layout_alignParentTop="true"
         android:layout_alignRight="@+id/Button02"
         android:background="@drawable/botonreanudar"
-        android:onClick="cambioLayout" />
+        android:onClick="cambioLayout"
+        android:tag="cambio" />
 
     <Button
         android:id="@+id/btMusicaMedio"
@@ -558,15 +547,27 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:background="@drawable/botonmusica"
-        android:onClick="paraMusica" />
+        android:onClick="paraMusica"
+        android:tag="musica" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/btSonidoMedio"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"
         android:background="@drawable/botonsonido"
-        android:onClick="paraEfecto"/>
+        android:onClick="paraEfecto"
+        android:tag="efectos" />
+
+    <Button
+        android:id="@+id/Button38"
+        android:layout_width="36dp"
+        android:layout_height="37dp"
+        android:layout_below="@+id/Button45"
+        android:layout_toLeftOf="@+id/Button44"
+        android:background="@drawable/botonpeq"
+        android:onClick="jugadaRealizada"
+        android:tag="F4" />
 
 </RelativeLayout>

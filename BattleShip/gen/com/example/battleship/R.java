@@ -141,11 +141,11 @@ public final class R {
         public static final int btMusicaIndividual=0x7f070063;
         public static final int btMusicaMedio=0x7f07001f;
         public static final int btMusicaNivel=0x7f07006f;
+        public static final int btSonidoMedio=0x7f070069;
         public static final int btVuelveMenu=0x7f070023;
         public static final int btclasico=0x7f07006b;
         public static final int btindividual=0x7f07006a;
         public static final int button1=0x7f07001c;
-        public static final int button2=0x7f070069;
         public static final int button3=0x7f070020;
         public static final int c1=0x7f07000d;
         public static final int c2=0x7f07000e;
