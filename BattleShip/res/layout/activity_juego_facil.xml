@@ -330,7 +330,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
-        android:onClick="paraMusica" 
+        android:onClick="paraReproduceMusica" 
         android:background="@drawable/botonmusica"/>
 
     <Button

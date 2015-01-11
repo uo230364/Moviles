@@ -46,6 +46,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 
 	private int water, bomb;
 	private SoundManager sound;
+	private boolean sonido=true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -118,10 +119,10 @@ public class JuegoFacil extends Activity implements OnInitListener {
 		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
 				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
-					sound.play(water);
+					if(sonido)sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
 				} else {
-					sound.play(bomb);
+					if(sonido)sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
 					if (partida.haGanadoElJugador())
 						tts.speak("Enhorabuena, has ganado",
@@ -213,7 +214,6 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			boton.setEnabled(false);
 		}
 		if (currentLayout == TABLERO_RIVAL) {
-			// for (View boton : getBotonesRival()) {
 			if (boton.getTag() != null) {
 				if (casillaActual.estaTocada()) {
 					if (casillaActual.getBarco() != null)
@@ -222,8 +222,12 @@ public class JuegoFacil extends Activity implements OnInitListener {
 						boton.setBackgroundColor(Color.TRANSPARENT);
 				}
 			}
-			// }
 		}
+	}
+	
+	public void paraEfectos(View view){
+		if(sonido)sonido=false;
+		else sonido=true;
 	}
 	
 	private void dibujarBarcoAbajo(Casilla casillaActual, Casilla casillaAbajo, Button boton){
