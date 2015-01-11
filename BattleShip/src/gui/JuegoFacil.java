@@ -269,6 +269,10 @@ public class JuegoFacil extends Activity implements OnInitListener {
 		return ((RelativeLayout) findViewById(R.id.panelFacilEnemigo))
 				.getTouchables();
 	}
+	
+	public void paraReproduceMusica(View view){
+		Inicial.paraReproduceMusica(view);
+	}	
 
 	@Override
 	public void onInit(int status) {
