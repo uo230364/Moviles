@@ -1,6 +1,5 @@
 package gui;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -99,81 +98,73 @@ public class JuegoDificil extends Activity implements OnInitListener {
 
 		if (this.estado == Estado.COLOCACION) {
 			if (barcosSinColocar != 0) {
-				if (casillas[array[0]][array[1]].getBarco() == null) {
-					if (barcosSinColocar <= 3 && array[1] + 1 <= 6) {
-						if (casillas[array[0]][array[1] + 1].getBarco() == null) {
-							casillas[array[0]][array[1]].setBarco(barcos
-									.get(barco));
-							casillas[array[0]][array[1] + 1].setBarco(barcos
-									.get(barco));
-							casillasQueOcupa[0] = casillas[array[0]][array[1]];
-							casillasQueOcupa[1] = casillas[array[0]][array[1] + 1];
-							barcos.get(barco).setCasillasQueOcupa(
-									casillasQueOcupa);
-							Button boton1 = (Button) findViewById(view.getId());
-							Button boton2 = obtenerBotonDerecha(array[0],
-									array[1] + 1);
-							boton1.setBackgroundResource(R.drawable.barcohorizontal1);
-							boton2.setBackgroundResource(R.drawable.barcohorizontal2);
-							barco++;
-							barcosSinColocar--;
-						}
-					}
-					else 
-					if (barcosSinColocar > 3) {
-						if (array[0] + 1 <= 6) {
-							if (casillas[array[0] + 1][array[1]].getBarco() == null) {
-								casillas[array[0]][array[1]].setBarco(barcos
-										.get(barco));
-								casillas[array[0] + 1][array[1]]
+				
+					if (casillas[array[0]][array[1]].getBarco() == null) {
+						if (barcosSinColocar <= 3 && array[1] + 1 <= 6){
+							if(casillas[array[0]][array[1] + 1].getBarco() == null)  {
+								casillas[array[0]][array[1]]
 										.setBarco(barcos.get(barco));
+								casillas[array[0]][array[1]+1].setBarco(barcos
+										.get(barco));
 								casillasQueOcupa[0] = casillas[array[0]][array[1]];
-								casillasQueOcupa[1] = casillas[array[0] + 1][array[1]];
-								barcos.get(barco).setCasillasQueOcupa(
-										casillasQueOcupa);
-								Button boton1 = (Button) findViewById(view
-										.getId());
-								Button boton2 = obtenerBotonAbajo(array[0] + 1,
-										array[1]);
-								boton1.setBackgroundResource(R.drawable.barcovertical1);
-								boton2.setBackgroundResource(R.drawable.barcovertical2);
+								casillasQueOcupa[1] = casillas[array[0]][array[1]+1];
+								barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+								Button boton1 = (Button) findViewById(view.getId());
+								Button boton2 = obtenerBotonDerecha(array[0],
+										array[1] + 1);
+								boton1.setBackgroundResource(R.drawable.barcohorizontal1);
+								boton2.setBackgroundResource(R.drawable.barcohorizontal2);
 								barco++;
 								barcosSinColocar--;
 							}
+						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null
+			 					&& (array[1] + 1 <= 6)) {
+							casillas[array[0]][array[1]]
+									.setBarco(barcos.get(barco));
+							casillas[array[0] + 1][array[1]].setBarco(barcos
+									.get(barco));
+							casillasQueOcupa[0] = casillas[array[0]][array[1]];
+							casillasQueOcupa[1] = casillas[array[0] + 1][array[1]];
+							barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+							Button boton1 = (Button) findViewById(view.getId());
+							Button boton2 = obtenerBotonAbajo(array[0] + 1,
+									array[1]);
+							boton1.setBackgroundResource(R.drawable.barcovertical1);
+							boton2.setBackgroundResource(R.drawable.barcovertical2);
+							barco++;
+							barcosSinColocar--;
 						}
-					}
+						
 				}
-			}
-			else {
-				Toast toast = Toast.makeText(this,
-					"Ya colocaste todos tus barcos. Pulsa JUGAR para comenzar",
-					Toast.LENGTH_SHORT);
+				
+			} else {
+				Toast toast = Toast
+						.makeText(
+								this,
+								"Ya colocaste todos tus barcos. Pulsa JUGAR para comenzar",
+								Toast.LENGTH_SHORT);
 				toast.show();
 			}
-		}
-		else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
+		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
-					if (sonido)
-						sound.play(water);
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
+					if (sonido)sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
 				}
-				else {
-					if (sonido)
-						sound.play(bomb);
+				else{
+					if (sonido)sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
 					if (partida.haGanadoElJugador())
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
-				}
+			}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
 			}
 		}
-
-	}
+	};
 
 	private Button obtenerBotonAbajo(int fila, int columna) {
 		String id = Traductor.traducirALaInversa(fila, columna);
