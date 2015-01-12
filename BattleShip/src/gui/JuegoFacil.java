@@ -139,6 +139,10 @@ public class JuegoFacil extends Activity implements OnInitListener {
 				}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
+					Toast.makeText(
+							this,
+							"Has perdido, prueba suerte otra vez!",
+							Toast.LENGTH_LONG).show();
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
 			}

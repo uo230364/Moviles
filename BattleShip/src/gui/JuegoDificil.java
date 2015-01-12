@@ -11,6 +11,8 @@ import util.SoundManager;
 import util.Traductor;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -160,6 +162,10 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			}
 				partida.efectuarDisparoDelRival();
 				if (partida.haGanadoElRival())
+					Toast.makeText(
+							this,
+							"Has perdido, prueba suerte otra vez!",
+							Toast.LENGTH_LONG).show();
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
 			}
@@ -351,5 +357,30 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	public void onInit(int status) {
 
 	}
+	/**
+	 * Método para mostrar un dialogo que preguntará al usuario si quiere
+	 * comenzar una partida nueva una vez haya terminado la partida actual.
+	 * El parámetro será el mensaje que se mostrará en el diálogo (ej. "Has perdido, ¿quieres intentarlo otra vez?")
+	 * 
+	 * @param mensajeAMostrar
+	 */
+	private void mostrarVentanaReinicioPartida(String mensajeAMostrar) {
+		new AlertDialog.Builder(this)
+				.setTitle("Update Status")
+				.setMessage(mensajeAMostrar)
+				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						// TODO reiniciar la partida
+					}
+				})
+				.setNegativeButton("Cancelar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								// TODO pasar del tema
+							}
+						}).show();
+	}
+
 
 }

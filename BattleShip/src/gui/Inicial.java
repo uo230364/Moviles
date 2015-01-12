@@ -76,4 +76,13 @@ public class Inicial extends Activity {
     public static MediaPlayer obtenerReproductor(){
     	return mediaPlayer;
     }
+    public void salirDeAplicacion(View view){
+    	Intent intent = new Intent(Intent.ACTION_MAIN); 
+        finish();
+    }
+    public void cargaInfo(View view){
+    	Intent mIntent=new Intent(Inicial.this,InfoApplication.class);
+    	startActivity(mIntent);  
+    	
+    }
 }

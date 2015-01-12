@@ -91,6 +91,10 @@ public class Individual extends Activity implements OnInitListener{
 			jugadasDisponibles--;
 			restantes.setText(String.valueOf(jugadasDisponibles));
 			if (jugadasDisponibles==0 && !partidaGanada())
+				Toast.makeText(
+						this,
+						"Has perdido, prueba suerte otra vez!",
+						Toast.LENGTH_LONG).show();
 				tts.speak("Has perdido,  prueba suerte otra vez", TextToSpeech.QUEUE_ADD,null);
 		}	
 		

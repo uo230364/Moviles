@@ -297,7 +297,7 @@
         android:tag="E5" />
 
     <Button
-        android:id="@+id/button1"
+        android:id="@+id/botonsalir"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_above="@+id/a3"
@@ -310,7 +310,7 @@
         android:id="@+id/cambiarVista"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/button1"
+        android:layout_alignBottom="@+id/botonsalir"
         android:layout_alignRight="@+id/a5"
         android:background="@drawable/botonreanudar"
         android:onClick="cambioLayout"/>
@@ -319,7 +319,7 @@
         android:id="@+id/TextView01"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/button1"
+        android:layout_above="@+id/botonsalir"
         android:layout_centerHorizontal="true"
         android:text="@string/tablero_enemigo"
         android:textAppearance="?android:attr/textAppearanceMedium" />
