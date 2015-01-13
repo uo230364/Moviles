@@ -31,6 +31,12 @@
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
             android:screenOrientation="portrait">
         </activity>
+         <activity
+            android:name="gui.InfoApplication"
+            android:label="@string/title_activity_ayuda"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" 
+            android:screenOrientation="portrait">
+        </activity>
         <activity
             android:name="gui.SegundaAyuda"
             android:label="@string/title_activity_segunda_ayuda"
