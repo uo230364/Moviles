@@ -12,7 +12,10 @@ import logica.modelo.Partida;
 import util.SoundManager;
 import util.Traductor;
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -27,9 +30,11 @@ import com.example.battleship.R;
 
 public class Individual extends Activity implements OnInitListener{
 	
+	private Intent starterIntent;
+	
 	private Partida partida;
 	private int barcosSinColocar=15;
-	private int jugadasDisponibles=25;
+	private int jugadasDisponibles=30;
 	private int barcosSinHundir=15;
 	private Vibrator vibrator;
 	private TextView restantes;
@@ -43,6 +48,7 @@ public class Individual extends Activity implements OnInitListener{
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_individual);
+		starterIntent=getIntent();
 		sound=new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		water=sound.load(R.raw.splash);
@@ -77,8 +83,12 @@ public class Individual extends Activity implements OnInitListener{
 					vibrator.vibrate(500);
 					if (sonido)sound.play(bomb);
 					if (partidaGanada()){
+						Toast.makeText(
+								this,
+								"Has descubierto todos los barcos, enhorabuena!",
+								Toast.LENGTH_LONG).show();
 						tts.speak("Has descubierto todos los barcos, enhorabuena!",TextToSpeech.QUEUE_ADD,null);
-						finish();
+						mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");
 					}
 					else{
 						Toast.makeText(
@@ -95,7 +105,8 @@ public class Individual extends Activity implements OnInitListener{
 						this,
 						"Has perdido, prueba suerte otra vez!",
 						Toast.LENGTH_LONG).show();
-				tts.speak("Has perdido,  prueba suerte otra vez", TextToSpeech.QUEUE_ADD,null);}
+				tts.speak("Has perdido,  prueba suerte otra vez", TextToSpeech.QUEUE_ADD,null);
+				mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");}
 		}	
 		
 	}
@@ -152,6 +163,25 @@ public class Individual extends Activity implements OnInitListener{
 			sonido=true;
 			view.setBackgroundResource(R.drawable.botonsonido);
 		}
+	}
+	
+	private void mostrarVentanaReinicioPartida(String mensajeAMostrar) {
+		new AlertDialog.Builder(this)
+				.setTitle("Reiniciar")
+				.setMessage(mensajeAMostrar)
+				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						startActivity(starterIntent);
+						finish();
+					}
+				})
+				.setNegativeButton("Cancelar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								finish();
+							}
+						}).show();
 	}
 	
 	@Override
