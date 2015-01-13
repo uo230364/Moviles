@@ -37,7 +37,6 @@ public class JuegoFacil extends Activity implements OnInitListener {
 
 	private static final int TABLERO_RIVAL = R.layout.activity_juego_facil;
 	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
-//	private static final String NOMBRE_PARTIDA = "partidaFacil.dat";
 
 	private Estado estado = Estado.COLOCACION;
 	private Partida partida;
@@ -197,11 +196,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			break;
 		}
 	}
-
-//	@Override
-//	public void onBackPressed() {
-//		mostrarVentanaGuardarPatida("¿Quieres guardar la partida?");
-//	}
+	
 
 	private void pintarCasillas(Casilla[][] casillas) {
 		for (int i = 0; i < casillas.length; i++)
@@ -338,49 +333,5 @@ public class JuegoFacil extends Activity implements OnInitListener {
 						}).show();
 	}
 	
-//	private void mostrarVentanaGuardarPatida(String mensajeAMostrar) {
-//		new AlertDialog.Builder(this)
-//				.setTitle("Update Status")
-//				.setMessage(mensajeAMostrar)
-//				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
-//					public void onClick(DialogInterface dialog, int whichButton) {
-//						Guardador.guardar(getApplicationContext(), partida, JuegoFacil.NOMBRE_PARTIDA);
-//						finish();
-//					}
-//				})
-//				.setNegativeButton("Cancelar",
-//						new DialogInterface.OnClickListener() {
-//							public void onClick(DialogInterface dialog,
-//									int whichButton) {
-//								finish();
-//							}
-//						}).show();
-//	}
-//	
-//	private void mostrarVentanaCargarPatida(String mensajeAMostrar) {
-//		new AlertDialog.Builder(this)
-//				.setTitle("Update Status")
-//				.setMessage(mensajeAMostrar)
-//				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
-//					public void onClick(DialogInterface dialog, int whichButton) {
-//						cargarPartida();
-//					}
-//				})
-//				.setNegativeButton("Cancelar",
-//						new DialogInterface.OnClickListener() {
-//							public void onClick(DialogInterface dialog,
-//									int whichButton) {
-//								//Vacio para que solo se cierre el dialogo sin hacer nada mas
-//							}
-//						}).show();
-//	}
-	
-//	private void cargarPartida(){
-//		partida = Guardador.cargar(getApplicationContext(), JuegoFacil.NOMBRE_PARTIDA);
-//		if(partida != null){
-//			estado = Estado.JUEGO;
-//			pintarCasillas(getCasillasRival());
-//		}
-//	}
 
 }
