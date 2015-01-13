@@ -8,39 +8,38 @@ import java.io.ObjectOutputStream;
 
 import logica.modelo.Partida;
 import android.content.Context;
+import android.widget.Toast;
 
 public class Guardador {
 
-	private final static String NOMBRE_PARTIDA = "partidaGuardada";
-
-	public static void guardar(Context context, Partida partida) {
+	public static void guardar(Context context, Partida partida, String nombre) {
 		FileOutputStream fos;
+		ObjectOutputStream os;
 		try {
-			fos = context.openFileOutput(NOMBRE_PARTIDA, Context.MODE_PRIVATE);
-			ObjectOutputStream os;
+			fos = context.openFileOutput(nombre, Context.MODE_PRIVATE);
 			os = new ObjectOutputStream(fos);
 			os.writeObject(partida);
 			os.close();
+			fos.close();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public static Partida cargar(Context context) {
+	public static Partida cargar(Context context, String nombre) {
 		FileInputStream fis;
+		Partida partidaClass = null;
 		try {
-			fis = context.openFileInput(NOMBRE_PARTIDA);
+			fis = context.openFileInput(nombre);
 			ObjectInputStream is = new ObjectInputStream(fis);
-			Partida partidaClass = (Partida) is.readObject();
-			is.close();
-			return partidaClass;
-		} catch (IOException e) {
-			e.printStackTrace();
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+			partidaClass = (Partida) is.readObject();
+			is.close();	
+			fis.close();
+		} catch (Exception e) {
+			Toast.makeText(context, "No hay ninguna partida guardada", Toast.LENGTH_SHORT).show();
 			e.printStackTrace();
 		}
-		return null;
+		return partidaClass;
 	}
 }

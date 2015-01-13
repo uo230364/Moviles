@@ -4,7 +4,7 @@ import java.util.List;
 
 import logica.IA.IA;
 
-public class Partida {
+public class Partida{
 	//para representar el estado de la partida: los dos tableros, turnos, etc.
 	public static final int FILAS_POR_DEFECTO = 8;
 	public static final int COLUMNAS_POR_DEFECTO = 10;

@@ -1,6 +1,8 @@
 package gui;
 
 import android.app.Activity;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
@@ -64,9 +66,8 @@ public class Inicial extends Activity {
 
 	@Override
     public void onBackPressed() {
-    	pararReproductor();
-    	finish();
-    	super.onBackPressed();
+		mostrarDialogoSalir("¿Estas seguro de que quieres salir?");
+//    	super.onBackPressed();
     }
     
     public static void pararReproductor(){
@@ -77,12 +78,30 @@ public class Inicial extends Activity {
     	return mediaPlayer;
     }
     public void salirDeAplicacion(View view){
-    	Intent intent = new Intent(Intent.ACTION_MAIN); 
-        finish();
+    	mostrarDialogoSalir("¿Estas seguro de que quieres salir?");
     }
     public void cargaInfo(View view){
     	Intent mIntent=new Intent(Inicial.this,InfoApplication.class);
     	startActivity(mIntent);  
     	
     }
+    
+    private void mostrarDialogoSalir(String mensajeAMostrar) {
+		new AlertDialog.Builder(this)
+				.setTitle("Salir")
+				.setMessage(mensajeAMostrar)
+				.setPositiveButton("Salir", new DialogInterface.OnClickListener() {
+					public void onClick(DialogInterface dialog, int whichButton) {
+						pararReproductor();
+						finish();
+					}
+				})
+				.setNegativeButton("Cancelar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								//Vacio para que solo se cierre el dialogo sin hacer nada mas
+							}
+						}).show();
+	}
 }

@@ -13,6 +13,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -36,6 +37,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 
 	private static final int TABLERO_RIVAL = R.layout.activity_juego_facil;
 	private static final int TABLERO_JUGADOR = R.layout.activity_tablero_jugador_facil;
+//	private static final String NOMBRE_PARTIDA = "partidaFacil.dat";
 
 	private Estado estado = Estado.COLOCACION;
 	private Partida partida;
@@ -45,6 +47,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	private static int currentLayout;
 
 	private TextToSpeech tts;
+	private Intent starterIntent;
 
 	private int water, bomb;
 	private SoundManager sound;
@@ -54,12 +57,12 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_juego_facil);
-
+		starterIntent = getIntent();
 		sound = new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		water = sound.load(R.raw.splash);
 		bomb = sound.load(R.raw.bomb);
-
+//		mostrarVentanaCargarPatida("¿Quieres cargar la partida?");
 		crearPartida();
 
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
@@ -133,18 +136,22 @@ public class JuegoFacil extends Activity implements OnInitListener {
 					if (sonido)
 						sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
-					if (partida.haGanadoElJugador())
+					if (partida.haGanadoElJugador()){
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
+						mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");
+					}
 				}
 				partida.efectuarDisparoDelRival();
-				if (partida.haGanadoElRival())
+				if (partida.haGanadoElRival()){
 					Toast.makeText(
 							this,
 							"Has perdido, prueba suerte otra vez!",
 							Toast.LENGTH_LONG).show();
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
+					mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");
+				}
 			}
 		}
 
@@ -163,6 +170,7 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	}
 
 	private void crearPartida() {
+		estado = Estado.COLOCACION;
 		List<Barco> barcos = new ArrayList<Barco>();
 		barcos = creaBarcos(5);
 		this.partida = new Partida(5, 5, new IAFacil(), barcos);
@@ -189,6 +197,11 @@ public class JuegoFacil extends Activity implements OnInitListener {
 			break;
 		}
 	}
+
+//	@Override
+//	public void onBackPressed() {
+//		mostrarVentanaGuardarPatida("¿Quieres guardar la partida?");
+//	}
 
 	private void pintarCasillas(Casilla[][] casillas) {
 		for (int i = 0; i < casillas.length; i++)
@@ -308,20 +321,66 @@ public class JuegoFacil extends Activity implements OnInitListener {
 	 */
 	private void mostrarVentanaReinicioPartida(String mensajeAMostrar) {
 		new AlertDialog.Builder(this)
-				.setTitle("Update Status")
+				.setTitle("Reiniciar")
 				.setMessage(mensajeAMostrar)
 				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
 					public void onClick(DialogInterface dialog, int whichButton) {
-						// TODO reiniciar la partida
+						startActivity(starterIntent);
+						finish();
 					}
 				})
 				.setNegativeButton("Cancelar",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
-								// TODO pasar del tema
+								finish();
 							}
 						}).show();
 	}
+	
+//	private void mostrarVentanaGuardarPatida(String mensajeAMostrar) {
+//		new AlertDialog.Builder(this)
+//				.setTitle("Update Status")
+//				.setMessage(mensajeAMostrar)
+//				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+//					public void onClick(DialogInterface dialog, int whichButton) {
+//						Guardador.guardar(getApplicationContext(), partida, JuegoFacil.NOMBRE_PARTIDA);
+//						finish();
+//					}
+//				})
+//				.setNegativeButton("Cancelar",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int whichButton) {
+//								finish();
+//							}
+//						}).show();
+//	}
+//	
+//	private void mostrarVentanaCargarPatida(String mensajeAMostrar) {
+//		new AlertDialog.Builder(this)
+//				.setTitle("Update Status")
+//				.setMessage(mensajeAMostrar)
+//				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
+//					public void onClick(DialogInterface dialog, int whichButton) {
+//						cargarPartida();
+//					}
+//				})
+//				.setNegativeButton("Cancelar",
+//						new DialogInterface.OnClickListener() {
+//							public void onClick(DialogInterface dialog,
+//									int whichButton) {
+//								//Vacio para que solo se cierre el dialogo sin hacer nada mas
+//							}
+//						}).show();
+//	}
+	
+//	private void cargarPartida(){
+//		partida = Guardador.cargar(getApplicationContext(), JuegoFacil.NOMBRE_PARTIDA);
+//		if(partida != null){
+//			estado = Estado.JUEGO;
+//			pintarCasillas(getCasillasRival());
+//		}
+//	}
 
 }

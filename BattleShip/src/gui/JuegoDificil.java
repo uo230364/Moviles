@@ -13,6 +13,7 @@ import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.media.AudioManager;
 import android.os.Bundle;
@@ -45,33 +46,34 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	private int barcosSinColocar = 6;
 	private static int currentLayout;
 	private TextToSpeech tts;
-	
+	private Intent starterIntent;
 	private List<View> allButtons;
 
 	private int water, bomb;
 	private SoundManager sound;
-	private boolean sonido=true;
+	private boolean sonido = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_juego_dificil);
-
+		starterIntent = getIntent();
 		sound = new SoundManager(getApplicationContext());
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		water = sound.load(R.raw.splash);
 		bomb = sound.load(R.raw.bomb);
 
 		crearPartida();
-		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo ))
+		allButtons = ((RelativeLayout) findViewById(R.id.panelDificilEnemigo))
 				.getTouchables();
 
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
 		cambioLayout.setVisibility(Button.INVISIBLE);
 		tts = new TextToSpeech(this, this);
-		
+
 		if (!Inicial.obtenerReproductor().isPlaying())
-			findViewById(R.id.btMusicaDificl).setBackgroundResource(R.drawable.botonmusicaquitado);
+			findViewById(R.id.btMusicaDificl).setBackgroundResource(
+					R.drawable.botonmusicaquitado);
 	}
 
 	public void empezarAJugar(View view) {
@@ -79,14 +81,16 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			partida.colocarBarcosDelRival();
 			this.estado = Estado.JUEGO;
 			for (View vista : getBotonesRival()) {
-				if (vista.getTag() != null && !vista.getTag().equals("salir") && !vista.getTag().equals("jugar")) {
+				if (vista.getTag() != null && !vista.getTag().equals("salir")
+						&& !vista.getTag().equals("jugar")) {
 					Button boton = (Button) vista;
 					boton.setBackgroundResource(R.drawable.boton);
 				}
 			}
 			findViewById(R.id.empezar).setBackgroundColor(Color.TRANSPARENT);
 			cambioLayout.setVisibility(Button.VISIBLE);
-			partida.getRival().setTableroDelJugador(partida.getTableroDelJugador());
+			partida.getRival().setTableroDelJugador(
+					partida.getTableroDelJugador());
 		}
 	}
 
@@ -100,34 +104,36 @@ public class JuegoDificil extends Activity implements OnInitListener {
 
 		if (this.estado == Estado.COLOCACION) {
 			if (barcosSinColocar != 0) {
-				
-					if (casillas[array[0]][array[1]].getBarco() == null) {
-						if (barcosSinColocar <= 3 && array[1] + 1 <= 6){
-							if(casillas[array[0]][array[1] + 1].getBarco() == null)  {
-								casillas[array[0]][array[1]]
-										.setBarco(barcos.get(barco));
-								casillas[array[0]][array[1]+1].setBarco(barcos
-										.get(barco));
-								casillasQueOcupa[0] = casillas[array[0]][array[1]];
-								casillasQueOcupa[1] = casillas[array[0]][array[1]+1];
-								barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
-								Button boton1 = (Button) findViewById(view.getId());
-								Button boton2 = obtenerBotonDerecha(array[0],
-										array[1] + 1);
-								boton1.setBackgroundResource(R.drawable.barcohorizontal1);
-								boton2.setBackgroundResource(R.drawable.barcohorizontal2);
-								barco++;
-								barcosSinColocar--;
-							}
-						} else if (barcosSinColocar > 3 && casillas[array[0] + 1][array[1]].getBarco() == null
-			 					&& (array[1] + 1 <= 6)) {
-							casillas[array[0]][array[1]]
-									.setBarco(barcos.get(barco));
+
+				if (casillas[array[0]][array[1]].getBarco() == null) {
+					if (barcosSinColocar <= 3 && array[1] + 1 <= 6) {
+						if (casillas[array[0]][array[1] + 1].getBarco() == null) {
+							casillas[array[0]][array[1]].setBarco(barcos
+									.get(barco));
+							casillas[array[0]][array[1] + 1].setBarco(barcos
+									.get(barco));
+							casillasQueOcupa[0] = casillas[array[0]][array[1]];
+							casillasQueOcupa[1] = casillas[array[0]][array[1] + 1];
+							barcos.get(barco).setCasillasQueOcupa(
+									casillasQueOcupa);
+							Button boton1 = (Button) findViewById(view.getId());
+							Button boton2 = obtenerBotonDerecha(array[0],
+									array[1] + 1);
+							boton1.setBackgroundResource(R.drawable.barcohorizontal1);
+							boton2.setBackgroundResource(R.drawable.barcohorizontal2);
+							barco++;
+							barcosSinColocar--;
+						}
+					} else if (barcosSinColocar > 3 && (array[0] + 1 <= 6)) {
+						if (casillas[array[0] + 1][array[1]].getBarco() == null) {
+							casillas[array[0]][array[1]].setBarco(barcos
+									.get(barco));
 							casillas[array[0] + 1][array[1]].setBarco(barcos
 									.get(barco));
 							casillasQueOcupa[0] = casillas[array[0]][array[1]];
 							casillasQueOcupa[1] = casillas[array[0] + 1][array[1]];
-							barcos.get(barco).setCasillasQueOcupa(casillasQueOcupa);
+							barcos.get(barco).setCasillasQueOcupa(
+									casillasQueOcupa);
 							Button boton1 = (Button) findViewById(view.getId());
 							Button boton2 = obtenerBotonAbajo(array[0] + 1,
 									array[1]);
@@ -136,9 +142,9 @@ public class JuegoDificil extends Activity implements OnInitListener {
 							barco++;
 							barcosSinColocar--;
 						}
-						
+					}
 				}
-				
+
 			} else {
 				Toast toast = Toast
 						.makeText(
@@ -149,25 +155,29 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			}
 		} else if (this.estado == Estado.JUEGO && !partida.partidaTerminada()) {
 			if (partida.efectuarDisparoDelJugador(array[0], array[1])) {
-				if (getCasillasRival()[array[0]][array[1]].getBarco() == null){
-					if (sonido)sound.play(water);
+				if (getCasillasRival()[array[0]][array[1]].getBarco() == null) {
+					if (sonido)
+						sound.play(water);
 					view.setBackgroundColor(Color.TRANSPARENT);
-				}
-				else{
-					if (sonido)sound.play(bomb);
+				} else {
+					if (sonido)
+						sound.play(bomb);
 					view.setBackgroundResource(R.drawable.bomba);
-					if (partida.haGanadoElJugador())
+					if (partida.haGanadoElJugador()) {
 						tts.speak("Enhorabuena, has ganado",
 								TextToSpeech.QUEUE_ADD, null);
-			}
+						mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");
+					}
+				}
 				partida.efectuarDisparoDelRival();
-				if (partida.haGanadoElRival())
-					Toast.makeText(
-							this,
+				if (partida.haGanadoElRival()) {
+					Toast.makeText(this,
 							"Has perdido, prueba suerte otra vez!",
 							Toast.LENGTH_LONG).show();
 					tts.speak("Has perdido, prueba otra vez",
 							TextToSpeech.QUEUE_ADD, null);
+					mostrarVentanaReinicioPartida("¿Quieres jugar otra partida?");
+				}
 			}
 		}
 	};
@@ -183,7 +193,7 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		}
 		return botton;
 	}
-	
+
 	private Button obtenerBotonDerecha(int fila, int columna) {
 		String id = Traductor.traducirALaInversa(fila, columna);
 		Button botton = null;
@@ -242,15 +252,18 @@ public class JuegoDificil extends Activity implements OnInitListener {
 				if (j < ALTO_ANCHO_TABLERO - 1)
 					casillaDerecha = casillas[i][j + 1];
 				pintarSegunLayout(casillaActual, tagCasillaActual,
-						casillaAbajo, casillaArriba, casillaIzquierda, casillaDerecha);
+						casillaAbajo, casillaArriba, casillaIzquierda,
+						casillaDerecha);
 			}
 	}
 
 	private void pintarSegunLayout(Casilla casillaActual,
-			String tagCasillaActual, Casilla casillaAbajo, Casilla casillaArriba, Casilla casillaIzquierda, Casilla casillaDerecha) {
+			String tagCasillaActual, Casilla casillaAbajo,
+			Casilla casillaArriba, Casilla casillaIzquierda,
+			Casilla casillaDerecha) {
 		Button boton = (Button) getWindow().getDecorView().findViewWithTag(
 				tagCasillaActual);
-		if (currentLayout == TABLERO_JUGADOR){
+		if (currentLayout == TABLERO_JUGADOR) {
 			if (boton.getTag() != null) {
 				if (casillaActual.getBarco() != null) {
 					if (casillaActual.estaTocada())
@@ -258,8 +271,10 @@ public class JuegoDificil extends Activity implements OnInitListener {
 					else {
 						dibujarBarcoAbajo(casillaActual, casillaAbajo, boton);
 						dibujarBarcoArriba(casillaActual, casillaArriba, boton);
-						dibujarBarcoIzquierda(casillaActual, casillaIzquierda, boton);
-						dibujarBarcoDerecha(casillaActual, casillaDerecha, boton);
+						dibujarBarcoIzquierda(casillaActual, casillaIzquierda,
+								boton);
+						dibujarBarcoDerecha(casillaActual, casillaDerecha,
+								boton);
 					}
 				} else {
 					if (casillaActual.estaTocada())
@@ -279,38 +294,40 @@ public class JuegoDificil extends Activity implements OnInitListener {
 			}
 		}
 	}
-	
-	private void dibujarBarcoAbajo(Casilla casillaActual, Casilla casillaAbajo, Button boton){
+
+	private void dibujarBarcoAbajo(Casilla casillaActual, Casilla casillaAbajo,
+			Button boton) {
 		if (casillaAbajo != null
 				&& casillaAbajo.getBarco() != null
-				&& casillaAbajo.getBarco().getId() == casillaActual
-						.getBarco().getId())
+				&& casillaAbajo.getBarco().getId() == casillaActual.getBarco()
+						.getId())
 			boton.setBackgroundResource(R.drawable.barcovertical1);
 	}
-	
-	private void dibujarBarcoArriba(Casilla casillaActual, Casilla casillaArriba, Button boton){
+
+	private void dibujarBarcoArriba(Casilla casillaActual,
+			Casilla casillaArriba, Button boton) {
 		if (casillaArriba != null
 				&& casillaArriba.getBarco() != null
-				&& casillaArriba.getBarco().getId() == casillaActual
-						.getBarco().getId())
+				&& casillaArriba.getBarco().getId() == casillaActual.getBarco()
+						.getId())
 			boton.setBackgroundResource(R.drawable.barcovertical2);
 	}
-	
-	private void dibujarBarcoIzquierda(Casilla casillaActual, Casilla casillaIzquierda,
-			Button boton) {
+
+	private void dibujarBarcoIzquierda(Casilla casillaActual,
+			Casilla casillaIzquierda, Button boton) {
 		if (casillaIzquierda != null
 				&& casillaIzquierda.getBarco() != null
-				&& casillaIzquierda.getBarco().getId() == casillaActual.getBarco()
-						.getId())
+				&& casillaIzquierda.getBarco().getId() == casillaActual
+						.getBarco().getId())
 			boton.setBackgroundResource(R.drawable.barcohorizontal2);
 	}
-	
-	private void dibujarBarcoDerecha(Casilla casillaActual, Casilla casillaDerecha,
-			Button boton) {
+
+	private void dibujarBarcoDerecha(Casilla casillaActual,
+			Casilla casillaDerecha, Button boton) {
 		if (casillaDerecha != null
 				&& casillaDerecha.getBarco() != null
-				&& casillaDerecha.getBarco().getId() == casillaActual.getBarco()
-						.getId())
+				&& casillaDerecha.getBarco().getId() == casillaActual
+						.getBarco().getId())
 			boton.setBackgroundResource(R.drawable.barcohorizontal1);
 	}
 
@@ -337,18 +354,17 @@ public class JuegoDificil extends Activity implements OnInitListener {
 		return ((RelativeLayout) findViewById(R.id.panelDificilEnemigo))
 				.getTouchables();
 	}
-	
-	public void paraMusica(View view){
+
+	public void paraMusica(View view) {
 		Inicial.paraReproduceMusica(view);
 	}
-	
-	public void paraEfectos(View view){
-		if(sonido){
-			sonido=false;
+
+	public void paraEfectos(View view) {
+		if (sonido) {
+			sonido = false;
 			view.setBackgroundResource(R.drawable.botonsonidoquitado);
-		}
-		else {
-			sonido=true;
+		} else {
+			sonido = true;
 			view.setBackgroundResource(R.drawable.botonsonido);
 		}
 	}
@@ -357,30 +373,34 @@ public class JuegoDificil extends Activity implements OnInitListener {
 	public void onInit(int status) {
 
 	}
+
 	/**
 	 * Método para mostrar un dialogo que preguntará al usuario si quiere
-	 * comenzar una partida nueva una vez haya terminado la partida actual.
-	 * El parámetro será el mensaje que se mostrará en el diálogo (ej. "Has perdido, ¿quieres intentarlo otra vez?")
+	 * comenzar una partida nueva una vez haya terminado la partida actual. El
+	 * parámetro será el mensaje que se mostrará en el diálogo (ej.
+	 * "Has perdido, ¿quieres intentarlo otra vez?")
 	 * 
 	 * @param mensajeAMostrar
 	 */
 	private void mostrarVentanaReinicioPartida(String mensajeAMostrar) {
 		new AlertDialog.Builder(this)
-				.setTitle("Update Status")
+				.setTitle("Reiniciar")
 				.setMessage(mensajeAMostrar)
-				.setPositiveButton("Reiniciar", new DialogInterface.OnClickListener() {
-					public void onClick(DialogInterface dialog, int whichButton) {
-						// TODO reiniciar la partida
-					}
-				})
+				.setPositiveButton("Reiniciar",
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int whichButton) {
+								startActivity(starterIntent);
+								finish();
+							}
+						})
 				.setNegativeButton("Cancelar",
 						new DialogInterface.OnClickListener() {
 							public void onClick(DialogInterface dialog,
 									int whichButton) {
-								// TODO pasar del tema
+								finish();
 							}
 						}).show();
 	}
-
 
 }
