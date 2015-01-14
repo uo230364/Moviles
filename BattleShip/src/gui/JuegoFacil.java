@@ -61,7 +61,6 @@ public class JuegoFacil extends Activity implements OnInitListener {
 		this.setVolumeControlStream(AudioManager.STREAM_MUSIC);
 		water = sound.load(R.raw.splash);
 		bomb = sound.load(R.raw.bomb);
-//		mostrarVentanaCargarPatida("¿Quieres cargar la partida?");
 		crearPartida();
 
 		cambioLayout = (Button) findViewById(R.id.cambiarVista);
